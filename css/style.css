@@ -1,0 +1,267 @@
+@import "skeleton.css";
+@import "reset.css";
+/*
+Global properties
+========================================================
+*/
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('fonts/fontawesome-webfont.eot?v=4.0.3');
+  src: url('fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+	font-family: 'ClarendonLTStdLight';
+	src: url('fonts/clarendonltstd-light-webfont.eot');
+	src: url('fonts/clarendonltstd-light-webfontd41d.eot?#iefix') format('embedded-opentype'), url('fonts/clarendonltstd-light-webfont.woff') format('woff'), url('fonts/clarendonltstd-light-webfont.ttf') format('truetype'), url('fonts/clarendonltstd-light-webfont.svg#ClarendonLTStdLight') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'ClarendonLTStdRoman';
+	src: url('fonts/clarendonltstd-webfont.eot');
+	src: url('fonts/clarendonltstd-webfontd41d.eot?#iefix') format('embedded-opentype'), url('fonts/clarendonltstd-webfont.woff') format('woff'), url('fonts/clarendonltstd-webfont.ttf') format('truetype'), url('fonts/clarendonltstd-webfont.svg#ClarendonLTStdRoman') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'ClarendonLTStdBold';
+	src: url('fonts/clarendonltstd-bold-webfont.eot');
+	src: url('fonts/clarendonltstd-bold-webfontd41d.eot?#iefix') format('embedded-opentype'), url('fonts/clarendonltstd-bold-webfont.woff') format('woff'), url('fonts/clarendonltstd-bold-webfont.ttf') format('truetype'), url('fonts/clarendonltstd-bold-webfont.svg#ClarendonLTStdBold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+html {
+	width: 100%
+}
+body {
+	font-family: "ClarendonLTStdLight", Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 24px;
+	color: #62676d;
+	max-width:auto;
+	min-width: 960px;
+	background: url(../images/bg-red.jpg);
+	-webkit-text-size-adjust: none;
+}
+p {
+	margin-bottom: 24px
+}
+.p2 {
+	margin-bottom: 17px;
+}
+/*
+Header
+========================================================
+*/
+
+header.homepage {
+	margin: 0 0px;
+	padding: 10px;
+}
+header {
+	margin: 0 10px;
+	padding: 48px 0 48px;
+}
+/*
+Headings and Panels
+========================================================
+*/
+h2, h3, h4 {
+	font-weight: normal;
+}
+h2 {
+	font-size: 17px;
+	line-height: 20px;
+	color: #e00817;
+	text-transform: uppercase;
+	text-align: left;
+	position: relative;
+	border-bottom: 3px solid #999;
+	padding-bottom: 12px;
+	margin-bottom: 24px;
+}
+.linnee {
+	border-right:3px solid #999;
+	height:240px;
+}
+.tol{
+	height:500px;
+}
+.lhata{
+	position:absolute;
+          left:10px;
+		  top:420px; 
+		  z-index:1;
+}
+.mar-left {
+	margin-left:80px;
+}
+.mar-left1 {
+	margin-left:40px;
+}
+.mar-left2 {
+	margin-left:60px
+}
+.faceb {
+	position:absolute;
+	left:1250px; 
+	top:10px;
+	padding:7px 14px 6px 14px;
+	background: rgba(248,248,248,.9);
+}
+.hello_box {
+	font-size: 33px;
+	line-height: 35px;
+	color: #e00817;
+	text-align: center;
+	margin-bottom: 28px;
+	
+}
+/*
+Accordion
+========================================================
+*/
+.ui-accordion .ui-accordion-header {
+	display: block;
+	cursor: pointer;
+	position: relative;
+	zoom: 1;
+}
+#accordion h3 {
+	padding: 6px 15px;
+	margin-bottom: 7px;
+	background: #545454;
+	border: 0;
+	color: #fff;
+	font-weight: normal;
+}
+#accordion .ui-icon {
+	background: none !important;
+	display: inline !important;
+}
+#accordion p {
+	padding: 5px 15px 17px 15px;
+}
+#accordion .ui-state-active {
+	background: #00468d;
+}
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+	position: absolute;
+	left: .5em;
+	top: 50%;
+	margin-top: -8px;
+}
+.ui-accordion .ui-accordion-content {
+	overflow: hidden;
+	zoom: 1;
+	background: #fff;
+	border: 0;
+	font-size: 13px;
+}
+#accordion.faq .ui-accordion-content {
+	overflow: hidden!important;
+	line-height: 1.5;
+}
+/*
+footer
+========================================================
+*/
+footer {
+	padding: 57px 0px 60px 0;
+	background: none;
+}
+footer, footer a {
+	color: #acb2b6;
+}
+footer h2 {
+	color: #fff;
+}
+footer .social img {
+	background: transparent;
+	border: 0px;
+	padding: 0;
+	margin: 0;
+}
+footer .social li {
+	width: 50%;
+	float: left;
+	margin-bottom: 12px;
+}
+footer .social li a {
+	display: inline-block;
+	margin-top: 2px;
+}
+footer .social li a:hover {
+	color: #fff;
+}
+footer .social li figure {
+	float: left;
+	margin: -2px 16px 0 0;
+}
+footer .social .cont_item figure {
+	padding-top: 5px !important;
+}
+footer .navigate li {
+	float: left;
+	width: 50%;
+}
+footer .navigate a:hover {
+	color: #f5d12f;
+}
+nav ul {
+	display: block;
+}
+nav select {
+	display: none;
+	width: 100%;
+	padding: 10px;
+}
+
+/*
+This area adds love and makes the site reponsive
+========================================================
+*/
+
+@media only screen and (max-width: 995px) {
+body {
+	min-width: 768px;
+}
+header {
+	padding-top: 30px;
+}
+.homeabout .flexslider2 {
+	padding-top: 0px;
+}
+.flexslider2, .flexslider2 img {
+	height: 300px;
+}
+.hello_box {
+	font-size: 27px;
+	line-height: 32px;
+	margin-bottom: 30px;
+}
+footer .title {
+	font-size: 22px;
+	line-height: 26px;
+}
+footer {
+	font-size: 13px;
+	padding: 35px 0 38px;
+}
+}
+ @media only screen and (max-width: 767px) {
+body {
+	min-width: 420px;
+}
+.flexslider2, .flexslider2 img {
+	height: 300px;
+}
+
+}
+ @media only screen and (max-width: 479px) {
+body {
+	min-width: 300px;
+}
+}
