@@ -8,8 +8,8 @@ class inscription_finalManager
  
   public function __construct()
   {
-    /*$this->_db = new PDO('mysql:host=localhost;dbname=db_fc','root', '');*/
-	$this->_db = new PDO('mysql:host=localhost;dbname=ensakfor_fc','ensakfor_root','admin');
+    this->_db = new PDO('mysql:host=localhost;dbname=db_fc','root', '');
+	/*$this->_db = new PDO('mysql:host=localhost;dbname=ensakfor_fc','ensakfor_root','admin');*/
   }
 
  public function setDb(PDO $db)

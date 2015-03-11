@@ -4,7 +4,7 @@
 								//if(!$connect=mysql_connect("localhost","ensakfor_root","admin")) mysql_error();
 								//if(!$db=mysql_select_db("ensakfor_fc",$connect)) mysql_error();
 								
-									$bdd = new PDO('mysql:host=localhost;dbname=ensakfor_fc', 'ensakfor_root', 'admin');
+									$bdd = new PDO('mysql:host=localhost;dbname=db_fc', 'root', '');
 									//$bdd = new PDO('mysql:host=localhost;dbname=db_fc', 'root', '');
 								
 								

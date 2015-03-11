@@ -2,7 +2,7 @@
 //header('Content-Type: text/csv');
 //header('Content-Disposition: attachement; filename="Export tutoriel.csv"');
 	try{	
-			$PDO = new PDO('mysql:host=localhost;dbname=ensakfor_fc', 'ensakfor_root', 'admin');
+			$PDO = new PDO('mysql:host=localhost;dbname=db_fc', 'root', '');
 			//$PDO = new PDO('mysql:host=localhost;dbname=db_fc','root','');
 			$PDO -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
 			$PDO -> setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);

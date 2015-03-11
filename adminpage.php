@@ -81,8 +81,8 @@
 			
 								//if(!$connect=mysql_connect("localhost","root","")) mysql_error();
 								//if(!$db=mysql_select_db("db_fc",$connect)) mysql_error();
-								if(!$connect=mysql_connect("localhost","ensakfor_root","admin")) mysql_error();
-								if(!$db=mysql_select_db("ensakfor_fc",$connect)) mysql_error();
+								if(!$connect=mysql_connect("localhost","root","")) mysql_error();
+								if(!$db=mysql_select_db("db_fc",$connect)) mysql_error();
 					?>            
                     <!-- tabs -->
 			<div class="sky-tabs sky-tabs-pos-top-left sky-tabs-anim-rotate sky-tabs-response-to-icons">
