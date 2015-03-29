@@ -8,7 +8,7 @@ include("../Layouts/headstatic.php");
     <header class="homepage">
 
       <article class="grid_4" style="margin-right:50px">
-        <a class="logo" href="index.php"><img src="images/ensa-uh-logo.png" style="width:100%"></a>
+        <a class="logo" href="index.php"><img src="../images/ensa-uh-logo.png" style="width:100%"></a>
       </article>
 
       <article class="grid_3">
@@ -29,8 +29,8 @@ include("../Layouts/headstatic.php");
 
   <div class="body"> 
 	 <?php
-      include_once "./Classes/inscription_final.class.php";
-      include_once "./Controller/inscription_finalmanager.php";
+      include_once "../Classes/inscription_final.class.php";
+      include_once "../Controller/inscription_finalmanager.php";
       if(!(empty($_POST['nom']) OR empty($_POST['prenom']) OR empty($_POST['cne']) OR empty($_POST['cin']) OR empty($_POST['date_naissance']) OR empty($_POST['lieu_naissance']) OR empty($_POST['province']) OR empty($_POST['sexe']) OR empty($_POST['nationalite']) OR empty($_POST['situation']) OR empty($_POST['handicap']) OR empty($_POST['bac_annee']) OR empty($_POST['bac_serie']) OR empty($_POST['mention']) OR empty($_POST['etablissment']) OR empty($_POST['adresse']) OR empty($_POST['email']) OR empty($_POST['tel']) OR empty($_POST['tel_parents']) OR empty($_POST['prof_ben']) OR empty($_POST['prof_pere']) OR empty($_POST['prof_mere'])))
        {
       $inscription_finalmanager = new inscription_finalmanager();

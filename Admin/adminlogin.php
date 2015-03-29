@@ -12,39 +12,13 @@ include("../Layouts/headstatic.php");
       <div class="clear"></div>	  
     </header>
   </div>
-	<div class="body body-s">
-	<?php 
-  include_once "../Classes/siteadmin.class.php";
-  include_once "../Controller/siteadminmanager.php";
-  include_once "displaysiteadmin.php";
-        
-  $displaysiteadmin = new displaysiteadmin();
-        
-  if(empty($_POST['email']) AND empty($_POST['mdp_siteadmin'])) {
-      $displaysiteadmin->signForm();
-  }else{
-      $siteadminmanager = new siteadminmanager();
-      $siteadmin = $siteadminmanager->get($_POST['email']);
-  if($siteadmin) {
-    if(!$siteadmin->verifyPassword($_POST['mdp_siteadmin'])) {
-      echo 'accès refusé <hr>';
-      $displaysiteadmin->signForm();
-    }else{
-      $_SESSION['email'] = $siteadmin->email;
-      $_SESSION['mdp_siteadmin'] = $siteadmin->mdp_siteadmin;
-  ?> 
-  <script> 
-	 window.location.href="pageadmin.php"; 
-	</script>
 
-  <?php 
-  }
-    }else{
-      echo '<font color="red">accès refusé </font><hr>';
-      $displaysiteadmin->signForm();
-    }
-  }   
-  ?>	
+	<div class="body body-s">
+	 <?php 
+    include "../Controller/siteadminmanager.php";
+    $siteadminmanager = new siteadminmanager();
+    $siteadminmanager->Adminconnect($_POST['email'],$_POST['mdp_siteadmin'],$_SESSION['email'],$_SESSION['mdp_siteadmin']);    
+    ?>
 	</div>
 </body>
 </html>

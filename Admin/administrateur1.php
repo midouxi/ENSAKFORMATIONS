@@ -1,6 +1,5 @@
 <?php 
-if(!$connect=mysql_connect("localhost","root","")) mysql_error();
-if(!$db=mysql_select_db("db_fc",$connect)) mysql_error();
+include("../Model/connect.php");
 $title="ENSA Khouribga - Administrateur";
 include("../Layouts/headstatic.php");
 ?>
@@ -22,7 +21,7 @@ include("../Layouts/headstatic.php");
   <div class="body">      
     <form action="update_formations.php" method="post" class="sky-form" enctype="multipart/form-data">
       <header>
-        <h1>Mettre A jour une Formations</h1>
+        <h1>Mettre à jour une formation</h1>
       </header>
       <fieldset>
         <div class="row">
@@ -32,10 +31,9 @@ include("../Layouts/headstatic.php");
               <select name="id_page" id="formation"  tabindex="1" >
                 <option value="" selected>--Choisir--</option>
                   <?php 
-                  $all=mysql_query("select * from formations");    
-                  while($ligne=mysql_fetch_array($all)){     
-                  echo '<option value="'.$ligne[0].'" name="id_page">'.$ligne[2].' '.$ligne[1].'</option>';
-                  }
+                  include("../Model/functdb.php");
+                  $functdb = new functdb();
+                  $functdb->getformationline();
                   ?>
               </select>
             </label>
@@ -46,23 +44,22 @@ include("../Layouts/headstatic.php");
        <input type="submit"  class="button large" value="Entrer" tabindex="2" style="width:30%; margin-right:340px;">
       </footer>
     </form>
+
     <br>
+
     <form action="ajouter_semestre.php" method="post" class="sky-form" enctype="multipart/form-data">
       <header>
-        <h1>Mettre a jour Semestre d'une Formations</h1>
+        <h1>Mettre à jour les semestres d'une formation</h1>
       </header>
       <fieldset>
         <div class="row">
           <section class="col col-6">
             <label class="label">Formation souhaitée:</label>
             <label class="select"><i class="icon-append icon-chevron-down"></i>
-              <select name="id_page" id="formation"  tabindex="1" >
+              <select name="id_page" id="formation"  tabindex="3" >
                 <option value="" selected>--Choisir--</option>
                   <?php 
-                  $all=mysql_query("select * from formations");     
-                  while($ligne=mysql_fetch_array($all)){
-                  echo '<option value="'.$ligne[0].'">'.$ligne[2].' '.$ligne[1].'</option>';
-                  }
+                  $functdb->getformationline();
                   ?>
               </select>
             </label>
@@ -70,7 +67,7 @@ include("../Layouts/headstatic.php");
         </div>  
       </fieldset>
       <footer>
-        <input type="submit"  class="button large" value="Entrer" tabindex="2" style="width:30%; margin-right:340px;">
+        <input type="submit"  class="button large" value="Entrer" tabindex="4" style="width:30%; margin-right:340px;">
       </footer>
     </form>     
   </div>

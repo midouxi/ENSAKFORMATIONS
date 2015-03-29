@@ -1,4 +1,9 @@
-<?php session_start(); session_destroy(); session_start(); ?>
+<?php
+//error_reporting(E_ALL ^ E_WARNING); 
+error_reporting(E_ERROR | E_PARSE); //pour afficher tous les erreurs a part warning et notice 
+session_start(); 
+session_destroy(); 
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

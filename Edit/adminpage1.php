@@ -23,7 +23,7 @@
   <div class="container_12 mar-left1 sky">
     <article class="grid_10">
     <?php  		
-				include_once 'displayadmin.php';
+				include_once '../Controller/displayadmin.php';
 			  $displayadmin = new displayadmin();
 			  $displayadmin->inviteadmin($_SESSION);
 		?> 

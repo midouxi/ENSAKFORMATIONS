@@ -8,7 +8,7 @@ include("../Layouts/headstatic.php");
     <header class="homepage">
 
       <article class="grid_4" style="margin-right:50px">
-        <a class="logo" href="index.php"><img src="images/ensa-uh-logo.png" style="width:100%"></a>
+        <a class="logo" href="index.php"><img src="../images/ensa-uh-logo.png" style="width:100%"></a>
       </article>
 
       <article class="grid_3">
@@ -27,8 +27,8 @@ include("../Layouts/headstatic.php");
 
 	<div class="body">
   <?php
-    include_once "./Classes/inscription.class.php";
-    include_once "./Controller/inscriptionmanager.php";
+    include_once "../Classes/inscription.class.php";
+    include_once "../Controller/inscriptionmanager.php";
 
     if(!(empty($_POST['nom']) OR empty($_POST['prenom']) OR empty($_POST['date_naissance']) OR empty($_POST['cin']) OR empty($_POST['tel']) OR empty($_POST['email']) OR empty($_POST['diplome']) OR empty($_POST['etablissment']) OR empty($_POST['formation']) OR empty($_POST['lettre_motivation']) OR empty($_POST['etat'])))
     {

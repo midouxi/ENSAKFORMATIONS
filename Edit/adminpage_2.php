@@ -1,4 +1,5 @@
 <?php 
+include("../Model/connect.php");
 $title="ENSA Khouribga - Formation Continue professionnelle";
 include("../Layouts/headstatic.php");
 ?>
@@ -21,12 +22,6 @@ include("../Layouts/headstatic.php");
     <h2 class="sky" style="text-align:center">TABLEAU FINAL</h2>
   </article>
   
-  <?php  						
-	//if(!$connect=mysql_connect("localhost","root","")) mysql_error();
-	//if(!$db=mysql_select_db("db_fc",$connect)) mysql_error();
-	if(!$connect=mysql_connect("localhost","root","")) mysql_error();
-	if(!$db=mysql_select_db("db_fc",$connect)) mysql_error();
-	?>            
   <!-- tabs -->
 	<div class="sky-tabs sky-tabs-pos-top-left sky-tabs-anim-flip sky-tabs-response-to-icons">
 	 <input type="radio" name="sky-tabs" checked id="sky-tab1" class="sky-tab-content-1">
@@ -62,34 +57,10 @@ include("../Layouts/headstatic.php");
         </thead>
         <tbody>
           <?php
-			 	   $all_ins=mysql_query("select * from inscription_final");
-			 	   while($ligne_ins=mysql_fetch_array($all_ins)){
-				  ?>
-          <tr>
-            <td><?php print($ligne_ins[0]); ?></td>
-            <td><?php print($ligne_ins[1]); ?></td>
-            <td><?php print($ligne_ins[2]); ?></td>
-            <td><?php print($ligne_ins[3]); ?></td>
-            <td><?php print($ligne_ins[4]); ?></td>
-            <td><?php print($ligne_ins[5]); ?></td>
-            <td><?php print($ligne_ins[6]); ?></td>
-            <td><?php print($ligne_ins[7]); ?></td>
-            <td><?php print($ligne_ins[8]); ?></td>
-            <td><?php print($ligne_ins[9]); ?></td>
-            <td><?php print($ligne_ins[10]); ?></td>
-            <td><?php print($ligne_ins[11]); ?></td>
-            <td><?php print($ligne_ins[12]); ?></td>
-            <td><?php print($ligne_ins[13]); ?></td>
-            <td><?php print($ligne_ins[14]); ?></td>
-            <td><?php print($ligne_ins[15]); ?></td>
-            <td><?php print($ligne_ins[16]); ?></td>
-            <td><?php print($ligne_ins[17]); ?></td>
-            <td><?php print($ligne_ins[18]); ?></td>
-            <td><?php print($ligne_ins[19]); ?></td>
-            <td><?php print($ligne_ins[20]); ?></td>
-            <td><?php print($ligne_ins[21]); ?></td>                      
-          </tr>
-			    <?php } ?>                
+              include "../Model/functdb.php";
+              $functdb = new functdb();
+              $functdb->getinscriptionfinal();
+            ?>                
         </tbody>
        </table>          
 		 </li>
@@ -97,7 +68,7 @@ include("../Layouts/headstatic.php");
  </div>
 
   <!--/ tabs -->
-  <form action="exporter.php" method="post" class="sky-form">
+  <form action="../Controller/exporter.php" method="post" class="sky-form">
    <footer>
      <button class="button">Exporter Les Données</button>
    </footer>

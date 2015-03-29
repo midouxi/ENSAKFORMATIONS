@@ -16,87 +16,27 @@ include("../Layouts/headstatic.php");
   </div>
   <!--------------------# 1 ere Affichage #------------------------>
   <?php
-	if(!(empty($_POST['id_formations']))){
-		$extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
-		$extension_upload = strtolower(  substr(  strrchr($_FILES['logo']['name'], '.')  ,1)  );
-		$nom_logo = "../images/".$_POST['id_formations']."-logo.{$extension_upload}";
-
-		if ($_FILES['logo']['error'] > 0) $erreur = "Erreur lors du transfert";
-		{
-			if ($_FILES['logo']['size'] <= 80000000000) $erreur = "Le fichier est trop gros";
-				{
-					if ( in_array($extension_upload,$extensions_valides) )
-						{
-							$image_sizes = getimagesize($_FILES['logo']['tmp_name']);
-							if ($image_sizes[0] > 8000 OR $image_sizes[1] > 8000) $erreur = "Image trop grande";
-								{
-								move_uploaded_file($_FILES['logo']['tmp_name'],$nom_logo);
-							}
-					}		
-			}
-		}
-		
-		$extension_upload2 = strtolower(  substr(  strrchr($_FILES['icone']['name'], '.')  ,1)  );
-		$nom_icone = "../images/".$_POST['id_formations'].".{$extension_upload}";
-			if ($_FILES['icone']['error'] > 0) $erreur = "Erreur lors du transfert";
-			{
-				if ($_FILES['icone']['size'] <= 8000000) $erreur = "Le fichier est trop gros";
-				{
-					
-					if ( in_array($extension_upload2,$extensions_valides) )
-					{
-						$image_sizes = getimagesize($_FILES['icone']['tmp_name']);
-						if ($image_sizes[0] > 8000 OR $image_sizes[1] > 8000) $erreur = "Image trop grande";
-						{
-							move_uploaded_file($_FILES['icone']['tmp_name'],$nom_icone);
-						}
-
-					}
-						
-				}
-			}
-		$extension_upload3 = strtolower(  substr(  strrchr($_FILES['sponsor']['name'], '.')  ,1)  );
-		$nom_sponsor = "../images/sponsor-".$_POST['id_formations'].".{$extension_upload}";
-			if ($_FILES['sponsor']['error'] > 0) $erreur = "Erreur lors du transfert";
-			{
-				if ($_FILES['sponsor']['size'] <= 8000000) $erreur = "Le fichier est trop gros";
-				{
-					
-					if ( in_array($extension_upload3,$extensions_valides) )
-					{
-						$image_sizes = getimagesize($_FILES['sponsor']['tmp_name']);
-						if ($image_sizes[0] > 8000 OR $image_sizes[1] > 8000) $erreur = "Image trop grande";
-						{
-							move_uploaded_file($_FILES['sponsor']['tmp_name'],$nom_sponsor);
-						}
-
-					}
-						
-				}
-			}
-		
-		    include_once "../Classes/formations.class.php";
-            include_once "../Controller/formationsmanager.php";
-
-                $formationsmanager = new formationsmanager();
-                $formations = new formations($_POST['id_formations'], $_POST['menu_titre'], $_POST['niveau'], $nom_logo, $_POST['titre'], $_POST['nbr_semestre'],$_POST['domaine'], $_POST['type_formations'], $_POST['duree'], $_POST['email'], $_POST['telephone'], $_POST['fax'], $nom_icone, $_POST['condition_admission'], $_POST['organisation_formations'], $_POST['date_depot'], $_POST['date_entretien'], $_POST['frais_formations'], $_POST['frais_entretien'], $nom_sponsor);
-
-                $formationsmanager->add($formations);
-	
-		 
-					
-?>
-<div class="body">			
+  include "../Controller/chargerfichier.php"; 
+  include_once "../Classes/formations.class.php";
+  include_once "../Controller/formationsmanager.php";
+  if(!(empty($_POST['id_formations']))){
+	$charger=new charger();
+	$nom_logo=$charger->addfile($_POST['id_formations'],$_FILES['logo'],"logo");
+	$nom_icone=$charger->addfile($_POST['id_formations'],$_FILES['icone'],"icone");
+	$nom_sponsor=$charger->addfile($_POST['id_formations'],$_FILES['sponsor'],"sponsor");
+  }
+    $formationsmanager = new formationsmanager();
+    $formations = new formations($_POST['id_formations'], $_POST['menu_titre'], $_POST['niveau'], $nom_logo, $_POST['titre'], $_POST['nbr_semestre'],$_POST['domaine'], $_POST['type_formations'], $_POST['duree'], $_POST['email'], $_POST['telephone'], $_POST['fax'], $nom_icone, $_POST['condition_admission'], $_POST['organisation_formations'], $_POST['date_depot'], $_POST['date_entretien'], $_POST['frais_formations'], $_POST['frais_entretien'], $nom_sponsor);
+    $formationsmanager->add($formations);				
+	?>
+	<div class="body">			
         <form action="" method="post" class="sky-form" enctype="multipart/form-data">
         	<header>
         		<h1>Semestres</h1>
             </header>
             <fieldset>
             	<div class="row">
-            		<?php
-							for($i=1;$i<=$_POST['nbr_semestre'];$i++)
-							{
-					?>
+            		<?php for($i=1;$i<=$_POST['nbr_semestre'];$i++) { ?>
         			<section class="col col-6">
                   		<label class="label">Nombre de Module du Semestre <?php echo $i;?> :</label>
                   		<label class="input"><i class="icon-append icon-info"></i>
@@ -105,53 +45,38 @@ include("../Layouts/headstatic.php");
                   		<input name="id_formations2" type="hidden" value="<?php echo $_POST['id_formations']?>">
                   		<input name="nbr_semestre2" type="hidden" value="<?php echo $_POST['nbr_semestre']?>">
               		</section>
-				    <?php
-				    		}	
-				    ?>      	
+				    <?php }	?>      	
              	</div>	
             </fieldset>
 			<footer>
             	<input type="submit"  class="button large" value="Entrer" tabindex="">
             </footer>
         </form>
-</div>     
-	<?php 	}
-	?> 
+	</div>     
 	<!--------------------# 2 eme Affichage #------------------------>
 	<?php
   		if(!(empty($_POST['nbr_semestre2']))){
   			for($h=1;$h<=$_POST['nbr_semestre2'];$h++){
 				if(!(empty($_POST['nbr_module'.$h.'']))){
-				
 		    		include_once "../Classes/semestre.class.php";
             		include_once "../Controller/semestremanager.php";
-
                 	$semestremanager = new semestremanager();
             	    $semestre = new semestre($_POST['id_semestre'.$h.''], $_POST['nbr_module'.$h.''], $_POST['id_formations2']);
         	       	$semestremanager->add($semestre);
-         
             	}
 			}
-		
 	?>
+
 	<div class="body">			
         <form action="" method="post" class="sky-form" enctype="multipart/form-data">
         	<header>
         		<h1>Modules</h1>
             </header>
             <fieldset>
-            	<?php
-							for($i=1;$i<=$_POST['nbr_semestre2'];$i++)
-							{
-					?>
+            	<?php for($i=1;$i<=$_POST['nbr_semestre2'];$i++) { ?>
             	<div class="row">
-            		
                   	<h1>Semestre <?php echo $i;?> :</h1>
-                  	<?php
-                  			
-							for($j=1;$j<=$_POST['nbr_module'.$i.''];$j++)
-							{
-					?>
+                  	<?php for($j=1;$j<=$_POST['nbr_module'.$i.''];$j++) { ?>
         			<section class="col col-6">
                   		<label class="label">Nom Module <?php echo $j;?> :</label>
                   		<label class="input"><i class="icon-append icon-info"></i>
@@ -162,46 +87,36 @@ include("../Layouts/headstatic.php");
                   		<input name="nbr_module<?php echo $i;?>" type="hidden" value="<?php echo $_POST['nbr_module'.$i.'']?>">
                   		<input name="nbr_semestre3" type="hidden" value="<?php echo $i;?>">
               		</section>
-				    <?php
-				    		}	
-				    ?>
+				    <?php }	?>
 				    </div>	
-				    <?php 
-				    	}
-				    ?>	      	
-             	
+				    <?php } ?>	      	
             </fieldset>
 			<footer>
             	<input type="submit"  class="button large" value="Entrer" tabindex="">
             </footer>
         </form>
     </div>
-    <?php 	}
-    ?> 
+    <?php } ?> 
     <!--------------------# 3 eme Affichage #------------------------>
     <?php
-    if(!(empty($_POST['nbr_semestre3']))){
-      for ($r=1; $r<=$_POST['nbr_semestre3']; $r++) { 
-  		for($h=1; $h<=$_POST['nbr_module'.$r.'']; $h++){
-			if(!(empty($_POST['id_module'.$r.''.$h.'']))){
-			
-		    	include_once "../Classes/module.class.php";
-            	include_once "../Controller/modulemanager.php";
-
-                	$modulemanager = new modulemanager();
-            	    $module = new module($_POST['id_module'.$r.''.$h.''], $_POST['nom_module'.$r.''.$h.''], $_POST['id_semestre'.$r.''], $_POST['id_formations3']);
-        	       	$modulemanager->add($module);
-         
-            }
+		if(!(empty($_POST['nbr_semestre3']))){
+		  for ($r=1; $r<=$_POST['nbr_semestre3']; $r++) { 
+				for($h=1; $h<=$_POST['nbr_module'.$r.'']; $h++){
+				if(!(empty($_POST['id_module'.$r.''.$h.'']))){
+			    	include_once "../Classes/module.class.php";
+		        	include_once "../Controller/modulemanager.php";
+		    		$modulemanager = new modulemanager();
+			    	$module = new module($_POST['id_module'.$r.''.$h.''], $_POST['nom_module'.$r.''.$h.''], $_POST['id_semestre'.$r.''], $_POST['id_formations3']);
+		       		$modulemanager->add($module);
+		        }
+			}
 		}
-    }
 	?> 
   <div class='body sky'>
-    <h3>Formations ajouter avec succes</h3>
-    <a href="pageadmin.php">Revenire à la page d'Administrateur</a>
+    <h3>La formation s'est ajoutée avec succès</h3>
+	<a href="pageadmin.php">Retour vers la page d'Administrateur</a>
   </div>
-  <?php   }
-  ?> 
+  <?php } ?> 
 <?php include("../Layouts/footerstatic.php");?>
 </body>
 </html>

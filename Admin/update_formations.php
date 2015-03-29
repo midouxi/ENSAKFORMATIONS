@@ -1,6 +1,5 @@
 <?php 
-if(!$connect=mysql_connect("localhost","root","")) mysql_error();
-if(!$db=mysql_select_db("db_fc",$connect)) mysql_error();
+include("../Model/connect.php");
 $title="ENSA Khouribga - Mise à jour";
 include("../Layouts/headstatic.php");
 ?>
@@ -20,10 +19,10 @@ include("../Layouts/headstatic.php");
   <div class="body">
   <!-------------------# 1 ere Affichage # ------------------> 
   <?php
+    include("../Model/functdb.php");
+    $functdb = new functdb();
     if (isset($_POST['id_page'])) {
-      $id_page=$_POST['id_page'];     
-      $all_ins=mysql_query("select * from formations where id_formations='$id_page'");
-      $ligne_ins=mysql_fetch_array($all_ins);           
+      $functdb->getformationlinewithid($_POST['id_page']);        
   ?>        
     <form action="" method="post" class="sky-form" enctype="multipart/form-data">
       <header>
@@ -149,7 +148,6 @@ include("../Layouts/headstatic.php");
   if(!(empty($_POST['id_formations']))){
     $id=$_POST['id_formations'];
     
-    include_once "../Classes/formations.class.php";
     include_once "../Controller/formationsmanager.php";
 
     $formationsmanager = new formationsmanager();
@@ -165,7 +163,7 @@ include("../Layouts/headstatic.php");
         <div class="row">
           <?php
           for($i=1;$i<=$_POST['nbr_semestre'];$i++) {
-            $all_nbr_module=mysql_query("select count(id_semestre) from module where id_formations='$id' AND id_semestre='Semestre $i'");
+            $all_nbr_module=mysql_query("select count(id_semestre) from module where id_formations='$id' AND id_semestre='Semestre $i'");//bloc sql non encapsulable .
             $ligne_nbr_module=mysql_fetch_array($all_nbr_module);
           ?>
           <section class="col col-6">
@@ -193,7 +191,6 @@ include("../Layouts/headstatic.php");
       if(!(empty($_POST['nbr_module'.$h.'']))) {
         $id=$_POST['id_formations2'];
 
-        include_once "../Classes/semestre.class.php";
         include_once "../Controller/semestremanager.php";
 
         $semestremanager = new semestremanager();
@@ -217,7 +214,7 @@ include("../Layouts/headstatic.php");
           <h1>Semestre <?php echo $i;?> :</h1>
           <?php       
             for($j=1;$j<=$_POST['nbr_module'.$i.''];$j++) {
-              $all_nom_module=mysql_query("select nom_module from module where id_module='$id-S$i-M$j'");
+              $all_nom_module=mysql_query("select nom_module from module where id_module='$id-S$i-M$j'"); //bloc sql non encapsulable .
               $ligne_nom_module=mysql_fetch_array($all_nom_module);
             ?>
           <section class="col col-6">
@@ -247,10 +244,7 @@ include("../Layouts/headstatic.php");
     for ($r=1; $r<=$_POST['nbr_semestre3']; $r++) { 
       for($h=1; $h<=$_POST['nbr_module'.$r.'']; $h++){
         if(!(empty($_POST['id_module'.$r.''.$h.'']))){
-      
-          include_once "../Classes/module.class.php";
           include_once "../Controller/modulemanager.php";
-
           $modulemanager = new modulemanager();
           $module = new module($_POST['id_module'.$r.''.$h.''], $_POST['nom_module'.$r.''.$h.''], $_POST['id_semestre'.$r.''], $_POST['id_formations3']);
           $modulemanager->update($module);
@@ -260,8 +254,8 @@ include("../Layouts/headstatic.php");
   ?> 
 
   <div class='body sky'>
-    <h3>Mise à jour de la Formations avec succes</h3>
-    <a href="pageadmin.php">Revenire à la page d'Administrateur</a>
+    <h3>Mise à jour de la formation s'est déroulée avec succès</h3>
+    <a href="pageadmin.php">Revenir à la page d'Administrateur</a>
   </div>
   <?php } ?>  
   <!-------------------# fin Affichge # ------------------>

@@ -1,4 +1,6 @@
 <?php session_start(); 
+error_reporting(E_ALL ^ E_WARNING);
+//error_reporting(E_ERROR | E_PARSE); pour afficher tous les erreurs a part warning et notice 
 if(!isset($_SESSION['email'])) header('Location: ../fr/index.php');
 ?>
 <!DOCTYPE html>
