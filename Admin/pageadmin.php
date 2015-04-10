@@ -1,13 +1,16 @@
 <?php
-$title="ENSA Khouribga - Formation professionnelle";
-include("../Layouts/headstatic.php");
+  $title="ENSA Khouribga - Formation professionnelle";
+  include("../Layouts/headstatic.php");
+  include("../Model/connect.php");
+  session_start();
+  if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="admin") { 
 ?>
 <body>
   <div class="container_12 mar-left1"> 
     <!--==============================header=================================-->
     <header class="homepage">
       <article class="grid_4" style="margin-right:50px">
-        <a class="logo" href="../index.php"><img src="../images/ensa-uh-logo.png" style="width:100%"></a>
+        <a class="logo" href="../fr/index.php"><img src="../images/ensa-uh-logo.png" style="width:100%"></a>
       </article>
       <?php $pageadmin="current";
       include("../Layouts/menuadmin.php");?>
@@ -15,13 +18,7 @@ include("../Layouts/headstatic.php");
     </header>
   </div>
 
-  <div class="sky">
-    <?php  			
-	 		if(!$connect=mysql_connect("localhost","root","")) mysql_error();
-	 		if(!$db=mysql_select_db("db_fc",$connect)) mysql_error();
-	 		//if(!$connect=mysql_connect("localhost","ensakfor_root","admin")) mysql_error();
-	 		//if(!$db=mysql_select_db("ensakfor_fc",$connect)) mysql_error();
-    ?>            
+  <div class="sky">         
 		<table class="table table-striped table-bordered">
 		  <thead>
         <tr class="success">
@@ -73,6 +70,7 @@ include("../Layouts/headstatic.php");
 			  <?php } ?>               
       </tbody>
     </table>
-  </div>                            
+  </div>    
+  <?php } else { ?> <script>window.location.href="../Admin/adminlogin.php"; </script><?php } ?>                        
 </body>
 </html>

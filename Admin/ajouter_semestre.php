@@ -22,19 +22,18 @@ include("../Layouts/headstatic.php");
     <?php
       if (isset($_POST['id_page'])) {
         include ("../Model/functdb.php");
-        $getformation = new functdb();
-        $getformation->getformationlinewithid($_POST['id_page']);          
+        $getformation = new functdb();        
     ?>        
     <form action="" method="post" class="sky-form" enctype="multipart/form-data">
       <header>
-        <h1>Mettre à jour les Semestre de la Formations <?php echo $ligne_ins[2].' '.$ligne_ins[1];?></h1>
+        <h1>Mettre à jour les Semestre de la Formations <?php echo $getformation->getformationlinewithid($_POST['id_page'],2).' '.$getformation->getformationlinewithid($_POST['id_page'],1);?></h1>
       </header>
       <fieldset>
         <div class="row">
           <section class="col col-6">
             <label class="label">Nouveau Nombre De Semestre:</label>
             <label class="input"><i class="icon-append icon-info"></i>
-            <input name="nv_nbr_semestre" id="nv_nbr_semestre" type="text" value="<?php echo $ligne_ins[5];?>" tabindex="1"></label>
+            <input name="nv_nbr_semestre" id="nv_nbr_semestre" type="text" value="<?php echo $getformation->getformationlinewithid($_POST['id_page'],5);?>" tabindex="1"></label>
           </section>     
         </div>  
       </fieldset>
@@ -136,6 +135,5 @@ include("../Layouts/headstatic.php");
     </div>
     <?php }?>  
   </div>
-<?php include("../Layouts/footerstatic.php");?>
 </body>
 </html>

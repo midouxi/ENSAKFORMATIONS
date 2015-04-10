@@ -1,7 +1,9 @@
 <?php 
-include("../Model/connect.php");
-$title="ENSA Khouribga - Formation Continue professionnelle";
-include("../Layouts/headstatic.php");
+  include("../Model/connect.php");
+  $title="ENSA Khouribga - Formation Continue professionnelle";
+  include("../Layouts/headstatic.php");
+  session_start();
+  if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="editeur") { 
 ?>
 <body>
   <div class="container_12 mar-left1"> 
@@ -74,5 +76,6 @@ include("../Layouts/headstatic.php");
    </footer>
   </form>                                     
  </div>
+ <?php } else { ?> <script>window.location.href="../fr/index.php"; </script><?php } ?>
 </body>
 </html>

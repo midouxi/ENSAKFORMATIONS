@@ -1,6 +1,8 @@
 <?php 
-$title="ENSA Khouribga - Administrateur";
-include("../Layouts/headstatic.php");
+  $title="ENSA Khouribga - Administrateur";
+  include("../Layouts/headstatic.php");
+  session_start();
+  if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="admin") { 
 ?>
 <body>
   <div class="container_12 mar-left1"> 
@@ -152,6 +154,8 @@ include("../Layouts/headstatic.php");
       </footer>
     </form>      
   </div>
-<?php include("../Layouts/footerstatic.php");?>
+<?php } else { ?> 
+  <script>window.location.href="../Admin/adminlogin.php"; </script>
+<?php } ?> 
 </body>
 </html>

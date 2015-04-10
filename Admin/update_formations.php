@@ -21,12 +21,11 @@ include("../Layouts/headstatic.php");
   <?php
     include("../Model/functdb.php");
     $functdb = new functdb();
-    if (isset($_POST['id_page'])) {
-      $functdb->getformationlinewithid($_POST['id_page']);        
+    if (isset($_POST['id_page'])) {      
   ?>        
     <form action="" method="post" class="sky-form" enctype="multipart/form-data">
       <header>
-        <h1>Mettre a jour du Formations <?php echo $ligne_ins[2].' '.$ligne_ins[1];?></h1>
+        <h1>Mettre á jour de la formation "<?php echo $functdb->getformationlinewithid($_POST['id_page'],2).' '.$functdb->getformationlinewithid($_POST['id_page'],1);?></h1>
       </header>
       <fieldset>
       <div class="row">
@@ -34,111 +33,111 @@ include("../Layouts/headstatic.php");
           <label class="label">Id Formations:</label>
           <label class="input"><i class="icon-append icon-key"></i>
           <input type="hidden" name="id_formations" id="id_formations" value="<?php echo $ligne_ins[0];?>">  
-          <input  type="text" name="disabled" value="<?php echo $ligne_ins[0];?>" tabindex="1" disabled></label>
+          <input  type="text" name="disabled" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],0);?>" tabindex="1" disabled></label>
         </section>
 
         <section class="col col-6">
           <label class="label">Titre du Menu:</label>
           <label class="input"><i class="icon-append icon-info"></i>
-          <input name="menu_titre" id="menu_titre" type="text" value="<?php echo $ligne_ins[1];?>" tabindex="2"></label>
+          <input name="menu_titre" id="menu_titre" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],1);?>" tabindex="2"></label>
         </section> 
 
         <section class="col col-6">
           <label class="label">Niveau:</label>
           <label class="input"><i class="icon-append icon-info"></i>
-          <input name="niveau" id="niveau" type="text" value="<?php echo $ligne_ins[2];?>" tabindex="3"></label>
+          <input name="niveau" id="niveau" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],2);?>" tabindex="3"></label>
         </section> 
 
         <section class="col col-6">
           <label class="label">Titre:</label>
           <label class="input"><i class="icon-append icon-info"></i>
-          <input name="titre" id="titre" type="text" value="<?php echo $ligne_ins[4];?>" tabindex="4"></label>
+          <input name="titre" id="titre" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],4);?>" tabindex="4"></label>
         </section>
 
         <section class="col col-6">
           <label class="label">Nombre de Semestre:</label>
           <label class="input"><i class="icon-append icon-info"></i>
-          <input type="hidden" name="nbr_semestre" id="nbr_semestre" value="<?php echo $ligne_ins[5];?>">  
-          <input name="semestre" id="semestre" type="text" value="<?php echo $ligne_ins[5];?>" tabindex="7" disabled></label>
+          <input type="hidden" name="nbr_semestre" id="nbr_semestre" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],5);?>">  
+          <input name="semestre" id="semestre" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],5);?>" tabindex="7" disabled></label>
         </section>  
 
         <section class="col col-6">
           <label class="label">Domaine:</label>
           <label class="input"><i class="icon-append icon-info"></i>
-          <input name="domaine" id="domaine" type="text" value="<?php echo $ligne_ins[6];?>" tabindex="8"></label>
+          <input name="domaine" id="domaine" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],6);?>" tabindex="8"></label>
         </section>
 
         <section class="col col-6">
           <label class="label">Type de formations:</label>
           <label class="input"><i class="icon-append icon-info"></i>
-          <input name="type_formations" id="type_formations" type="text" value="<?php echo $ligne_ins[7];?>" tabindex="9"></label>
+          <input name="type_formations" id="type_formations" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],7);?>" tabindex="9"></label>
         </section>  
 
         <section class="col col-6">
           <label class="label">Durée:</label>
           <label class="input"><i class="icon-append icon-time"></i>
-          <input name="duree" id="duree" type="text" value="<?php echo $ligne_ins[8];?>" tabindex="10"></label>
+          <input name="duree" id="duree" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],8);?>" tabindex="10"></label>
         </section> 
 
         <section class="col col-6">
           <label class="label">Email:</label>
           <label class="input"><i class="icon-append icon-envelope-alt"></i>
-          <input name="email" id="email" type="email" value="<?php echo $ligne_ins[9];?>" tabindex="11"></label>
+          <input name="email" id="email" type="email" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],9);?>" tabindex="11"></label>
         </section>
 
         <section class="col col-6">
           <label class="label">Télephone:</label>
           <label class="input"><i class="icon-append icon-phone"></i>
-          <input name="telephone" id="phone" type="text" value="<?php echo $ligne_ins[10];?>" tabindex="12"></label>
+          <input name="telephone" id="phone" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],10);?>" tabindex="12"></label>
         </section>
 
         <section class="col col-6">
           <label class="label">Fax:</label>
           <label class="input"><i class="icon-append fa-phone-square"></i>
-          <input name="fax" id="fax" type="text" value="<?php echo $ligne_ins[11];?>" tabindex="13"></label>
+          <input name="fax" id="fax" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],11);?>" tabindex="13"></label>
         </section>
 
         <section class="col col-6">
           <label class="label">Condition d'admission:</label>
           <label class="textarea textarea-expandable textarea-resizable"><i class="icon-append icon-info"></i>
-          <textarea name="condition_admission" id="condition_admission" tabindex="14"><?php echo $ligne_ins[13];?></textarea></label>
+          <textarea name="condition_admission" id="condition_admission" tabindex="14"><?php echo $functdb->getformationlinewithid($_POST['id_page'],13);?></textarea></label>
         </section> 
 
         <section class="col col-6">
           <label class="label">Organisation de la formation:</label>
           <label class="textarea textarea-expandable textarea-resizable"><i class="icon-append icon-info"></i>
-          <textarea name="organisation_formations" id="organisation_formations" tabindex="15"><?php echo $ligne_ins[14];?></textarea></label>
+          <textarea name="organisation_formations" id="organisation_formations" tabindex="15"><?php echo $functdb->getformationlinewithid($_POST['id_page'],14);?></textarea></label>
         </section>
 
         <section class="col col-6">
           <label class="label">Calendrier Date de depot dossier:</label>
           <label class="input"><i class="icon-append icon-calendar"></i>
-          <input name="date_depot" id="date_depot" type="text" value="<?php echo $ligne_ins[15];?>" tabindex="16"></label>
+          <input name="date_depot" id="date_depot" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],15);?>" tabindex="16"></label>
         </section> 
 
         <section class="col col-6">
           <label class="label">Calendrier Date d'entretien:</label>
           <label class="input"><i class="icon-append icon-calendar"></i>
-          <input name="date_entretien" id="date_entretien" type="text" value="<?php echo $ligne_ins[16];?>" tabindex="17"></label>
+          <input name="date_entretien" id="date_entretien" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],16);?>" tabindex="17"></label>
         </section>  
 
         <section class="col col-6">
           <label class="label">Frais De Formations:</label>
           <label class="input"><i class="icon-append icon-money"></i>
-          <input name="frais_formations" id="frais_formations" type="text" value="<?php echo $ligne_ins[17];?>" tabindex="18"></label>
+          <input name="frais_formations" id="frais_formations" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],17);?>" tabindex="18"></label>
         </section>  
 
         <section class="col col-6">
           <label class="label">Frais D'entretien:</label>
           <label class="input"><i class="icon-append icon-money"></i>
-          <input name="frais_entretien" id="frais_entretien" type="text" value="<?php echo $ligne_ins[18];?>" tabindex="19"></label>
+          <input name="frais_entretien" id="frais_entretien" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],18);?>" tabindex="19"></label>
         </section>  
       </div>  
     </fieldset>
     <footer>
-      <input type="hidden" name="logos" value="<?php echo $ligne_ins[3];?>"/>
-      <input type="hidden" name="debouche" value="<?php echo $ligne_ins[12];?>"/>
-      <input type="hidden" name="partenaire" value="<?php echo $ligne_ins[19];?>"/>
+      <input type="hidden" name="logos" value="<?php echo$functdb->getformationlinewithid($_POST['id_page'],3);?>"/>
+      <input type="hidden" name="debouche" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],12);?>"/>
+      <input type="hidden" name="partenaire" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],19);?>"/>
       <input type="submit"  class="button large" id="send-message" value="Mettre à jour" tabindex="20" style="width:30%; margin-right:340px;">
     </footer>
   </form>
@@ -197,9 +196,8 @@ include("../Layouts/headstatic.php");
         $semestre = new semestre($_POST['id_semestre'.$h.''], $_POST['nbr_module'.$h.''], $_POST['id_formations2']);
         $semestremanager->update($semestre);
          
-        }
-     }
-   } 
+      }
+    }
   ?>
   <div class="body">      
     <form action="" method="post" class="sky-form" enctype="multipart/form-data">
@@ -260,6 +258,5 @@ include("../Layouts/headstatic.php");
   <?php } ?>  
   <!-------------------# fin Affichge # ------------------>
 </div>
-<?php include("../Layouts/footerstatic.php");?>
 </body>
 </html>

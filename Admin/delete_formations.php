@@ -19,16 +19,18 @@ include("../Layouts/headstatic.php");
   <!-------------------# 1 ere Affichage # ------------------> 
     <?php
       if (isset($_POST['id_page'])) {
+        include "../Model/functdb.php";
         $functdb = new functdb();
         $functdb->deleteformation($_POST['id_page']);
     ?> 
     <div class='body sky'>
       <h3>La suppression de la formation s'est déroulée avec succès</h3>
-      <a href="pageadmin.php">Revenire à la page d'Administrateur</a>
+      <a href="pageadmin.php">Revenir à la page d'Administrateur</a>
     </div>
     <?php }?> 
-      <!-------------------# fin Affichge # ------------------>
+      <!-------------------# fin Affichage # ------------------>
   </div>
 <?php include("../Layouts/footerstatic.php");?>
 </body>
 </html>
+

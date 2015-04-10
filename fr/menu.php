@@ -43,42 +43,5 @@
 		<a href="../fr/contacts.php"><i class="fa fa-phone"></i>Contacts</a>
 	</li class="right">
 	<!--/ contact -->
-    <!-- login admin -->
-	<li aria-haspopup="true" class="right">
-		<a href="#"><i class="fa fa-sign-in"></i>Login Administrateur<i class="fa fa-indicator fa-caret-down"></i></a>
-		<div class="grid-container5">
-			<?php 
-            	include_once "../Classes/admin.class.php";
-            	include_once "../Controller/adminmanager.php";
-            	include_once "../Controller/displayadmin.php";
-        
-                $displayadmin = new displayadmin();
-        
-                if(empty($_POST['email']) AND empty($_POST['mdp_admin'])) {
-                        $displayadmin->signForm();
-                }else{
-                   $adminmanager = new adminmanager();
-                   $admin = $adminmanager->get($_POST['email']);
-              	if($admin){
-                    if(!$admin->verifyPassword($_POST['mdp_admin']))  {
-                         echo 'accès refusé <hr>';
-                        $displayadmin->signForm();
-                    } else {
-                      $_SESSION['email'] = $admin->email;
-                      $_SESSION['mdp_admin'] = $admin->mdp_admin;
-                       ?>
-                        <script> 
-						window.location.href="../Edit/adminpage1.php"; 
-						</script>
-                        <?php  
-                    }
-              	} else {
-                    echo '<font color="red">accès refusé </font><hr>';
-                    $displayadmin->signForm();
-                  }
-                }
-          	?>
-		</div>
-	</li>
-	<!--/ login admin -->
+    
 </ul>

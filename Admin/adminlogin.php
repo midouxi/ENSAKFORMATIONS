@@ -15,9 +15,9 @@ include("../Layouts/headstatic.php");
 
 	<div class="body body-s">
 	 <?php 
-    include "../Controller/siteadminmanager.php";
-    $siteadminmanager = new siteadminmanager();
-    $siteadminmanager->Adminconnect($_POST['email'],$_POST['mdp_siteadmin'],$_SESSION['email'],$_SESSION['mdp_siteadmin']);    
+    include "../Controller/adminmanager.php";
+    $adminmanager = new adminmanager();
+    $adminmanager->Adminconnect($_POST['email'],$_POST['mdp_siteadmin']);    
     ?>
 	</div>
 </body>

@@ -1,6 +1,8 @@
 <?php 
   $title="ENSA Khouribga - Formation Continue professionnelle";
   include("../Layouts/headstatic.php");
+  session_start();
+  if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="editeur") { 
 ?>
 <body>
   <div class="container_12 mar-left1"> 
@@ -30,6 +32,7 @@
     </article>        
     <?php include("../Layouts/slider.php");?>
   </div>
+  <?php } else { ?> <script>window.location.href="../fr/index.php"; </script><?php } ?>
 </body>
 
                              
