@@ -6,29 +6,49 @@
   if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="admin") { 
 ?>
 <body>
-  <div class="container_12 mar-left1"> 
-    <!--==============================header=================================-->
-    <header class="homepage">
-      <article class="grid_4" style="margin-right:50px">
-        <a class="logo" href="../index.php"><img src="../images/ensa-uh-logo.png" style="width:100%"></a>
-      </article>
+  <!-- TOP BANNER -->
+    <div class="col-lg-12">
+        <div class="top-banner">
+            <div class="col-lg-2">
+                <img src="../images/logo-ensak.jpg">
+            </div>
+            <div class="col-lg-8">
+                <h3>Universite Hassan 1<sup>er</sup></h3>
+                <h4>Ecole Nationale des Sciences Appliquées de Khouribga</h4>
+            </div>
+            <div class="col-lg-2">
+                <img src="../images/logo-uh1.png">
+            </div>
+        </div>
+    </div>
+    <!--==============================menu=================================-->
       <?php 
-      $role="current";
+      $role="active";
       include("../Layouts/menuadmin.php");
       ?>
-      <div class="clear"></div>	  
-    </header> 
-  </div>
+      <!-- banner top -->
+      <div class="inscription">
+        <div class="container">
+          <div class="col-lg-12">
 
-  <article class="grid_13 last-col ">
-  	<h2 class="sky" style="text-align:center">Gestions des comptes</h2>
-  </article>
+            <div class="col-lg-8">
+              <h1 class="title">GESTIONS DES COMPTES</h1>
+            </div>
+
+            <div class="col-lg-4">
+              <img src="../images/admin.png">
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sub">
+        <h2 class="title">Liste des Comptes</h2>
+      </div>
+  
   <!-- tabs -->
-    <div class="sky-tabs sky-tabs-pos-top-left sky-tabs-anim-rotate sky-tabs-response-to-icons">
-		  <input type="radio" name="sky-tabs" checked id="sky-tab1" class="sky-tab-content-1">
-		  <label for="sky-tab1"><span><span><i class="fa fa-bars"></i>Comptes</span></span></label>	
-			<ul>
-		    <li class="sky-tab-content-1">	  
+    <div class="container">
+      <div class="col-lg-12">	  
 				  <table class="table table-striped table-bordered">
  				   <thead>
             <tr class="inane">
@@ -47,16 +67,15 @@
             ?>
           </tbody>
          </table>
-         <article class="grid_7">
-            <form action="ajout_account.php" method="post" class="sky-form">
-              <input type="submit"  class="button large" id="send-message" value="Ajouter" >
-            </form>
-         </article>
-       </li>
-			</ul>
+        <form action="ajout_account.php" method="post" class="sky-form">
+          <div class="col-lg-4 col-lg-offset-8">
+            <input type="submit"  class="btn btn-valide" id="send-message" value="Ajouter un nouveau compte">
+          </div>
+        </form>
+      </div>
 		</div>
+    <div class="getfrom-bottom"></div>
 	<!--/ tabs -->        
-  </div>
   <?php } else { ?> <script>window.location.href="../fr/index.php"; </script><?php } ?>
 </body>
 </html>

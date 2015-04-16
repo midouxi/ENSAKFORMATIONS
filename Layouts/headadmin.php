@@ -12,11 +12,8 @@ error_reporting(E_ALL ^ E_WARNING);
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 <link href="../css/flexslider-2.css" rel="stylesheet" />
 <!-- css sky -->
-<link rel="stylesheet" href="../css/demo.css">
-<link rel="stylesheet" href="../css/font-awesome-2.css">
-<link rel="stylesheet" href="../css/sky-mega-menu.css">
-<link rel="stylesheet" href="../css/sky-forms.css">
-<link rel="stylesheet" href="../css/sky-tabs.css">
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../dist/css/bootstrap.css">
 <!-- fin css sky -->
 
 <!--[if lt IE 8]>
@@ -32,14 +29,14 @@ error_reporting(E_ALL ^ E_WARNING);
     <![endif]-->
 </head>
                             
-<!---------------- javascript --------------------->
-<!---- js du slider ---->
+<!-- javascript -->
+<!-- js du slider -->
 <script src="../js/jquery.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/jquery.fancybox.pack.js"></script>
 <script src="../js/jquery.flexslider-2.js"></script>
 <script src="../js/custom.js"></script>
-<!---- fin js du slider ---->
+<!-- fin js du slider -->
 <script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script> 
 <script type="text/javascript" src="../js/superfish.js"></script> 
 <script type="text/javascript" src="../js/jquery.responsivemenu.js"></script> 
@@ -48,7 +45,7 @@ error_reporting(E_ALL ^ E_WARNING);
 <script src="../js/jquery.carouFredSel-6.1.0-packed.js" type="text/javascript"></script> 
 <script src="../js/contact.js" type="text/javascript"></script> 
 <script type="text/javascript" src="../js/script.js"></script>
-<!------- js tabs ------->
+<!-- js tabs -->
 <script type="text/javascript" src="js/jquery-ui-1.8.24.custom.min.js"></script> 
-<!------ fin js tabs ----->
-<!--------------- fin javascript ------------------>
+<!-- fin js tabs -->
+<!-- fin javascript -->

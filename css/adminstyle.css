@@ -1,0 +1,235 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*  pour annuler user agent stylesheet*/
+html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, form, img, table, dl, dt, dd, img {
+	padding: 0;
+	margin: 0;
+	outline: none;
+}
+::-webkit-selection { color: white;  background: #333333; }
+::-ms-selection { color: white;  background: #333333; }
+::-o-selection { color: white;  background: #333333; }
+::-moz-selection { color: white;  background: #333333; }
+::selection      { color: white;  background: #333333; } 
+
+body {
+	font-family: Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif;
+}
+
+
+a {
+	text-decoration: none;
+}
+
+:-moz-any-link:focus {
+  outline: none;
+}
+
+a:link, a:visited, a:focus, a:hover {
+	-webkit-transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	-ms-transition: all 0.4s ease-out;
+	-o-transition: all 0.4s ease-out;
+	outline: none;
+	text-decoration: none
+}
+
+
+p {
+	font-size: 16px;
+	line-height: 22px;
+}
+
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+
+/*
+
+red #eb3e44 , hover : d6373c;
+black 333333
+
+*/
+
+/********** login page **********/
+
+body.login-body {
+	min-height: 600px;
+	background-image: url(../images/office.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-attachment: fixed;
+	padding-top: 180px;
+}
+
+.login-body .login-content {
+	background-color: #ffffff;
+	padding: 30px 30px;
+	border-radius: 5px;
+	width: 500px;
+	height: auto;
+	margin:auto auto;
+}
+
+.login-body .login-content h2 {
+	color: #eb3e44;
+	margin-top: 0px;
+	margin-bottom: 30px;
+}
+
+button.btn-valide {
+	background-color: #eb3e44;
+	color: #ffffff;
+	text-transform: uppercase;
+	float: right;
+	padding-left: 15px;
+	padding-right: 15px;
+	-webkit-transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	-ms-transition: all 0.4s ease-out;
+	-o-transition: all 0.4s ease-out;
+}
+button.btn-valide:hover {
+	background-color: #b42d31;
+	color: #ffffff;
+}
+
+/******** admin page ************/
+
+form input.btn-ajouter {
+	background-color: #eb3e44;
+	color: #ffffff;
+	text-transform: uppercase;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+	-webkit-transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	-ms-transition: all 0.4s ease-out;
+	-o-transition: all 0.4s ease-out;
+}
+
+form input.btn-ajouter:hover {
+	background-color: #b42d31;
+	color: #ffffff;
+}
+
+form input.btn-table,
+a.btn-table {
+	background-color: #eb3e44;
+	color: #ffffff;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+	-webkit-transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	-ms-transition: all 0.4s ease-out;
+	-o-transition: all 0.4s ease-out;
+}
+.table-content {
+	padding-top: 20px;
+}
+.table-content h1 {
+	color: #eb3e44;
+}
+.table-content table {
+	margin-bottom: 60px;
+}
+form input.btn-table:hover,
+a.btn-table:hover {
+	background-color: #b42d31;
+	color: #ffffff;
+}
+
+table thead tr td {
+	background-color: #eb3e44;
+	color: #ffffff;
+}
+/********** ajouter **********/
+botton.btn-browse {
+	background-color: #eb3e44;
+	color: #ffffff;
+	-webkit-transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	-ms-transition: all 0.4s ease-out;
+	-o-transition: all 0.4s ease-out;
+}
+
+botton.btn-browse:hover {
+	background-color: #b42d31;
+	color: #ffffff;
+}
+/********** role ***********/
+
+h1.title-general {
+	text-align: center;
+	color: #eb3e44;
+}
+a.btn-valide {
+	background-color: #eb3e44;
+	color: #ffffff;
+	-webkit-transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	-ms-transition: all 0.4s ease-out;
+	-o-transition: all 0.4s ease-out;
+}
+
+a.btn-valide:hover,
+a.btn-valide:focus {
+	background-color: #b42d31;
+	color: #ffffff;
+}
+/***************************************/
+
+.delete-content {
+	text-align: center;
+}
+
+.delete-content {
+	text-align: center;
+}
+
+h1.title-center {
+	text-align: center;
+	color: #eb3e44;
+}
+
+h3.title-center {
+	text-align: center;
+	color: #eb3e44;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+	border-bottom: 2px solid #eb3e44;
+}
+td.fixed {
+	width: 100px;
+}
+.getfrom-bottom {
+	margin-bottom: 60px;
+}
+.content-center {
+	text-align: center;
+}
+
+/************ modal *********/
+
+.modal-header-compt {
+	background-color: #eb3e44;
+	color: #ffffff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.modal-body h3 {
+	color: #eb3e44;
+}

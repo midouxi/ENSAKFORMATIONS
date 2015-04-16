@@ -6,44 +6,71 @@
   if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="admin") { 
 ?>
 <body>
-  <div class="container_12 mar-left1"> 
+  <!-- TOP BANNER -->
+    <div class="col-lg-12">
+        <div class="top-banner">
+            <div class="col-lg-2">
+                <img src="../images/logo-ensak.jpg">
+            </div>
+            <div class="col-lg-8">
+                <h3>Universite Hassan 1<sup>er</sup></h3>
+                <h4>Ecole Nationale des Sciences Appliquées de Khouribga</h4>
+            </div>
+            <div class="col-lg-2">
+                <img src="../images/logo-uh1.png">
+            </div>
+        </div>
+    </div>
     <!--==============================header=================================-->
-    <header class="homepage">
-      <article class="grid_4" style="margin-right:50px">
-        <a class="logo" href="../fr/index.php"><img src="../images/ensa-uh-logo.png" style="width:100%"></a>
-      </article>
-      <?php $administrateur2="current";
-      include("../Layouts/menuadmin.php");?>
-      <div class="clear"></div>   
-    </header>  
-  </div>
+    <?php $administrateur2="active";
+    include("../Layouts/menuadmin.php");?>
+    <!-- top banner -->
+      <div class="inscription">
+        <div class="container">
+          <div class="col-lg-12">
 
-  <div class="body">      
-    <form action="delete_formations.php" method="post" class="sky-form" enctype="multipart/form-data">
-      <header>
-        <h1>Suppression D'une Formations</h1>
-      </header>
-      <fieldset>
-        <div class="row">
-          <section class="col col-6">
-            <label class="label">Formation souhaitée:</label>
-            <label class="select"><i class="icon-append icon-chevron-down"></i>
-              <select name="id_page" id="formation"  tabindex="9" >
+            <div class="col-lg-8">
+              <h1 class="title">SUPPRESSION FORMATION</h1>
+            </div>
+
+            <div class="col-lg-4">
+              <img src="../images/formation.png">
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sub">
+        <h2 class="title">Suppression d'une Formations</h2>
+      </div>
+
+  <div class="form-area">
+    <div class="container">
+      <div class="col-lg-12">
+        <form action="delete_formations.php" method="post" class="sky-form" enctype="multipart/form-data">
+          <fieldset>
+            <div class="form-group col-lg-12">
+              <label for="formation" class="col-lg-4 control-label">Formation souhaitée :</label>
+              <div class="col-lg-6">
+                <select class="form-control" name="id_page" id="formation"  tabindex="9">
                   <option value="" selected>--Choisir--</option>
                   <?php 
-                  include("../Model/functdb.php");
-                  $functdb = new functdb();
-                  $functdb->getformationline();
+                    include("../Model/functdb.php");
+                    $functdb = new functdb();
+                    $functdb->getformationline();
                   ?>
-              </select>
-            </label>
-          </section>
-        </div>  
-      </fieldset>
-      <footer>
-        <input type="submit"  class="button large" value="Entrer" tabindex="2" style="width:30%; margin-right:340px;">
-      </footer>
-    </form>      
+                </select>
+              </div>
+            </div> 
+            <div class="form-group col-lg-12">
+              <div class="col-lg-6 col-lg-offset-4">  
+                <input type="submit"  class="btn btn-valide" value="Entrer" tabindex="2">
+              </div>
+            </div>
+          </fieldset>
+        </form>      
+      </div>
+    </div>
   </div>
 <?php } else { ?> 
   <script>window.location.href="../Admin/adminlogin.php"; </script>

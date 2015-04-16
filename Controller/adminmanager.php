@@ -57,35 +57,21 @@ class adminmanager {
   } 
 
   public function signForm() {
-    echo '<form action="" class="sky-form" method="post">
-                <header>Connexion</header>            
-                <fieldset>          
-                    <section>
-                        <div class="row">
-                            <label class="label col col-4">E-mail</label>
-                            <div class="col col-8">
-                                <label class="input">
-                                    <i class="icon-append icon-user"></i>
-                                    <input type="email" name="email">
-                                </label>
-                            </div>
-                        </div>
-                    </section>           
-                    <section>
-                        <div class="row">
-                            <label class="label col col-4">Password</label>
-                            <div class="col col-8">
-                                <label class="input">
-                                    <i class="icon-append icon-lock"></i>
-                                    <input type="password" name="mdp_siteadmin">
-                                </label>
-                            </div>
-                        </div>
-                    </section>
+    echo '<form action="" class="bs-example form-horizontal" method="post">
+                <h2>Connexion</h2>            
+                <fieldset>
+                    <div class="form-group">
+                      <div class="col-lg-12">
+                        <input class="form-control" type="email" name="email" placeholder="Email">
+                      </div>
+                    </div> 
+                    <div class="form-group">
+                      <div class="col-lg-12">
+                        <input class="form-control" type="password" name="mdp_siteadmin" placeholder="Mot de passe">
+                      </div>
+                    </div> 
+                    <button type="submit" class="btn btn-valide">Se connecter</button>
                 </fieldset>
-                <footer>
-                    <button type="submit" class="button large">Se connecter</button>
-                </footer>
             </form>';
   }
 
@@ -123,7 +109,7 @@ class adminmanager {
              } else { echo "compte non spécifié veuillez contacter l'admin " ;}
           } 
         } else {
-            echo '<font color="red">accès refusé </font><hr>';
+            echo '<div class="alert alert-danger" role="alert"><p>Accès refusé </p></div>';
             $this->signForm();
            }
     }    

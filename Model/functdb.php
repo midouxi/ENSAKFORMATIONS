@@ -31,6 +31,7 @@ Class functdb {
       else {return null;}
   }
 	public function getnbrsemester($id,$nv_nbr_semestre) {
+        $db = new PDO('mysql:host=localhost;dbname=db_fc','root', '');
         $db->exec("UPDATE formations SET nbr_semestre ='$nv_nbr_semestre' WHERE id_formations ='$id'");
         $db->exec("DELETE FROM semestre WHERE id_formations ='$id");
         $db->exec("DELETE FROM module WHERE id_formations ='$id");   
@@ -87,16 +88,13 @@ Class functdb {
               $idi="inscrit".$i;		   
               echo '<tr>'; 
               echo '<td>'.$ligne_ins[8].'</td>';
-              echo '<td>'.$ligne_ins[0].'</td>';
-              echo '<td>'.$ligne_ins[1].'</td>';
-              echo '<td>'.$ligne_ins[2].'</td>';
+              echo '<td><strong>Nom :</strong><br>'.$ligne_ins[0].'<br><strong>Prénom :</strong><br>'.$ligne_ins[1].'<br><strong>Date De Naissance :</strong><br>'.$ligne_ins[2].'</td>';
               echo '<td>'.$ligne_ins[3].'</td>';
-              echo '<td>'.$ligne_ins[4].'</td>';
-              echo '<td>'.$ligne_ins[5].'</td>';
+              echo '<td><strong>N° Telephone :</strong><br>'.$ligne_ins[4].'<br><strong>Email :</strong><br>'.$ligne_ins[5].'</td>';
               echo '<td>'.$ligne_ins[6].'</td>';
               echo '<td>'.$ligne_ins[7]. '</td>';
-              echo '<td>'.$ligne_ins[9]. '</td>';
-              echo '<td>';
+              echo '<td><a data-toggle="modal" data-target="#data-'.$i.'" class="btn btn-table">Visualiser</a></td>';
+              echo '<td class="fixed">';
               $q=$db->query("SELECT viewed,contacte,inscrit FROM inscription WHERE cin='$ligne_ins[3]'");
               foreach ($q as $row) {
                 $a= $row['viewed'];
@@ -106,17 +104,17 @@ Class functdb {
               if($a==1) $checked1="checked";
               if($b==1) $checked2="checked";
               if($c==1) $checked3="checked";
-              echo 'Vue';
+              echo 'Vue ';
               echo '<input type="checkbox" id="'.$idv.'" '.$checked1.'  onclick="go(\''.$ligne_ins[3].'\',\'viewed\','.$idv.')" />';
-              echo 'Contacté';
+              echo '<br>Contacté ';
               echo '<input type="checkbox" id="'.$idc.'" '.$checked2.' onclick="go(\''.$ligne_ins[3].'\',\'contacte\','.$idc.')" />';
-              echo 'Inscrit';
+              echo '<br>Inscrit ';
               echo '<input type="checkbox" id="'.$idi.'" '.$checked3.' onclick="go(\''.$ligne_ins[3].'\',\'inscrit\','.$idi.')" />';
               //"go('.$ligne_ins[3].')" />';
               echo '</td>';
               echo '<td>';
               echo'<form action="envoi_mail.php" class="sky-form" method="post">
-		   			        <input type="submit" class="button" value="valider" name="val"/>
+		   			        <input type="submit" class="btn btn-table" value="valider" name="val"/>
              			  <input type="hidden" name="email" value="'.$ligne_ins[5].'" />
 	       			      <input type="hidden" name="nom" value="'.$ligne_ins[0].'" />
 	       			      <input type="hidden" name="prenom" value="'.$ligne_ins[1].'" />
@@ -131,33 +129,60 @@ Class functdb {
               $i++;
 		}
 	}
-
+  public function getModalInscription($type)
+  {
+    $db = new PDO('mysql:host=localhost;dbname=db_fc','root', '');
+    if ($type=="all") {
+      $filtre="'' OR 1=1";
+    }
+    else if ($type=="lil") {
+      $filtre="'License Ingenierie du logiciel'";
+    }
+    else if ($type=="lar") {
+      $filtre="'License Administration reseaux'";
+    }
+    else if ($type=="lsi") {
+      $filtre="'License systemes information'";
+    }
+    else if ($type=="mi") {
+      $filtre="'Master informatique'";
+    }
+    $all_ins=mysql_query("select * from inscription where formation= $filtre");
+      $i=0;
+      while($ligne_ins=mysql_fetch_array($all_ins)){  
+        echo '<!-- modal definition -->
+                <div class="modal fade" id="data-'.$i.'" tabindex="-1" role="dialog" aria-labelledby="compt-Label" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header modal-header-compt">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="compt-Label">LETTRE DE MOTIVATION</h4>
+                      </div>
+                      <div class="modal-body modal-body-compt">
+                        <h3>Lettre de motivation de '.$ligne_ins[0].' '.$ligne_ins[1].'</h3>
+                        <p>'.utf8_encode($ligne_ins[9]).'</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>';
+              $i++;
+        }
+  }
 	public function getinscriptionfinal(){
 		$all_ins=mysql_query("select * from inscription_final");
  	   	while($ligne_ins=mysql_fetch_array($all_ins)){
  	   		echo '<tr>'; 
-              echo '<td>'.$ligne_ins[0].'</td>';
-              echo '<td>'.$ligne_ins[1].'</td>';
+              echo '<td><strong>Nom :</strong><br>'.$ligne_ins[0].'<br><strong>Prénom :</strong><br>'.$ligne_ins[1].'<br><strong>Date De Naissance :</strong><br>'.$ligne_ins[4].'<br><strong>Lieu De Naissance :</strong><br>'.$ligne_ins[5].'</td>';
               echo '<td>'.$ligne_ins[2].'</td>';
               echo '<td>'.$ligne_ins[3].'</td>';
-              echo '<td>'.$ligne_ins[4].'</td>';
-              echo '<td>'.$ligne_ins[5].'</td>';
               echo '<td>'.$ligne_ins[6].'</td>';
               echo '<td>'.$ligne_ins[7]. '</td>';
               echo '<td>'.$ligne_ins[8].'</td>';
               echo '<td>'.$ligne_ins[9]. '</td>';
               echo '<td>'.$ligne_ins[10].'</td>';
-              echo '<td>'.$ligne_ins[11].'</td>';
-              echo '<td>'.$ligne_ins[12].'</td>';
-              echo '<td>'.$ligne_ins[13].'</td>';
-              echo '<td>'.$ligne_ins[14].'</td>';
-              echo '<td>'.$ligne_ins[15].'</td>';
-              echo '<td>'.$ligne_ins[16].'</td>';
-              echo '<td>'.$ligne_ins[17]. '</td>';
-              echo '<td>'.$ligne_ins[18].'</td>';
-              echo '<td>'.$ligne_ins[19]. '</td>';
-              echo '<td>'.$ligne_ins[20].'</td>';
-              echo '<td>'.$ligne_ins[21].'</td>';
+              echo '<td><strong>Annee d\'obtention du bac :</strong><br>'.$ligne_ins[11].'<br><strong>N° Serie du BAC :</strong><br>'.$ligne_ins[12].'<br><strong>Mention :</strong><br>'.$ligne_ins[13].'<br><strong>Etablissment :</strong><br>'.$ligne_ins[14].'</td>';
+              echo '<td><strong>Adresse :</strong><br>'.$ligne_ins[15].'<br><strong>Email :</strong><br>'.$ligne_ins[16].'<br><strong>N° Telephone :</strong><br>'.$ligne_ins[17].'<br><strong>N° Telephone PARENTS :</strong><br>'.$ligne_ins[18].'</td>';
+              echo '<td><strong>BENEFICIER :</strong><br>'.$ligne_ins[19]. '<br><strong>DU PERE :</strong><br>'.$ligne_ins[20].'<br><strong>DE LA MERE :</strong><br>'.$ligne_ins[21].'</td>';
       	echo '</tr>';
       	}
   	}
@@ -172,11 +197,11 @@ Class functdb {
               echo '<td>'.$ligne_ins[4].'</td>';
               echo '<td>' ;
               echo' <form action="update_account.php" class="sky-form" method="post">
-                      <input type="submit" class="button" value="Modifier" name="val"/>
+                      <input type="submit" class="btn btn-table" value="Modifier" name="val"/>
                       <input type="hidden" name="id_c" value="'.$ligne_ins[0].'" />
                    </form>
                    <form action="delete_account.php" class="sky-form" method="post">
-                      <input type="submit" class="button" value="Supprimer" name="val"/>
+                      <input type="submit" class="btn btn-table" value="Supprimer" name="val"/>
                       <input type="hidden" name="id_c" value="'.$ligne_ins[0].'" />
                    </form>'; 
               echo '</td>';

@@ -1,27 +1,46 @@
-<br>
-  <div class="container_12 mar-left1 sky">
+    
+    <!-- inscreption pannel -->
+    <?php  if($id != 'inscription') {  ?>
+    <div class="inscription">
+      <div class="container">
+        <div class="col-lg-12">
 
-    <article class="grid_8">
-        <h2>contact</h2>
-        <div>
-        <ul>
-          <li>École Nationale des Sciences Appliquées, Bd Béni Amir, BP 77, Khouribga - Maroc</li>
-            <li><strong>Responsable : </strong> Pr Imad Hafidi</li>
-            <li><strong>Email : </strong> ensak.formations@gmail.com</li>
-            <li><strong>Téléphone : </strong> 06 62 05 77 69 / 05 23 49 23 35</li>
-            <li><strong>Fax :</strong>  05 23 49 23 39</li>
-        <ul>
+          <div class="col-lg-8">
+            <h1>INTERESSÉ PAR UNE DE NOS FORMATIONS ?</h1>
+            <p>Inscrivez vous dès maintenant, le nombre de places est limité !!</p>
+            <a href="inscription.php" class="btn btn-inscription">s'inscrire</a>
+          </div>
+
+          <div class="col-lg-4">
+            <img src="../images/inscription.png">
+          </div>
+
         </div>
-    </article>
+      </div>
+    </div>
+    <?php  }  ?>
+    <!-- GENERAL FOOTER -->
+    <div class="footer">
+      <div class="container">
+        <div class="col-lg-12">
+          <h2>Contact</h2>
+          <div class="col-lg-4">
+            <p>École Nationale des Sciences Appliquées, Bd Béni Amir, BP 77, Khouribga - Maroc</p>
+          </div>
 
-    <article class="grid_7">
-      <h2>Interessé par une de nos formations ?</h2>
-      <p> inscrivez vous dès maintenant , le nombre de places est limité !!</p>
-    </article>
+          <div class="col-lg-4">
+            <p><span>Responsable</span>Pr. Imad HAFIDI</p>
+            <p><span class="glyphicon glyphicon-envelope"></span>ensak.formations@gmail.com</p>
+            <p><span class="glyphicon glyphicon-earphone"></span>06 62 05 77 69 / 05 23 49 23 35</p>
+            <p><span class="glyphicon glyphicon-print"></span>05 23 49 23 39</p>
+          </div>
 
-    <article class="grid_7">
-            <form action="inscription.php" method="post" class="sky-form">
-              <input type="submit"  class="button large" id="send-message" value="s'inscrire" >
-            </form>
-    </article>
-  </div>
+          <div class="col-lg-4 lien">
+            <a href="https://www.facebook.com/ensak.formations" target="_blank" class="btn btn-facebook">
+              <img src="../images/icons/facebook.png"> Page Facebook
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>

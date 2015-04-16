@@ -5,82 +5,133 @@
   //if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="admin") { 
 ?>
 <body>
-  <div class="container_12 mar-left1"> 
+  <!-- TOP BANNER -->
+    <div class="col-lg-12">
+        <div class="top-banner">
+            <div class="col-lg-2">
+                <img src="../images/logo-ensak.jpg">
+            </div>
+            <div class="col-lg-8">
+                <h3>Universite Hassan 1<sup>er</sup></h3>
+                <h4>Ecole Nationale des Sciences Appliquées de Khouribga</h4>
+            </div>
+            <div class="col-lg-2">
+                <img src="../images/logo-uh1.png">
+            </div>
+        </div>
+    </div>
     <!--==============================header=================================-->
-    <header class="homepage">
-      <article class="grid_4" style="margin-right:50px">
-        <a class="logo" href="../index.php"><img src="../images/ensa-uh-logo.png" style="width:100%"></a>
-      </article>
       <?php 
-      $role="current";
+      $role="active";
       include("../Layouts/menuadmin.php");
       ?>
-      <div class="clear"></div>   
-    </header>  
+      <!-- banner top -->
+      <div class="inscription">
+        <div class="container">
+          <div class="col-lg-12">
+
+            <div class="col-lg-8">
+              <h1 class="title">MODIFICATION COMPTE</h1>
+            </div>
+
+            <div class="col-lg-4">
+              <img src="../images/admin.png">
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sub">
+        <h2 class="title">Modification du compte</h2>
+        <p>Veuillez renseigner tous les champs obligatoires (*)</p>
+      </div>
+
+<!-- page content -->
+  <div class="form-area">
+    <div class="container">
+      <div class="col-lg-12">
+        <form action="update_account_result.php" method="post" class="form-horizontal" id="cform" name="cform">
+          <fieldset>
+            <?php 
+            include "../Model/functdb.php";
+            $functdb = new functdb();
+            ?>      
+                <div class="form-group col-lg-12">
+                  <label for="email" class="col-lg-4 control-label">Email * : </label>
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                        <input name="email" id="email" type="email" value=<?php echo $functdb->getinfoaccount($_POST['id_c'],"email"); ?> tabindex="1" class="form-control" placeholder="Email">
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-envelope"></span>
+                        </span>
+                      </div>
+                  </div>
+                </div>  
+
+                <div class="form-group col-lg-12">
+                  <label for="mdp" class="col-lg-4 control-label">Mot de passe * : </label>
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                        <input name="mdp" id="mdp" type="text" value=<?php echo $functdb->getinfoaccount($_POST['id_c'],"mdp"); ?> tabindex="2" class="form-control" placeholder="Mot de passe">
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-envelope"></span>
+                        </span>
+                      </div>
+                  </div>
+                </div>
+ 
+              <div class="form-group col-lg-12">
+                  <label for="filiere" class="col-lg-4 control-label">Filière * :</label> 
+                  <div class="col-lg-6">
+                    <select class="form-control" name="filiere" id="filiere"  tabindex="7">
+                <?php if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="lar") { 
+                        $select1="selected";}
+                      else if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="lsi") { 
+                        $select2="selected";}
+                      else if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="lil") { 
+                        $select3="selected";}
+                      else if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="mi") { 
+                        $select4="selected";}
+                      else if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="admin") { 
+                        $select5="selected";}
+                ?>
+                    <option value="" <?php echo $select0; ?>>--Choisir--</option>
+                    <option value="lar" <?php echo $select1; ?>>Licence Administration réseaux</option>
+                    <option value="lsi" <?php echo $select2; ?>>Licence Systèmes d\'informations</option>
+                    <option value="lil" <?php echo $select3; ?>>Licence Ingenierie Logicielle</option>
+                    <option value="mi"  <?php echo $select4; ?>>Master Informatique</option>
+                    <option value="admin" <?php echo $select5; ?>>ALL (Admin)</option>
+                    </select>
+                  </div>
+                </div> 
+
+                <div class="form-group col-lg-12">
+                  <label for="type" class="col-lg-4 control-label">Type * :</label> 
+                  <div class="col-lg-6">
+                    <select class="form-control" name="type" id="type"  tabindex="8">
+                    <?php if($functdb->getinfoaccount($_POST['id_c'],"type")=="admin") { 
+                            $select1="selected";}
+                          else if($functdb->getinfoaccount($_POST['id_c'],"type")=="editeur") { 
+                            $select2="selected";}
+                    ?>
+                    <option value="" <?php echo $select0; ?>>--Choisir--</option>
+                    <option value="admin" <?php echo $select1; ?>>Administrateur</option>
+                    <option value="editeur" <?php echo $select2; ?>>Editeur</option>
+                    </select>
+                  </div>
+                </div>     
+
+              <input type="hidden" name="id_c" value=<?php echo $_POST['id_c']; ?> >
+              <div class="form-group col-lg-12">
+                <div class="col-lg-6 col-lg-offset-4">
+                  <input type="submit" class="btn btn-valide" id="send-message" value="Mettre à jour" tabindex="10">
+                </div>
+              </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
   </div>
-<form action="update_account_result.php" method="post" class="sky-form" id="cform" name="cform">
-  <header>
-    <h1>Ajouter un compte</h1>
-    <div class="note">Veuillez renseigner tous les champs obligatoires(<span class="required">*</span>)</div>
-  </header>
-  <fieldset>
-    <?php 
-    include "../Model/functdb.php";
-    $functdb = new functdb();
-    ?>
-   <div class="row">      
-      <section class="col col-6">
-        <label class="label">Email<span class="required">*</span></label>
-        <label class="input"><i class="icon-append icon-user"></i>
-        <input name="email" id="email" type="email" value=<?php echo $functdb->getinfoaccount($_POST['id_c'],"email"); ?> tabindex="1"></label>
-      </section>  
-     <section class="col col-6">
-        <label class="label">Mot de passe<span class="required">*</span></label>
-        <label class="input"><i class="icon-append icon-user"></i>
-        <input name="mdp" id="mdp" type="text" value=<?php echo $functdb->getinfoaccount($_POST['id_c'],"mdp"); ?> tabindex="2"></label>
-      </section>  
-      <section class="col col-6">
-        <label class="label">Filière<span class="required">*</span></label>
-        <label class="select"><i class="icon-append icon-chevron-down"></i>
-        <select name="filiere" id="filiere"  tabindex="7" >\
-        <?php if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="lar") { 
-                $select1="selected";}
-              else if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="lsi") { 
-                $select2="selected";}
-              else if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="lil") { 
-                $select3="selected";}
-              else if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="mi") { 
-                $select4="selected";}
-              else if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="admin") { 
-                $select5="selected";}
-        ?>
-            <option value="" <?php echo $select0; ?>>--Choisir--</option>
-            <option value="lar" <?php echo $select1; ?>>Licence Administration réseaux</option>
-            <option value="lsi" <?php echo $select2; ?>>Licence Systèmes d\'informations</option>
-            <option value="lil" <?php echo $select3; ?>>Licence Ingenierie Logicielle</option>
-            <option value="mi"  <?php echo $select4; ?>>Master Informatique</option>
-            <option value="admin" <?php echo $select5; ?>>ALL (Admin)</option>
-        </select></label>
-      </section>  
-     <section class="col col-6">
-        <label class="label">Type<span class="required">*</span></label>
-        <label class="select"><i class="icon-append icon-chevron-down"></i>
-        <select name="type" id="type"  tabindex="8" >
-        <?php if($functdb->getinfoaccount($_POST['id_c'],"type")=="admin") { 
-                $select1="selected";}
-              else if($functdb->getinfoaccount($_POST['id_c'],"type")=="editeur") { 
-                $select2="selected";}
-        ?>
-            <option value="" <?php echo $select0; ?>>--Choisir--</option>
-            <option value="admin" <?php echo $select1; ?>>Administrateur</option>
-            <option value="editeur" <?php echo $select2; ?>>Editeur</option>
-        </select></label>
-      </section>    
-      <input type="hidden" name="id_c" value=<?php echo $_POST['id_c']; ?> >
-    </div>  
-  </fieldset>
-  <footer>
-    <input type="submit"  class="button large" id="send-message" value="Mettre à jour" tabindex="10" style="width:30%; margin-right:340px;">
-  </footer>
+
 </body>
 </html>

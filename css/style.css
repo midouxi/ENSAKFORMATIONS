@@ -1,267 +1,464 @@
-@import "skeleton.css";
-@import "reset.css";
-/*
-Global properties
-========================================================
-*/
-@font-face {
-  font-family: 'FontAwesome';
-  src: url('fonts/fontawesome-webfont.eot?v=4.0.3');
-  src: url('fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-	font-family: 'ClarendonLTStdLight';
-	src: url('fonts/clarendonltstd-light-webfont.eot');
-	src: url('fonts/clarendonltstd-light-webfontd41d.eot?#iefix') format('embedded-opentype'), url('fonts/clarendonltstd-light-webfont.woff') format('woff'), url('fonts/clarendonltstd-light-webfont.ttf') format('truetype'), url('fonts/clarendonltstd-light-webfont.svg#ClarendonLTStdLight') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'ClarendonLTStdRoman';
-	src: url('fonts/clarendonltstd-webfont.eot');
-	src: url('fonts/clarendonltstd-webfontd41d.eot?#iefix') format('embedded-opentype'), url('fonts/clarendonltstd-webfont.woff') format('woff'), url('fonts/clarendonltstd-webfont.ttf') format('truetype'), url('fonts/clarendonltstd-webfont.svg#ClarendonLTStdRoman') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'ClarendonLTStdBold';
-	src: url('fonts/clarendonltstd-bold-webfont.eot');
-	src: url('fonts/clarendonltstd-bold-webfontd41d.eot?#iefix') format('embedded-opentype'), url('fonts/clarendonltstd-bold-webfont.woff') format('woff'), url('fonts/clarendonltstd-bold-webfont.ttf') format('truetype'), url('fonts/clarendonltstd-bold-webfont.svg#ClarendonLTStdBold') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-html {
-	width: 100%
-}
-body {
-	font-family: "ClarendonLTStdLight", Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	line-height: 24px;
-	color: #62676d;
-	max-width:auto;
-	min-width: 960px;
-	background: url(../images/bg-red.jpg);
-	-webkit-text-size-adjust: none;
-}
-p {
-	margin-bottom: 24px
-}
-.p2 {
-	margin-bottom: 17px;
-}
-/*
-Header
-========================================================
-*/
+@charset "utf-8";
+/* CSS Document */
 
-header.homepage {
-	margin: 0 0px;
-	padding: 10px;
-}
-header {
-	margin: 0 10px;
-	padding: 48px 0 48px;
-}
-/*
-Headings and Panels
-========================================================
-*/
-h2, h3, h4 {
-	font-weight: normal;
-}
-h2 {
-	font-size: 17px;
-	line-height: 20px;
-	color: #e00817;
-	text-transform: uppercase;
-	text-align: left;
-	position: relative;
-	border-bottom: 3px solid #999;
-	padding-bottom: 12px;
-	margin-bottom: 24px;
-}
-.linnee {
-	border-right:3px solid #999;
-	height:240px;
-}
-.tol{
-	height:500px;
-}
-.lhata{
-	position:absolute;
-          left:10px;
-		  top:420px; 
-		  z-index:1;
-}
-.mar-left {
-	margin-left:80px;
-}
-.mar-left1 {
-	margin-left:40px;
-}
-.mar-left2 {
-	margin-left:60px
-}
-.faceb {
-	position:absolute;
-	left:1250px; 
-	top:10px;
-	padding:7px 14px 6px 14px;
-	background: rgba(248,248,248,.9);
-}
-.hello_box {
-	font-size: 33px;
-	line-height: 35px;
-	color: #e00817;
-	text-align: center;
-	margin-bottom: 28px;
-	
-}
-/*
-Accordion
-========================================================
-*/
-.ui-accordion .ui-accordion-header {
-	display: block;
-	cursor: pointer;
-	position: relative;
-	zoom: 1;
-}
-#accordion h3 {
-	padding: 6px 15px;
-	margin-bottom: 7px;
-	background: #545454;
-	border: 0;
-	color: #fff;
-	font-weight: normal;
-}
-#accordion .ui-icon {
-	background: none !important;
-	display: inline !important;
-}
-#accordion p {
-	padding: 5px 15px 17px 15px;
-}
-#accordion .ui-state-active {
-	background: #00468d;
-}
-.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
-	position: absolute;
-	left: .5em;
-	top: 50%;
-	margin-top: -8px;
-}
-.ui-accordion .ui-accordion-content {
-	overflow: hidden;
-	zoom: 1;
-	background: #fff;
-	border: 0;
-	font-size: 13px;
-}
-#accordion.faq .ui-accordion-content {
-	overflow: hidden!important;
-	line-height: 1.5;
-}
-/*
-footer
-========================================================
-*/
-footer {
-	padding: 57px 0px 60px 0;
-	background: none;
-}
-footer, footer a {
-	color: #acb2b6;
-}
-footer h2 {
-	color: #fff;
-}
-footer .social img {
-	background: transparent;
-	border: 0px;
+/*  pour annuler user agent stylesheet*/
+html, body, ol, ul, li, h1, h2, h3, h4, h5, h6, p, form, img, table, dl, dt, dd, img {
 	padding: 0;
 	margin: 0;
+	outline: none;
 }
-footer .social li {
-	width: 50%;
-	float: left;
-	margin-bottom: 12px;
-}
-footer .social li a {
-	display: inline-block;
-	margin-top: 2px;
-}
-footer .social li a:hover {
-	color: #fff;
-}
-footer .social li figure {
-	float: left;
-	margin: -2px 16px 0 0;
-}
-footer .social .cont_item figure {
-	padding-top: 5px !important;
-}
-footer .navigate li {
-	float: left;
-	width: 50%;
-}
-footer .navigate a:hover {
-	color: #f5d12f;
-}
-nav ul {
-	display: block;
-}
-nav select {
-	display: none;
-	width: 100%;
-	padding: 10px;
-}
+::-webkit-selection { color: white;  background: #333333; }
+::-ms-selection { color: white;  background: #333333; }
+::-o-selection { color: white;  background: #333333; }
+::-moz-selection { color: white;  background: #333333; }
+::selection      { color: white;  background: #333333; } 
 
-/*
-This area adds love and makes the site reponsive
-========================================================
-*/
-
-@media only screen and (max-width: 995px) {
 body {
-	min-width: 768px;
+	font-family: Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif;
 }
-header {
-	padding-top: 30px;
+
+
+a {
+	text-decoration: none;
 }
-.homeabout .flexslider2 {
-	padding-top: 0px;
+
+:-moz-any-link:focus {
+  outline: none;
 }
-.flexslider2, .flexslider2 img {
-	height: 300px;
+
+a:link, a:visited, a:focus, a:hover {
+	-webkit-transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	-ms-transition: all 0.4s ease-out;
+	-o-transition: all 0.4s ease-out;
+	outline: none;
+	text-decoration: none
 }
-.hello_box {
-	font-size: 27px;
-	line-height: 32px;
-	margin-bottom: 30px;
+p {
+	font-size: 16px;
+	line-height: 22px;
 }
-footer .title {
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}
+/************** top banner ********************/
+
+.top-banner {
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding-left: 40px;
+	padding-right: 40px;
+	height: 120px;
+}
+.top-banner h3,
+.top-banner h4 {
+	color : #666;
+}
+.top-banner img {
+	width: auto;
+	height: 120px;
+}
+/************** menu *****************/
+
+#navbar-main {
+	text-align: center;
+	margin-top: 10px;
+}
+
+#navbar-main ul {
+	text-align: center;
+	margin: auto auto;
+}
+
+.menu .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+.menu .navbar-nav > li > a {
+	color: #4f5c5c;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.menu .navbar-nav > li > a:hover,
+.menu .navbar-nav > li > a:focus,
+.menu .navbar-nav > li > a.active {
+	background-color: #eb3e44;
+	color: #ffffff;
+}
+.dropdown-menu {
+	width: 100%;
+}
+.dropdown-menu a.btn-nav {
+	color: #4f5c5c;
+	width: 100%;
+	text-align: left;
+}
+.dropdown-menu a:hover {
+	color: #4f5c5c;
+}
+/******************** liste formation *******************/
+
+#listeFormation .container {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+#listeFormation .nav-pills a.btn-nav-pills {
+	background-color: #eb3e44;
+	color: #ffffff;
+	text-align: left;
+	border-radius: 0px;
+	margin-bottom: 5px;
+}
+
+#listeFormation .nav-pills a:hover,
+#listeFormation .nav-pills a:focus {
+	background-color: #b42d31;
+	color: #ffffff;
+}
+/*************** banner top *******************/
+/**************** SLIDER ****************/
+.carousel-inner {
+	background-color: #eb3e44;
+	width: 100%;
+	height: 380px;
+	font-family: Helvetica, sans-serif;
+}
+.carousel-inner .item {
+	max-height: 380px;
+}
+
+img.slider-icons {
+	height: 25%;
+	width: 25%;
+}
+
+.banner-top {
+	background-image: url(../images/banner-bg.png);
+  	background-repeat: no-repeat;
+  	background-position: center;
+  	background-size: cover;
+	background-color: #eb3e44;
+	color: #ffffff;
+	width: 100%;
+	height: 500px;
+	font-family: Helvetica, sans-serif;
+}
+.banner-top .left-side {
+	padding-top: 150px;
+}
+.banner-top .left-side h1 {
+	font-size: 500%;
+}
+
+.banner-top .right-side {
+	text-align: center;
+}
+.banner-top .right-side img {
+	height: 50%;
+	width: auto;
+}
+
+/********** content ************/
+
+.content {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	color: #4f5c5c;
+}
+.content h1 {
+	font-family: Helvetica, sans-serif;
+	font-size: 2.25em;
+	color: #eb3e44;
+	text-align: right;
+}
+
+.content .text-content {
+	padding-top: 20px;
+}
+.content .text-content .items {
+	margin-bottom: 10px;
+}
+.content .text-content .item {
+	text-align: center;
+}
+.content .text-content .item p.colored {
+	color: #eb3e44;
+}
+.content .text-content .item img {
+	width: 100%;
+	height: auto;
+}
+
+/************* footer style ******************/
+
+.footer {
+	padding-top: 10px;
+	border-top: 5px solid #b42d31;
+	background-color: #333333;
+	padding-bottom: 30px;
+	color: #999999;
+}
+.footer h2 {
+	padding-left: 15px;
+	color: #dedede;
+}
+.footer span {
+	color: #dedede;
+	margin-right: 10px;
+}
+
+.footer .lien .btn-facebook {
+	width: 30px;
+	height: 30px;
+	background-color: #999999;
+	padding: 0px 0px;
+	color: #999999;
+	outline: none;
+}
+
+.footer .lien .btn-facebook:hover {
+	background-color: #eb3e44;
+	color: #dedede;
+}
+.footer .lien .btn-facebook img {
+	width: 100%;
+	height: auto;
+	margin-right: 10px;
+}
+/****************** inscription area style ****************/
+.inscription {
+	background-color: #eb3e44;
+	color: #ebebeb;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.inscription h1 {
+	margin-top: 30px;
+	color: #b42d31;
+}
+.inscription h1.title {
+	margin-top: 80px;
+	font-size: 500%;
+	color: #b42d31;
+}
+.inscription img {
+	text-align: center;
+	width: 80%;
+	height: auto;
+}
+.inscription .btn-inscription {
+	margin-top: 20px;
+	background-color: #b42d31;
+	color: #ffffff;
 	font-size: 22px;
 	line-height: 26px;
+	padding: 15px 30px;
+	text-transform: uppercase;
 }
-footer {
-	font-size: 13px;
-	padding: 35px 0 38px;
-}
-}
- @media only screen and (max-width: 767px) {
-body {
-	min-width: 420px;
-}
-.flexslider2, .flexslider2 img {
-	height: 300px;
+.inscription .btn-inscription:hover {
+	background-color: #ffffff;
+	color: #eb3e44;
 }
 
+/*************** ensa khouribga page style ********************/
+.banner-top-ensak {
+	width: 100%;
+	height: 305px;
+	background-image: url(../images/ensak-img.jpg);
+	background-color: #f5f4e3;
+  	background-repeat: no-repeat;
+  	background-position: center;
+  	background-size: cover;
+  	border-bottom: 5px solid #eb3e44;
 }
- @media only screen and (max-width: 479px) {
-body {
-	min-width: 300px;
+.content .image-panel img {
+	width: 100%;
+	height: auto;
+	padding-top: 20px;
 }
+.content h4 {
+	color: #eb3e44;
+}
+
+.contact-ensak {
+	background-color: #333333;
+	border-bottom: 5px solid #999999;
+	color: #999999;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.contact-ensak h1 {
+	padding-left: 15px;
+	color: #dedede;
+	margin-bottom: 40px;
+}
+.contact-ensak img {
+	text-align: center;
+	width: 80%;
+	height: auto;
+}
+
+.contact-ensak span {
+	color: #dedede;
+	margin-right: 10px;
+}
+.sub-title {
+	text-align: center;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	color: #ffffff;
+	background-color: #eb3e44;
+}
+/**************** inscription page style ***********************/
+.form-area {
+	margin-bottom: 50px;
+}
+.sub {
+	text-align: center;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	color: #ffffff;
+	background-color: #b42d31;
+	margin-bottom: 30px;
+}
+.sub h2.title {
+	margin-top: 10px;
+}
+.sub p {
+	color: #dedede;
+}
+
+.form-control:focus {
+	border-color: #eb3e44;
+}
+.form-group input:focus:invalid {
+	border-color: #eb3e44;
+}
+.form-group input:focus:valid {
+	border-color: #eb3e44;
+}
+form label {
+	color: #999;
+}
+form textarea {
+	max-width: 100%;
+	min-width: 100%;
+	min-height: 100px;
+	max-height: 200px;
+}
+
+form input.btn-valide {
+	background-color: #eb3e44;
+	color: #ffffff;
+	text-transform: uppercase;
+	width: 100%;
+	-webkit-transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	-ms-transition: all 0.4s ease-out;
+	-o-transition: all 0.4s ease-out;
+}
+form input.btn-valide:hover {
+	background-color: #b42d31;
+	color: #ffffff;
+}
+
+/*********************** formation page style ********************/
+
+.banner-top-formation {
+	width: 100%;
+	height: 305px;
+	background-image: url(../images/ensak-img.jpg);
+	background-color: #f5f4e3;
+  	background-repeat: no-repeat;
+  	background-position: center;
+  	background-size: cover;
+  	border-bottom: 5px solid #eb3e44;
+}
+.sub-formation {
+	background-color: #eb3e44;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: #ffffff;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.sub-formation h1.title {
+	margin-top: 10px;
+}
+
+.section {
+	padding-bottom: 30px;
+	color: #4f5c5c;
+}
+
+.section h1.title {
+	font-family: Helvetica, sans-serif;
+	font-size: 2.25em;
+	color: #eb3e44;
+	text-align: right;
+}
+
+.section .semestre h1.header-box {
+	width: 80px;
+	height: 80px;
+	padding-top: 20px;
+	text-align: center;
+	background-color: #eb3e44;
+	color: #ffffff;
+}
+.section .semestre .modules {
+	padding-top: 20px;
+}
+.section .section-content h4 {
+	color: #eb3e44;
+}
+.section .section-content {
+	padding-top: 20px;
+}
+
+.section .section-content img {
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+.info-general {
+	background-color: #333333;
+	border-bottom: 5px solid #999999;
+	color: #999999;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.info-general h1 {
+	padding-left: 15px;
+	color: #dedede;
+	margin-bottom: 40px;
+}
+.info-general img {
+	text-align: center;
+	width: 80%;
+	height: auto;
+}
+
+.info-general span {
+	color: #dedede;
+	margin-right: 10px;
+}
+
+.image-holder {
+	width: 100%;
+	height: 500px;
+	background-image: url(../images/office.jpg);
+	background-color: #f5f4e3;
+  	background-repeat: no-repeat;
+  	background-position: center;
+  	background-size: cover;
+}
+
+.logos {
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }

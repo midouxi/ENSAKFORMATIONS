@@ -6,60 +6,107 @@
   //if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="admin") { 
 ?>
 <body>
-  <div class="container_12 mar-left1"> 
+  <!-- TOP BANNER -->
+    <div class="col-lg-12">
+        <div class="top-banner">
+            <div class="col-lg-2">
+                <img src="../images/logo-ensak.jpg">
+            </div>
+            <div class="col-lg-8">
+                <h3>Universite Hassan 1<sup>er</sup></h3>
+                <h4>Ecole Nationale des Sciences Appliquées de Khouribga</h4>
+            </div>
+            <div class="col-lg-2">
+                <img src="../images/logo-uh1.png">
+            </div>
+        </div>
+    </div>
     <!--==============================header=================================-->
-    <header class="homepage">
-      <article class="grid_4" style="margin-right:50px">
-        <a class="logo" href="../index.php"><img src="../images/ensa-uh-logo.png" style="width:100%"></a>
-      </article>
       <?php 
-      $administrateur1="current";
+      $role="active";
       include("../Layouts/menuadmin.php");
       ?>
-      <div class="clear"></div>   
-    </header>  
+      <!-- banner top -->
+      <div class="inscription">
+        <div class="container">
+          <div class="col-lg-12">
+
+            <div class="col-lg-8">
+              <h1 class="title">AJOUTER UN COMPTE</h1>
+            </div>
+
+            <div class="col-lg-4">
+              <img src="../images/admin.png">
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sub">
+        <h2 class="title">Ajouter un compte</h2>
+        <p>Veuillez renseigner tous les champs obligatoires (*)</p>
+      </div>
+<!-- page content -->
+  <div class="form-area">
+    <div class="container">
+      <div class="col-lg-12">
+        <form action="add_account_result.php" method="post" class="form-horizontal" id="cform" name="cform">
+          <fieldset>		
+                <div class="form-group col-lg-12">
+                  <label for="email" class="col-lg-4 control-label">Email * : </label>
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                        <input name="email" id="email" type="email" value="" tabindex="1" class="form-control" placeholder="Email">
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-envelope"></span>
+                        </span>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-lg-12">
+                  <label for="mdp" class="col-lg-4 control-label">Mot de passe * : </label>
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                        <input name="mdp" id="mdp" type="text" value="" tabindex="2" class="form-control" placeholder="Mot de passe">
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-envelope"></span>
+                        </span>
+                      </div>
+                  </div>
+                </div>
+                <div class="form-group col-lg-12">
+                  <label for="filiere" class="col-lg-4 control-label">Filière * :</label> 
+                  <div class="col-lg-6">
+                    <select class="form-control" name="filiere" id="filiere"  tabindex="7">
+                      <option value="" selected>--Choisir--</option>
+                      <option value="lar">Licence Administration réseaux</option>
+                      <option value="lsi">Licence Systèmes d'informations</option>
+                      <option value="lil">Licence Ingenierie Logicielle</option>
+                      <option value="mi">Master Informatique</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group col-lg-12">
+                  <label for="type" class="col-lg-4 control-label">Type * :</label> 
+                  <div class="col-lg-6">
+                    <select class="form-control" name="type" id="type"  tabindex="7">
+                      <option value="" selected>--Choisir--</option>
+                      <option value="admin">Administrateur</option>
+                      <option value="editeur">Editeur</option>
+                    </select>
+                  </div>
+                </div>
+              <div class="form-group col-lg-12">
+                <div class="col-lg-6 col-lg-offset-4">
+                  <input type="submit"  class="btn btn-valide" id="send-message" value="Ajouter" tabindex="10">
+                </div>
+              </div>	
+          </fieldset>
+        </form>
+      </div>
+    </div>
   </div>
-<form action="add_account_result.php" method="post" class="sky-form" id="cform" name="cform">
-	<header>
-		<h1>Ajouter un compte</h1>
-		<div class="note">Veuillez renseigner tous les champs obligatoires(<span class="required">*</span>)</div>
-  </header>
-  <fieldset>
-	 <div class="row">			
-      <section class="col col-6">
-	 	    <label class="label">Email<span class="required">*</span></label>
-        <label class="input"><i class="icon-append icon-user"></i>
-        <input name="email" id="email" type="email" value="" tabindex="1"></label>
-      </section>	
-	   <section class="col col-6">
-        <label class="label">Mot de passe<span class="required">*</span></label>
-        <label class="input"><i class="icon-append icon-user"></i>
-        <input name="mdp" id="mdp" type="text" value="" tabindex="2"></label>
-      </section>	
-      <section class="col col-6">
-        <label class="label">Filière<span class="required">*</span></label>
-        <label class="select"><i class="icon-append icon-chevron-down"></i>
-        <select name="filiere" id="filiere"  tabindex="7" >
-            <option value="" selected>--Choisir--</option>
-            <option value="lar">Licence Administration réseaux</option>
-            <option value="lsi">Licence Systèmes d'informations</option>
-            <option value="lil">Licence Ingenierie Logicielle</option>
-            <option value="mi">Master Informatique</option>
-        </select></label>
-      </section>  
-	 	 <section class="col col-6">
-        <label class="label">Type<span class="required">*</span></label>
-        <label class="select"><i class="icon-append icon-chevron-down"></i>
-        <select name="type" id="type"  tabindex="7" >
-            <option value="" selected>--Choisir--</option>
-            <option value="admin">Administrateur</option>
-            <option value="editeur">Editeur</option>
-        </select></label>
-      </section>  	
-    </div>	
-  </fieldset>
-  <footer>
-    <input type="submit"  class="button large" id="send-message" value="Ajouter" tabindex="10" style="width:30%; margin-right:340px;">
-  </footer>
 </body>
 </html>

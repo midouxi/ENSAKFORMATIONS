@@ -6,73 +6,98 @@
   if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="admin") { 
 ?>
 <body>
-  <div class="container_12 mar-left1"> 
+  <!-- TOP BANNER -->
+    <div class="col-lg-12">
+        <div class="top-banner">
+            <div class="col-lg-2">
+                <img src="../images/logo-ensak.jpg">
+            </div>
+            <div class="col-lg-8">
+                <h3>Universite Hassan 1<sup>er</sup></h3>
+                <h4>Ecole Nationale des Sciences Appliquées de Khouribga</h4>
+            </div>
+            <div class="col-lg-2">
+                <img src="../images/logo-uh1.png">
+            </div>
+        </div>
+    </div>
     <!--==============================header=================================-->
-    <header class="homepage">
-      <article class="grid_4" style="margin-right:50px">
-        <a class="logo" href="../index.php"><img src="../images/ensa-uh-logo.png" style="width:100%"></a>
-      </article>
       <?php 
-      $administrateur1="current";
+      $administrateur1="active";
       include("../Layouts/menuadmin.php");
       ?>
-      <div class="clear"></div>   
-    </header>  
-  </div>
+      <!-- top banner -->
+      <div class="inscription">
+        <div class="container">
+          <div class="col-lg-12">
 
-  <div class="body">      
-    <form action="update_formations.php" method="post" class="sky-form" enctype="multipart/form-data">
-      <header>
-        <h1>Mettre à jour une formation</h1>
-      </header>
-      <fieldset>
-        <div class="row">
-          <section class="col col-6">
-            <label class="label">Formation souhaitée:</label>
-            <label class="select"><i class="icon-append icon-chevron-down"></i>
-              <select name="id_page" id="formation"  tabindex="1" >
+            <div class="col-lg-8">
+              <h1 class="title">METTRE À JOUR FORMATION</h1>
+            </div>
+
+            <div class="col-lg-4">
+              <img src="../images/formation.png">
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sub">
+        <h2 class="title">Mettre à jour une formation</h2>
+      </div>
+
+  <div class="form-area">
+    <div class="container">
+      <div class="col-lg-12">
+        
+        <h1 class="title-center">Mettre à jour une formation</h1>
+          <form action="update_formations.php" method="post" class="form-horizontal" enctype="multipart/form-data">
+            <fieldset>
+                <div class="form-group col-lg-12">
+                  <label class="col-lg-4 control-label">Formation souhaitée :</label>
+                  <div class="col-lg-6">
+                    <select class="form-control" name="id_page" id="formation"  tabindex="1">
+                      <option value="" selected>--Choisir--</option>
+                      <?php 
+                        include("../Model/functdb.php");
+                        $functdb = new functdb();
+                        $functdb->getformationline();
+                      ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-lg-12">
+                  <div class="col-lg-6 col-lg-offset-4">  
+                    <input type="submit"  class="btn btn-valide" value="Entrer" tabindex="2">
+                  </div>
+                </div>
+            </fieldset>             
+          </form>
+    
+      <h1 class="title-center">Mettre à jour les semestres d'une formation</h1>
+      <form action="ajouter_semestre.php" method="post" class="form-horizontal" enctype="multipart/form-data">
+        <fieldset>
+          <div class="form-group col-lg-12">
+            <label class="col-lg-4 control-label">Formation souhaitée :</label>
+            <div class="col-lg-6">
+              <select class="form-control" name="id_page" id="formation"  tabindex="3">
                 <option value="" selected>--Choisir--</option>
-                  <?php 
-                  include("../Model/functdb.php");
-                  $functdb = new functdb();
+                <?php 
                   $functdb->getformationline();
-                  ?>
+                ?>
               </select>
-            </label>
-          </section>
-        </div>  
-      </fieldset>
-      <footer>
-       <input type="submit"  class="button large" value="Entrer" tabindex="2" style="width:30%; margin-right:340px;">
-      </footer>
-    </form>
-
-    <br>
-
-    <form action="ajouter_semestre.php" method="post" class="sky-form" enctype="multipart/form-data">
-      <header>
-        <h1>Mettre à jour les semestres d'une formation</h1>
-      </header>
-      <fieldset>
-        <div class="row">
-          <section class="col col-6">
-            <label class="label">Formation souhaitée:</label>
-            <label class="select"><i class="icon-append icon-chevron-down"></i>
-              <select name="id_page" id="formation"  tabindex="3" >
-                <option value="" selected>--Choisir--</option>
-                  <?php 
-                  $functdb->getformationline();
-                  ?>
-              </select>
-            </label>
-          </section>
-        </div>  
-      </fieldset>
-      <footer>
-        <input type="submit"  class="button large" value="Entrer" tabindex="4" style="width:30%; margin-right:340px;">
-      </footer>
-    </form>     
+            </div>
+          </div>
+          <div class="form-group col-lg-12">
+            <div class="col-lg-6 col-lg-offset-4">  
+              <input type="submit"  class="btn btn-valide" value="Entrer" tabindex="4">
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
   </div>
+</div>
 <?php } else { ?> 
   <script>window.location.href="../Admin/adminlogin.php"; </script>
 <?php } ?> 

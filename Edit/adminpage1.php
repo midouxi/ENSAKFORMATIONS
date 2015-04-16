@@ -5,22 +5,26 @@
   if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="editeur") { 
 ?>
 <body>
-  <div class="container_12 mar-left1"> 
+  <!-- TOP BANNER -->
+    <div class="col-lg-12">
+        <div class="top-banner">
+            <div class="col-lg-2">
+                <img src="../images/logo-ensak.jpg">
+            </div>
+            <div class="col-lg-8">
+                <h3>Universite Hassan 1<sup>er</sup></h3>
+                <h4>Ecole Nationale des Sciences Appliquées de Khouribga</h4>
+            </div>
+            <div class="col-lg-2">
+                <img src="../images/logo-uh1.png">
+            </div>
+        </div>
+    </div>
     <!--==============================header=================================-->
-    <header class="homepage">
-
-      <article class="grid_4" style="margin-right:50px">
-        <a class="logo" href="../index.php"><img src="../images/ensa-uh-logo.png" style="width:100%"></a>
-      </article>
-
       <?php 
-      $adminpage1="current";
+      $adminpage1="active";
       include("../Layouts/menuedit.php");
       ?>
-
-      <div class="clear"></div>	  
-    </header> 
-  </div>
 
   <div class="container_12 mar-left1 sky">
     <article class="grid_10">
@@ -30,7 +34,6 @@
 			  $displayadmin->inviteadmin($_SESSION);
 		?> 
     </article>        
-    <?php include("../Layouts/slider.php");?>
   </div>
   <?php } else { ?> <script>window.location.href="../fr/index.php"; </script><?php } ?>
 </body>
