@@ -59,7 +59,7 @@ include("../Layouts/headstatic.php");
       $inscription = new inscription($_POST['nom'], $_POST['prenom'], $_POST['date_naissance'], $_POST['cin'], $_POST['tel'], $_POST['email'], $_POST['diplome'], $_POST['etablissment'], $_POST['formation'], $_POST['lettre_motivation'], $_POST['etat']);
       $inscriptionmanager->add($inscription);
       echo "<div class='sky'><h3>Féliciation Inscription réussite</h3><p>Vous recevrez un mail dans les prochaines jours quand votre inscription sera valider</p><p>Attention verifier aussi votre corrier indesrable!!</p>";
-      echo '<a href="index.php">Revenire à la page d\'accueil</a></div>';
+      echo '<a href="index.php">Revenir à la page d\'accueil</a></div>';
     }else{ echo '
 							
         <form action="" method="post" class="form-horizontal" id="cform" name="cform">
@@ -162,14 +162,15 @@ include("../Layouts/headstatic.php");
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <label for="formation" class="col-lg-4 control-label">Formation souhaitée *</label>
+                  <label for="formation" class="col-lg-4 control-label">Formation souhaitée :</label>
                   <div class="col-lg-6">
-                    <select class="form-control" name="formation" id="formation"  tabindex="9">
+                    <select class="form-control" name="id_page" id="formation"  tabindex="9">
                       <option value="" selected>--Choisir--</option>
-                      <option value="License Ingenierie du logiciel">License Ingénierie du logiciel</option>
-                      <option value="License Administration reseaux">License Administration réseaux</option>
-                      <option value="License systemes information">License systemes d\'information</option>
-                      <option value="Master informatique">Master informatique</option>
+                      ';
+                        include("../Model/functdb.php");
+                        $functdb = new functdb();
+                        $functdb->getformationline();
+                      echo '
                     </select>
                   </div>
                 </div>

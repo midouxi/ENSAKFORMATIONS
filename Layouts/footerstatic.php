@@ -6,8 +6,8 @@
         <div class="col-lg-12">
 
           <div class="col-lg-8">
-            <h1>INTERESSÉ PAR UNE DE NOS FORMATIONS ?</h1>
-            <p>Inscrivez vous dès maintenant, le nombre de places est limité !!</p>
+            <h1>INTÉRESSÉ PAR UNE DE NOS FORMATIONS ?</h1>
+            <p>Inscrivez vous dès maintenant, le nombre de places est limité !</p>
             <a href="inscription.php" class="btn btn-inscription">s'inscrire</a>
           </div>
 
@@ -31,8 +31,7 @@
           <div class="col-lg-4">
             <p><span>Responsable</span>Pr. Imad HAFIDI</p>
             <p><span class="glyphicon glyphicon-envelope"></span>ensak.formations@gmail.com</p>
-            <p><span class="glyphicon glyphicon-earphone"></span>06 62 05 77 69 / 05 23 49 23 35</p>
-            <p><span class="glyphicon glyphicon-print"></span>05 23 49 23 39</p>
+            <p><span class="glyphicon glyphicon-earphone"></span>06 62 05 77 69 </p>
           </div>
 
           <div class="col-lg-4 lien">

@@ -179,6 +179,17 @@ include("../Layouts/headstatic.php");
     </div>
     <div class="logos"><img src='<?php echo $functdb->getformationlinewithid($_GET['id_page'],19);?>'></div>
     <div class="image-holder"></div>
+    <?php 
+      $idformation= $_GET['id_page'];
+      $all_ins=mysql_query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
+      while($ligne=mysql_fetch_array($all_ins)){
+        echo $ligne[3]; //nom
+        echo $ligne[4]; //prenom
+        echo $ligne[5]; //resume
+        echo $ligne[6]; // descriptif
+        echo $ligne[7]; // direction photo 
+      }
+    ?>
 <?php include "../Layouts/footerstatic.php"; ?>
 </body>
 </html>

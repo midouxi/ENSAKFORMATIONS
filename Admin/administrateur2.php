@@ -64,7 +64,7 @@
             </div> 
             <div class="form-group col-lg-12">
               <div class="col-lg-6 col-lg-offset-4">  
-                <input type="submit"  class="btn btn-valide" value="Entrer" tabindex="2">
+                <input type="submit"  class="btn btn-valide" value="Entrer" tabindex="2" onclick="return confirm('Etes-vous sûr que vous voulez supprimer cette formation ?')">
               </div>
             </div>
           </fieldset>

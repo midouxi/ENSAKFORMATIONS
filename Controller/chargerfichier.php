@@ -7,8 +7,10 @@
 			$nom = "../images/".$post."-logo.{$extension_upload}";
 		} else if ($type =="icone") {
 			$nom = "../images/".$post.".{$extension_upload}";
-		} else {
+		} else if ($type =="sponsor") {
 			$nom = "../images/sponsor-".$post.".{$extension_upload}";
+		} else {
+			$nom = "../images/prof/".$post.".{$extension_upload}";
 		}
 		if ($file['error'] > 0) $erreur = "Erreur lors du transfert";
 			{

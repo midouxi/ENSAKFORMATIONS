@@ -59,7 +59,7 @@ include("../Layouts/headstatic.php");
       $inscription_final = new inscription_final($_POST['nom'], $_POST['prenom'], $_POST['cne'], $_POST['cin'], $_POST['date_naissance'], $_POST['lieu_naissance'], $_POST['province'], $_POST['sexe'], $_POST['nationalite'], $_POST['situation'], $_POST['handicap'], $_POST['bac_annee'], $_POST['bac_serie'], $_POST['mention'], $_POST['etablissment'], $_POST['adresse'], $_POST['email'], $_POST['tel'], $_POST['tel_parents'], $_POST['prof_ben'], $_POST['prof_pere'], $_POST['prof_mere']);
       $inscription_finalmanager->add($inscription_final);
       echo "<div class='sky'>Féliciation: inscription final réussite<br>";
-      echo '<a href="index.php">Revenire à la page d\'accueil</a></div>';
+      echo '<a href="index.php">Revenir à la page d\'accueil</a></div>';
        }else{                  
       echo'<form action="" method="post" class="form-horizontal" id="cform" name="cform">
             <fieldset>

@@ -130,7 +130,7 @@ sup {
 }
 
 img.slider-icons {
-	height: 25%;
+	height: auto;
 	width: 25%;
 }
 

@@ -94,7 +94,6 @@ Class functdb {
               echo '<td>'.$ligne_ins[6].'</td>';
               echo '<td>'.$ligne_ins[7]. '</td>';
               echo '<td><a data-toggle="modal" data-target="#data-'.$i.'" class="btn btn-table">Visualiser</a></td>';
-              echo '<td class="fixed">';
               $q=$db->query("SELECT viewed,contacte,inscrit FROM inscription WHERE cin='$ligne_ins[3]'");
               foreach ($q as $row) {
                 $a= $row['viewed'];
@@ -104,13 +103,14 @@ Class functdb {
               if($a==1) $checked1="checked";
               if($b==1) $checked2="checked";
               if($c==1) $checked3="checked";
-              echo 'Vue ';
+              echo '<td>';
               echo '<input type="checkbox" id="'.$idv.'" '.$checked1.'  onclick="go(\''.$ligne_ins[3].'\',\'viewed\','.$idv.')" />';
-              echo '<br>Contacté ';
+              echo '</td>';
+              echo '<td>';
               echo '<input type="checkbox" id="'.$idc.'" '.$checked2.' onclick="go(\''.$ligne_ins[3].'\',\'contacte\','.$idc.')" />';
-              echo '<br>Inscrit ';
+              echo '</td>';
+              echo '<td>';
               echo '<input type="checkbox" id="'.$idi.'" '.$checked3.' onclick="go(\''.$ligne_ins[3].'\',\'inscrit\','.$idi.')" />';
-              //"go('.$ligne_ins[3].')" />';
               echo '</td>';
               echo '<td>';
               echo'<form action="envoi_mail.php" class="sky-form" method="post">
@@ -201,13 +201,73 @@ Class functdb {
                       <input type="hidden" name="id_c" value="'.$ligne_ins[0].'" />
                    </form>
                    <form action="delete_account.php" class="sky-form" method="post">
-                      <input type="submit" class="btn btn-table" value="Supprimer" name="val"/>
+                      <input type="submit" class="btn btn-table" value="Supprimer" name="val" onclick="return confirm(\'Etes-vous sûr que vous voulez supprimer cette formation ?\')"/>
                       <input type="hidden" name="id_c" value="'.$ligne_ins[0].'" />
                    </form>'; 
               echo '</td>';
          echo '</tr>';
       }
+  }
 
+  public function getprofs(){
+    $db = new PDO('mysql:host=localhost;dbname=db_fc','root', '');
+    $all_ins=mysql_query("select * from prof");
+    $i=0;
+      while($ligne_ins=mysql_fetch_array($all_ins)){
+        echo '<tr>'; 
+              echo '<td>'.$ligne_ins[1].'</td>';
+              echo '<td>'.$ligne_ins[2].'</td>';
+              echo '<td>'.$ligne_ins[3].'</td>';
+              echo '<td>'.$ligne_ins[4].'</td>';
+              echo '<td>';
+              $all_ins_form=mysql_query("select * from formations");
+              while($ligne_ins_form=mysql_fetch_array($all_ins_form)){
+                $idv="formation".$i;
+                $q=$db->query("SELECT id_formations,id_prof FROM lier WHERE id_formations='$ligne_ins_form[0]' AND id_prof='$ligne_ins[0]'");
+                foreach ($q as $row) {
+                  $a= $row['id_formations'];
+                  $b= $row['id_prof'];
+                }
+                echo $ligne_ins_form[1];
+                if($a==$ligne_ins_form[0] && $b==$ligne_ins[0]) $checked1="checked";
+                echo '<input type="checkbox" id="'.$idv.'" '.$checked1.'  onclick="goo(\''.$ligne_ins[0].'\',\''.$ligne_ins_form[0].'\','.$idv.')" /></br>';
+                $i++;
+                $checked1=null;
+              }
+
+              echo'</td>';
+              echo '<td>' ;
+              echo' <form action="update_prof.php" class="sky-form" method="post">
+                      <input type="submit" class="btn btn-table" value="Modifier" name="val"/>
+                      <input type="hidden" name="id_prof" value="'.$ligne_ins[0].'" />
+                   </form>
+                   <form action="delete_prof.php" class="sky-form" method="post">
+                      <input type="submit" class="btn btn-table" value="Supprimer" name="val" onclick="return confirm(\'Etes-vous sûr que vous voulez supprimer cette formation ?\')"/>
+                      <input type="hidden" name="id_prof" value="'.$ligne_ins[0].'" />
+                   </form>'; 
+              echo '</td>';
+         echo '</tr>';
+      }
+  }
+
+  public function deleteprof($idprof) {
+        $db = new PDO('mysql:host=localhost;dbname=db_fc','root', '');
+        $db->exec("DELETE FROM prof WHERE id_prof='$idprof'");
+        $db->exec("DELETE FROM lier WHERE id_prof='$idprof'");
+  }
+
+  public function updateprof($idprof,$nom,$prenom,$resume,$descriptif,$photo) { 
+    $db = new PDO('mysql:host=localhost;dbname=db_fc','root', '');
+    $db->exec("UPDATE prof SET nom ='$nom' WHERE id_prof ='$idprof'");
+    $db->exec("UPDATE prof SET prenom ='$prenom' WHERE id_prof ='$idprof'");
+    $db->exec("UPDATE prof SET resume ='$resume' WHERE id_prof ='$idprof'");
+    $db->exec("UPDATE prof SET descriptif ='$descriptif' WHERE id_prof ='$idprof'");
+    $db->exec("UPDATE prof SET photo ='$photo' WHERE id_prof ='$idprof'");
+  }
+
+  public function addprof($nom,$prenom,$resume,$descriptif,$photo) {
+    $db = new PDO('mysql:host=localhost;dbname=db_fc','root', '');
+    $db->exec("INSERT INTO prof (`nom`, `prenom`, `resume`, `descriptif`, `photo`) VALUES ('$nom, '$prenom, '$resume, '$descriptif, '$photo);");
   }
 
 }

@@ -66,7 +66,9 @@
               <td>DIPLOME</td>
               <td>ETABLISSMENT</td>
               <td>LETTRE DE MOTIVATION</td>
-              <td class="fixed">Traitement</td>
+              <td>Vue</td>
+              <td>Contacté</td>
+              <td>Inscrit</td>
               <td>Valider</td>
             </tr>
         </thead>

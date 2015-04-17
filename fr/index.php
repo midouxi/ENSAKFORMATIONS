@@ -27,41 +27,20 @@ include("../Layouts/headstatic.php");
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img src="../images/slider/1.png">
+        <?php
+          $all_ins=mysql_query("select * from formations");
+          $i =1;
+          while($ligne_ins=mysql_fetch_array($all_ins)){
+        ?>
+        <div class="item <?php if ($i==1) { echo 'active' ;}  ?>">
+          <img src="../images/slider/<?php echo $i;?>.png">
           <div class="carousel-caption">
             <img class="slider-icons" src="../images/icons/code.png">
-            <h2>Licence Universitaire en Sciences Appliquées Ingénierie des Systèmes d’Information</h2>
-            <h4>Une formation professionnelle en nouvelles technologies informatiques sur 1 an</h4>
+            <h2><?php print($ligne_ins[4]); ?></h2>
+            <h4>Une formation professionnelle en nouvelles technologies informatiques sur <?php print($ligne_ins[8]); ?></h4>
           </div>
         </div>
-
-        <div class="item">
-          <img src="../images/slider/2.png">
-          <div class="carousel-caption">
-            <img class="slider-icons" src="../images/icons/code.png">
-            <h2>Licence Universitaire en Sciences Appliquées Ingénierie du logiciel</h2>
-            <h4>Une formation professionnelle en nouvelles technologies informatiques sur 1 an</h4>
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="../images/slider/3.png">
-          <div class="carousel-caption">
-            <img class="slider-icons" src="../images/icons/code.png">
-            <h2>Master Universitaire en Sciences Appliquées Conception et architecture des systèmes informatiques</h2>
-            <h4>Une formation professionnelle en nouvelles technologies informatiques sur 2 an</h4>
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="../images/slider/4.png">
-          <div class="carousel-caption">
-            <img class="slider-icons" src="../images/icons/code.png">
-            <h2>Licence Universitaire en Sciences Appliquées Administration réseaux</h2>
-            <h4>Une formation professionnelle en nouvelles technologies informatiques sur 1 an</h4>
-          </div>
-        </div>
+        <?php  $i++ ;} ?>
 
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -81,11 +60,11 @@ include("../Layouts/headstatic.php");
         <div class="col-lg-12">
 
           <div class="col-lg-3">
-            <h1>Objéctifs Généraux</h1>
+            <h1>Objectifs Généraux</h1>
           </div>
 
           <div class="col-lg-9 text-content">
-            <p>Pour répondre aux besoins en formations des cadres et des organisations, Ensak formation Continue vous propose des formations diplômants, en :</p>
+            <p>Pour répondre aux besoins en formations des cadres et des organisations, les formations Continues de l'ENSA Khouribga vous propose des formations diplômants, en :</p>
             <div class="col-lg-12 items">
               <div class="col-lg-3 item">
                 <img src="../images/icons/3.png">

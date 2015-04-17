@@ -43,7 +43,6 @@ include("../Layouts/headstatic.php");
   <!-- # 1 ere Affichage # -->
   <?php
   include "../Controller/chargerfichier.php"; 
-  include_once "../Classes/formations.class.php";
   include_once "../Controller/formationsmanager.php";
   if(!(empty($_POST['id_formations']))){
 	$charger=new charger();

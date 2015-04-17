@@ -5,7 +5,7 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           	<ul class="nav navbar-nav">
 				<!-- home -->
-				<li><a href="adminpage1.php" class="<?php echo $adminpage1; ?> button-nav">Acceuil</a></li>
+				<li><a href="adminpage1.php" class="<?php echo $adminpage1; ?> button-nav">Accueil</a></li>
 				<!-- inscription -->
 				<li><a href="adminpage.php" class="<?php echo $adminpage; ?> button-nav">Inscription</a></li>
 				<!-- inscription final -->

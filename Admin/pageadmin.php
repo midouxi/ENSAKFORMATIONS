@@ -91,7 +91,7 @@
                           <input type="hidden" name="id_page" value="'.$ligne_ins[0].'" />
                          </form>
                          <form action="delete_formations.php" class="sky-form" method="post">
-                          <input type="submit" class="btn btn-table" value="Supprimer" name="val"/>
+                          <input type="submit" class="btn btn-table" value="Supprimer" name="val" onclick="return confirm(\'Etes-vous sûr que vous voulez supprimer cette formation ?\')"/>
                           <input type="hidden" name="id_page" value="'.$ligne_ins[0].'" />
                          </form>';?></td>
         </tr>
