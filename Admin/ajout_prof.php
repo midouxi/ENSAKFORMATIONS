@@ -46,6 +46,7 @@
         <h2 class="title">Ajouter un professeur</h2>
         <p>Veuillez renseigner tous les champs obligatoires (*)</p>
       </div>
+      
 <!-- page content -->
   <div class="form-area">
     <div class="container">
@@ -53,38 +54,38 @@
         <form action="add_prof_result.php" method="post" class="form-horizontal" id="cform" name="cform" enctype="multipart/form-data">
           <fieldset>		
                 <div class="form-group col-lg-12">
-                  <label for="email" class="col-lg-4 control-label">Nom * : </label>
+                  <label for="nom" class="col-lg-4 control-label">Nom * : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
                         <input name="nom" id="nom" type="text" value="" tabindex="1" class="form-control" placeholder="Nom">
                         <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-envelope"></span>
+                          <span class="glyphicon glyphicon-user"></span>
                         </span>
                       </div>
                   </div>
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <label for="mdp" class="col-lg-4 control-label">Prénom * : </label>
+                  <label for="prenom" class="col-lg-4 control-label">Prénom * : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
                         <input name="prenom" id="prenom" type="text" value="" tabindex="2" class="form-control" placeholder="Prénom">
                         <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-envelope"></span>
+                          <span class="glyphicon glyphicon-user"></span>
                         </span>
                       </div>
                   </div>
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <label for="condition_admission" class="col-lg-4 control-label">Résumé * : </label>
+                  <label for="resume" class="col-lg-4 control-label">Résumé * : </label>
                   <div class="col-lg-6">
                     <textarea class="form-control" name="resume" id="resume" tabindex="14"></textarea>
                   </div>
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <label for="condition_admission" class="col-lg-4 control-label">Descriptif * : </label>
+                  <label for="descriptif" class="col-lg-4 control-label">Descriptif * : </label>
                   <div class="col-lg-6">
                     <textarea class="form-control" name="descriptif" id="descriptif" tabindex="14"></textarea>
                   </div>

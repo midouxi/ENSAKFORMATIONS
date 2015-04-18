@@ -57,7 +57,7 @@
               <td>PRENOM</td>
               <td>RESUME</td>
               <td>DESCRIPTIF</td>
-              <td>FORMATIONS</td>
+              <td class="fixed-formation">FORMATIONS</td>
               <td>TRAITEMENT</td>
             </tr>
           </thead>

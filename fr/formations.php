@@ -178,18 +178,58 @@ include("../Layouts/headstatic.php");
       </div>
     </div>
     <div class="logos"><img src='<?php echo $functdb->getformationlinewithid($_GET['id_page'],19);?>'></div>
-    <div class="image-holder"></div>
+    <div class="container">
+      <div class="col-lg-12 list-prof">
+        <h1 class="title-center">Liste des Prof de la formation</h1>
+        <?php 
+          $i = 0;
+          $idformation= $_GET['id_page'];
+          $all_ins=mysql_query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
+          while($ligne=mysql_fetch_array($all_ins)){ ?>
+            <div class="col-lg-3 prof-content">
+              <div class="prof-image">
+                <img src="<?php echo $ligne[7]; ?>">
+                <div class="overlay">
+                  <a class="overlay-content" data-toggle="modal" data-target="#data-<?php echo $i; ?>" class="btn">
+                    <h3 class="glyphicon glyphicon-search"></h3>
+                    <h3>Visualiser</h3>
+                  </a>
+                </div>
+              </div>
+              <h3><?php echo $ligne[3].' '.$ligne[4]; ?></h3>
+              <p><?php echo $ligne[5]; ?></p>
+            </div>
+        <?php $i++; } ?>
+      </div>
+    </div>
+
+
     <?php 
+      $j = 0;
       $idformation= $_GET['id_page'];
       $all_ins=mysql_query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
       while($ligne=mysql_fetch_array($all_ins)){
-        echo $ligne[3]; //nom
-        echo $ligne[4]; //prenom
-        echo $ligne[5]; //resume
-        echo $ligne[6]; // descriptif
-        echo $ligne[7]; // direction photo 
-      }
     ?>
+        <!-- modal prof definition -->
+        <div class="modal fade" id="data-<?php echo $j; ?>" tabindex="-1" role="dialog" aria-labelledby="compt-Label" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header modal-header-compt">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="compt-Label">Information</h4>
+                  </div>
+                  <div class="modal-body modal-body-compt">
+                      <img src="<?php echo $ligne[7]; ?>">
+                      <h3><?php echo $ligne[3].' '.$ligne[4]; ?></h3>
+                      <p class="colored">Résumé</p>
+                      <p><?php echo $ligne[5]; ?></p>
+                      <p class="colored">Description</p>
+                      <p><?php echo $ligne[6]; ?></p>
+                  </div>
+                </div>
+              </div>
+        </div>
+    <?php $j++; } ?>
 <?php include "../Layouts/footerstatic.php"; ?>
 </body>
 </html>

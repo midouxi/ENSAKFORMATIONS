@@ -215,6 +215,9 @@ h3.title-center {
 td.fixed {
 	width: 100px;
 }
+td.fixed-formation {
+	width: 200px;
+}
 .getfrom-bottom {
 	margin-bottom: 60px;
 }
@@ -232,4 +235,12 @@ td.fixed {
 }
 .modal-body h3 {
 	color: #eb3e44;
+}
+
+.modal-body p.colored {
+	color: #eb3e44;
+}
+.modal-body img {
+	width: 100%;
+	height: auto;
 }

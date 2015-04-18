@@ -49,6 +49,7 @@ include("../Layouts/headstatic.php");
     ?> 
       <h1 class="title-general">La mise á jour du compte s'est déroulée avec succès</h1>
       <a class="btn btn-valide" href="role.php">Revenir à la gestion des rôles</a>
+      <div class="getfrom-bottom"></div>
     <?php } ?>
     </div>
   </div>

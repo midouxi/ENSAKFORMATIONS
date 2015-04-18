@@ -219,7 +219,7 @@ Class functdb {
               echo '<td>'.$ligne_ins[2].'</td>';
               echo '<td>'.$ligne_ins[3].'</td>';
               echo '<td>'.$ligne_ins[4].'</td>';
-              echo '<td>';
+              echo '<td class="fixed-formation">';
               $all_ins_form=mysql_query("select * from formations");
               while($ligne_ins_form=mysql_fetch_array($all_ins_form)){
                 $idv="formation".$i;
@@ -228,7 +228,7 @@ Class functdb {
                   $a= $row['id_formations'];
                   $b= $row['id_prof'];
                 }
-                echo $ligne_ins_form[1];
+                echo $ligne_ins_form[1].'  ';
                 if($a==$ligne_ins_form[0] && $b==$ligne_ins[0]) $checked1="checked";
                 echo '<input type="checkbox" id="'.$idv.'" '.$checked1.'  onclick="goo(\''.$ligne_ins[0].'\',\''.$ligne_ins_form[0].'\','.$idv.')" /></br>';
                 $i++;
@@ -262,12 +262,15 @@ Class functdb {
     $db->exec("UPDATE prof SET prenom ='$prenom' WHERE id_prof ='$idprof'");
     $db->exec("UPDATE prof SET resume ='$resume' WHERE id_prof ='$idprof'");
     $db->exec("UPDATE prof SET descriptif ='$descriptif' WHERE id_prof ='$idprof'");
-    $db->exec("UPDATE prof SET photo ='$photo' WHERE id_prof ='$idprof'");
+    if($photo != NULL)
+    {
+      $db->exec("UPDATE prof SET photo ='$photo' WHERE id_prof ='$idprof'");
+    }
   }
 
   public function addprof($nom,$prenom,$resume,$descriptif,$photo) {
     $db = new PDO('mysql:host=localhost;dbname=db_fc','root', '');
-    $db->exec("INSERT INTO prof (`nom`, `prenom`, `resume`, `descriptif`, `photo`) VALUES ('$nom, '$prenom, '$resume, '$descriptif, '$photo);");
+    $db->exec("INSERT INTO prof (nom, prenom, resume, descriptif, photo) VALUES ('$nom', '$prenom', '$resume', '$descriptif', '$photo')");
   }
 
 }

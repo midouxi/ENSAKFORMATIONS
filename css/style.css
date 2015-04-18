@@ -462,3 +462,61 @@ form input.btn-valide:hover {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+
+/********* image prof ********/
+
+.list-prof img {
+	padding-top: 10px;
+	width: 100%;
+	height: auto;
+	-webkit-filter: grayscale(100%);
+	-webkit-transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	-ms-transition: all 0.4s ease-out;
+	-o-transition: all 0.4s ease-out;
+}
+.overlay {
+	bottom: 0;  
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	display: block;
+	position: absolute;
+	z-index: 20;
+	background: url(../images/bg-opacity.png) repeat;
+	overflow: hidden;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	text-align: center;
+	padding-top: 50px;
+	color: #ffffff;
+}
+.overlay:hover {
+	opacity: 1;
+}
+a.overlay-content {
+	color: #333333;
+}
+a.overlay-content:hover {
+	cursor: pointer;
+	color: #ffffff;
+	text-decoration: none;
+}
+.list-prof h3,
+.list-prof p {
+	text-align: center;
+}
+.list-prof img {
+	-webkit-filter: grayscale(0%);
+}
+.list-prof .prof-content {
+	margin-bottom: 10px;
+}
+h1.title-center {
+	color: #eb3e44;
+	text-align: center;
+}
