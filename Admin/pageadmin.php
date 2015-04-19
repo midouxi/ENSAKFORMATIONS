@@ -76,7 +76,7 @@
         ?>
         <tr>
           <td><?php print($ligne_ins[0]); ?></td>
-          <td><?php print($ligne_ins[2]); ?></td>
+          <td><?php print(utf8_encode($ligne_ins[2])); ?></td>
           <td><?php print($ligne_ins[4]); ?></td>
           <td><?php print($ligne_ins[5]); ?></td>
           <td><?php print($ligne_ins[6]); ?></td>
@@ -100,6 +100,6 @@
     </table>
     </div>
   </div>        
-  <?php } else { ?> <script>window.location.href="../Admin/adminlogin.php"; </script><?php } ?>                        
+  <?php } else { ?> <script>window.location.href="../Admin/index.php"; </script><?php } ?>                        
 </body>
 </html>

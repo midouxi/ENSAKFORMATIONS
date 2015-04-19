@@ -1,6 +1,8 @@
 <?php
 $title="ENSA Khouribga - Ajout";
 include("../Layouts/headstatic.php");
+session_start();
+  if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="admin") {
 ?>
 <body>
     <!-- TOP BANNER -->
@@ -153,6 +155,6 @@ include("../Layouts/headstatic.php");
       <div class="getfrom-bottom"></div>
     </div>
   </div>
-  <?php } ?> 
+  <?php }} else { ?> <script>window.location.href="../fr/index.php"; </script><?php } ?>
 </body>
 </html>

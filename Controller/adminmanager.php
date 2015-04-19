@@ -104,7 +104,7 @@ class adminmanager {
               $_SESSION['filiere'] = $this->getfiliere($postemail);
               session_write_close();
               echo '<script> 
-                      window.location.href="../Edit/adminpage1.php"; 
+                      window.location.href="../Edit/adminpage.php"; 
                     </script> ';
              } else { echo "compte non spécifié veuillez contacter l'admin " ;}
           } 

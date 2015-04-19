@@ -12,8 +12,9 @@ class inscription {
 	public $formation;
 	public $lettre_motivation;
 	public $etat;
+	public $created;
 
- 	function __construct($nom,$prenom,$date_naissance,$cin,$tel,$email,$diplome,$etablissment,$formation,$lettre_motivation,$etat) {
+ 	function __construct($nom,$prenom,$date_naissance,$cin,$tel,$email,$diplome,$etablissment,$formation,$lettre_motivation,$etat,$created) {
 	 	$this->nom=$nom;
 	 	$this->prenom=$prenom;
 	 	$this->date_naissance=$date_naissance;
@@ -25,6 +26,7 @@ class inscription {
 	 	$this->formation=$formation;
 	 	$this->lettre_motivation=$lettre_motivation;
 		$this->etat=$etat;
+		$this->created=$created;
 	 }
 }
 ?>

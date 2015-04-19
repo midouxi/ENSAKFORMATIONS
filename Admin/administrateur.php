@@ -301,7 +301,7 @@
     </div>
   </div>
 <?php } else { ?> 
-  <script>window.location.href="../Admin/adminlogin.php"; </script>
+  <script>window.location.href="../Admin/index.php"; </script>
 <?php } ?> 
 
     <script type="text/javascript">

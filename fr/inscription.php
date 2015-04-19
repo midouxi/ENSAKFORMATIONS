@@ -50,15 +50,15 @@ include("../Layouts/headstatic.php");
         <div class="col-lg-12">
 
   <?php
-    include_once "../Classes/inscription.class.php";
     include_once "../Controller/inscriptionmanager.php";
-
-    if(!(empty($_POST['nom']) OR empty($_POST['prenom']) OR empty($_POST['date_naissance']) OR empty($_POST['cin']) OR empty($_POST['tel']) OR empty($_POST['email']) OR empty($_POST['diplome']) OR empty($_POST['etablissment']) OR empty($_POST['formation']) OR empty($_POST['lettre_motivation']) OR empty($_POST['etat'])))
+    include_once "../Classes/inscription.class.php";
+    var_dump($_POST);
+    if(!empty($_POST['nom']) || !empty($_POST['prenom']) || !empty($_POST['date_naissance']) || !empty($_POST['cin']) || !empty($_POST['tel']) || !empty($_POST['email']) || !empty($_POST['diplome']) || !empty($_POST['etablissment']) || !empty($_POST['formation']) || !empty($_POST['lettre_motivation']) || !empty($_POST['etat']) || !empty($_POST['etat']))
     {
       $inscriptionmanager = new inscriptionmanager();
-      $inscription = new inscription($_POST['nom'], $_POST['prenom'], $_POST['date_naissance'], $_POST['cin'], $_POST['tel'], $_POST['email'], $_POST['diplome'], $_POST['etablissment'], $_POST['formation'], $_POST['lettre_motivation'], $_POST['etat']);
+      $inscription = new inscription($_POST['nom'], $_POST['prenom'], $_POST['date_naissance'], $_POST['cin'], $_POST['tel'], $_POST['email'], $_POST['diplome'], $_POST['etablissment'], $_POST['formation'], $_POST['lettre_motivation'], $_POST['etat'], $_POST['created']);
       $inscriptionmanager->add($inscription);
-      echo "<div class='sky'><h3>Féliciation Inscription réussite</h3><p>Vous recevrez un mail dans les prochaines jours quand votre inscription sera valider</p><p>Attention verifier aussi votre corrier indesrable!!</p>";
+      echo "<div class='sky'><h3>Féliciation Inscription réussite</h3><p>Vous recevrez un mail dans les prochaines jours quand votre inscription sera validée</p><p>Attention vérifier aussi votre corrier indésirable!!</p>";
       echo '<a href="index.php">Revenir à la page d\'accueil</a></div>';
     }else{ echo '
 							
@@ -101,7 +101,7 @@ include("../Layouts/headstatic.php");
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <label for="cin" class="col-lg-4 control-label">Numero de la carte Nationale(CIN) *</label>
+                  <label for="cin" class="col-lg-4 control-label">Numéro de la carte Nationale(CIN) *</label>
                   <div class="col-lg-6">
                     <div class="input-group">
                         <input class="form-control" name="cin" id="cin" type="text" value="" tabindex="4" placeholder="CIN">
@@ -164,7 +164,7 @@ include("../Layouts/headstatic.php");
                 <div class="form-group col-lg-12">
                   <label for="formation" class="col-lg-4 control-label">Formation souhaitée :</label>
                   <div class="col-lg-6">
-                    <select class="form-control" name="id_page" id="formation"  tabindex="9">
+                    <select class="form-control" name="formation" id="formation"  tabindex="9">
                       <option value="" selected>--Choisir--</option>
                       ';
                         include("../Model/functdb.php");
@@ -184,7 +184,9 @@ include("../Layouts/headstatic.php");
 
                 <div class="form-group col-lg-12">
                   <div class="col-lg-6 col-lg-offset-4">
-                    <input type="submit"  class="btn btn-valide" id="send-message" value="s\'inscrire" tabindex="10">		<input type="hidden" name="etat" value="non Traiter">
+                    <input type="submit"  class="btn btn-valide" id="send-message" value="s\'inscrire" tabindex="10">		
+                    <input type="hidden" name="etat" value="0">
+                    <input type="hidden" name="created" value="'; echo date('Y/m/d G:i:s ', time()); echo'">
                   </div>
                 </div>
               </fieldset>

@@ -15,7 +15,7 @@ class inscriptionManager {
   }
 
   public function add(inscription $inscription) {
-    $q = $this->_db->prepare('INSERT INTO inscription SET nom = :nom, prenom = :prenom, date_naissance = :date_naissance, cin = :cin, tel = :tel, email = :email, diplome = :diplome, etablissment = :etablissment, formation = :formation, lettre_motivation = :lettre_motivation, etat = :etat');
+    $q = $this->_db->prepare('INSERT INTO inscription SET nom = :nom, prenom = :prenom, date_naissance = :date_naissance, cin = :cin, tel = :tel, email = :email, diplome = :diplome, etablissment = :etablissment, formation = :formation, lettre_motivation = :lettre_motivation, etat = :etat , created = :created');
     $q->bindValue(':nom', $inscription->nom);
     $q->bindValue(':prenom', $inscription->prenom);
     $q->bindValue(':date_naissance', $inscription->date_naissance);
@@ -27,14 +27,15 @@ class inscriptionManager {
     $q->bindValue(':formation', $inscription->formation);
     $q->bindValue(':lettre_motivation', $inscription->lettre_motivation);
     $q->bindValue(':etat', $inscription->etat);
+    $q->bindValue(':created',$inscription->created);
     $q->execute();
   }
  
   public function get($id_inscription) {
-    $q = $this->_db->query('SELECT nom, prenom, date_naissance, cin, tel, email, diplome, etablissment, formation, lettre_motivation, etat FROM inscription WHERE cin=\''  . $cin . '\'');
+    $q = $this->_db->query('SELECT nom, prenom, date_naissance, cin, tel, email, diplome, etablissment, formation, lettre_motivation, etat ,created FROM inscription WHERE cin=\''  . $cin . '\'');
     $donnees = $q->fetch();
     if($donnees)
-      return new inscription($donnees['nom'], $donnees['prenom'],$donnees['date_naissance'],  $donnees['cin'],  $donnees['tel'], $donnees['email'], $donnees['diplome'], $donnees['etablissment'], $donnees['formation'], $donnees['lettre_motivation'], $donnees['etat']);
+      return new inscription($donnees['nom'], $donnees['prenom'],$donnees['date_naissance'],  $donnees['cin'],  $donnees['tel'], $donnees['email'], $donnees['diplome'], $donnees['etablissment'], $donnees['formation'], $donnees['lettre_motivation'], $donnees['etat'], $donnees['created']);
     else 
       return null;
   }

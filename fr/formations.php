@@ -163,7 +163,7 @@ include("../Layouts/headstatic.php");
             <div class="col-lg-6">
               <p><span>Domaine :</span> <?php print($functdb->getformationlinewithid($_GET['id_page'],6)); ?></p>
               <p><span>Type de formation :</span> <?php print($functdb->getformationlinewithid($_GET['id_page'],7)); ?></p>
-              <p><span>Niveau :</span> <?php print($functdb->getformationlinewithid($_GET['id_page'],2)); ?></p>
+              <p><span>Niveau :</span> <?php print(utf8_encode($functdb->getformationlinewithid($_GET['id_page'],2))); ?></p>
               <p><span>Durée :</span> <?php print($functdb->getformationlinewithid($_GET['id_page'],8)); ?></p>
             </div>
             <div class="col-lg-6">
@@ -180,7 +180,7 @@ include("../Layouts/headstatic.php");
     <div class="logos"><img src='<?php echo $functdb->getformationlinewithid($_GET['id_page'],19);?>'></div>
     <div class="container">
       <div class="col-lg-12 list-prof">
-        <h1 class="title-center">Liste des Prof de la formation</h1>
+        <h1 class="title-center">STAFF</h1>
         <?php 
           $i = 0;
           $idformation= $_GET['id_page'];

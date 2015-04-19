@@ -2,6 +2,8 @@
 $title="ENSA Khouribga - Supprimer";
 include "../Model/connect.php";
 include("../Layouts/headstatic.php");
+session_start();
+  if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="admin") {
 ?>
 <body>
   <!-- TOP BANNER -->
@@ -68,5 +70,6 @@ include("../Layouts/headstatic.php");
     <?php } ?>
     </div>
   </div>
+  <?php } else { ?> <script>window.location.href="../fr/index.php"; </script><?php } ?>
 </body>
 </html>

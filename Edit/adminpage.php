@@ -59,6 +59,7 @@
 			<table class="table table-striped table-bordered">
  				<thead>
             <tr>
+              <td>DATE D'INSCRIPTION</td>
             	<td>FORMATIONS</td>
               <td>Information général</td>
               <td>CIN</td>

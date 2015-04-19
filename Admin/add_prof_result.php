@@ -1,6 +1,8 @@
 <?php
 $title="ENSA Khouribga - Supprimer";
 include("../Layouts/headstatic.php");
+session_start();
+  if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="admin") {
 ?>
 <body>
   <!-- TOP BANNER -->
@@ -54,5 +56,6 @@ include("../Layouts/headstatic.php");
       <a class="btn btn-valide" href="prof.php">Revenir à la gestion des profs</a>
     </div>
   </div>
+  <?php } else { ?> <script>window.location.href="../fr/index.php"; </script><?php } ?>
 </body>
 </html>
