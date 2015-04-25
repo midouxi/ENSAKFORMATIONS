@@ -60,7 +60,6 @@
  				<thead>
             <tr>
               <td>DATE D'INSCRIPTION</td>
-            	<td>FORMATIONS</td>
               <td>Information général</td>
               <td>CIN</td>
               <td>CONTACT</td>
@@ -82,7 +81,7 @@
         </tbody>
       </table>
 		</div>
-    <?php $functdb->getModalInscription($_SESSION['filiere']); ?>
+    <?php $functdb->getModalInscription($_SESSION['filiere'],0); ?>
 	<!--/ tabs -->
   <?php } else { ?> <script>window.location.href="../fr/index.php"; </script><?php } ?>
 </body>

@@ -58,11 +58,13 @@ include("../Layouts/headstatic.php");
             <div class="col-lg-10 modules">
               <?php 
                 $id_page=$_GET['id_page'];
-                $all_nbr_module=mysql_query("select count(id_semestre) from module where id_formations='$id_page' AND id_semestre='Semestre $i'");
-                $ligne_nbr_module=mysql_fetch_array($all_nbr_module);
+                $all_nbr_module=$_db->query("select count(id_semestre) from module where id_formations='$id_page' AND id_semestre='Semestre $i'");
+                $all_nbr_module->setFetchMode(PDO::FETCH_NUM);
+                $ligne_nbr_module=$all_nbr_module->fetch(); 
                 for ($j=1; $j <=$ligne_nbr_module[0]; $j++) { 
-                    $all_nom_module=mysql_query("select nom_module from module where id_module='$id_page-S$i-M$j'");
-                    $ligne_nom_module=mysql_fetch_array($all_nom_module);
+                    $all_nom_module=$_db->query("select nom_module from module where id_module='$id_page-S$i-M$j'");
+                    $all_nom_module->setFetchMode(PDO::FETCH_NUM);
+                    $ligne_nom_module=$all_nom_module->fetch();
               ?>
               <p><strong>M<?php echo $j;?> </strong>: <?php print($ligne_nom_module[0]); ?></p>
               <?php  } ?> 
@@ -163,7 +165,7 @@ include("../Layouts/headstatic.php");
             <div class="col-lg-6">
               <p><span>Domaine :</span> <?php print($functdb->getformationlinewithid($_GET['id_page'],6)); ?></p>
               <p><span>Type de formation :</span> <?php print($functdb->getformationlinewithid($_GET['id_page'],7)); ?></p>
-              <p><span>Niveau :</span> <?php print(utf8_encode($functdb->getformationlinewithid($_GET['id_page'],2))); ?></p>
+              <p><span>Niveau :</span> <?php print($functdb->getformationlinewithid($_GET['id_page'],2)); ?></p>
               <p><span>Durée :</span> <?php print($functdb->getformationlinewithid($_GET['id_page'],8)); ?></p>
             </div>
             <div class="col-lg-6">
@@ -184,8 +186,10 @@ include("../Layouts/headstatic.php");
         <?php 
           $i = 0;
           $idformation= $_GET['id_page'];
-          $all_ins=mysql_query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
-          while($ligne=mysql_fetch_array($all_ins)){ ?>
+          $all_ins=$_db->query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
+          $all_ins->setFetchMode(PDO::FETCH_NUM);
+          while($ligne=$all_ins->fetch()){ 
+        ?>
             <div class="col-lg-3 prof-content">
               <div class="prof-image">
                 <img src="<?php echo $ligne[7]; ?>">
@@ -207,8 +211,9 @@ include("../Layouts/headstatic.php");
     <?php 
       $j = 0;
       $idformation= $_GET['id_page'];
-      $all_ins=mysql_query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
-      while($ligne=mysql_fetch_array($all_ins)){
+      $all_ins=$_db->query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
+      $all_ins->setFetchMode(PDO::FETCH_NUM);
+      while($ligne=$all_ins->fetch()){ 
     ?>
         <!-- modal prof definition -->
         <div class="modal fade" id="data-<?php echo $j; ?>" tabindex="-1" role="dialog" aria-labelledby="compt-Label" aria-hidden="true">

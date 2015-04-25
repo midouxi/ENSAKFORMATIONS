@@ -29,14 +29,18 @@
     <div class="collapse" id="listeFormation">
       <div class="container">
         <div class="col-lg-12">
-        	<?php $all_niveau=mysql_query("select DISTINCT niveau from formations");
-        	    while ($niveau=mysql_fetch_array($all_niveau)) { ?>
+        	<?php 
+          $all_niveau=$_db->query("select DISTINCT niveau from formations");
+          $all_niveau->setFetchMode(PDO::FETCH_NUM);
+          while($niveau=$all_niveau->fetch()){ 
+            ?>
           	<div class="col-lg-3">
-	            <legend></i><?php echo utf8_encode($niveau[0]); ?></legend>
+	            <legend></i><?php echo $niveau[0]; ?></legend>
 	            <ul class="nav nav-pills nav-stacked">
 	            	<?php 
-        	            $all_menu_titre=mysql_query("select * from formations where niveau='$niveau[0]'");
-        	            while ($menu_titre=mysql_fetch_array($all_menu_titre)) {
+                      $all_menu_titre=$_db->query("select * from formations where niveau='$niveau[0]'");
+                      $all_menu_titre->setFetchMode(PDO::FETCH_NUM);
+                      while($menu_titre=$all_menu_titre->fetch()){ 
         	        ?>
 	              	<li><a href="formations.php?id_page=<?php echo $menu_titre[0] ; ?>" class="btn btn-nav-pills"><?php echo $menu_titre[1] ; ?></a></li>
 	              	<?php  } ?>

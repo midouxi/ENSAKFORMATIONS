@@ -49,8 +49,9 @@
 <!-- page content -->
   <?php 
   $idprof= $_POST['id_prof'];
-  $all_ins=mysql_query("select * from prof where id_prof='$idprof'");
-  while($ligne=mysql_fetch_array($all_ins)){
+  $all_ins=$_db->query("select * from prof where id_prof='$idprof'");
+  $all_ins->setFetchMode(PDO::FETCH_NUM);
+  while($ligne=$all_ins->fetch()){ 
   ?> 
   <div class="form-area">
     <div class="container">

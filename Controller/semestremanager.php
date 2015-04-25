@@ -5,8 +5,7 @@ class semestremanager {
   private $_db; 
  
   public function __construct() {
-    $this->_db = new PDO('mysql:host=localhost;dbname=db_fc','root', '');
-	  /*$this->_db = new PDO('mysql:host=localhost;dbname=ensakfor_fc','ensakfor_root','admin');*/
+    include("../Model/constructconnect.php");
   }
 
   public function setDb(PDO $db) {

@@ -78,12 +78,11 @@
                 <div class="form-group col-lg-12">
                   <label for="niveau" class="col-lg-4 control-label">Niveau : </label>
                   <div class="col-lg-6">
-                    <div class="input-group">
-                        <input name="niveau" id="niveau" type="text" value="" tabindex="3" class="form-control" placeholder="Niveau">
-                        <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-signal"></span>
-                        </span>
-                      </div>
+                    <select class="form-control" name="niveau" id="niveau"  tabindex="7">
+                      <option value="" selected>--Choisir--</option>
+                      <option value="Licence">Licence</option>
+                      <option value="Master">Master</option>
+                    </select>
                   </div>
                 </div>
 

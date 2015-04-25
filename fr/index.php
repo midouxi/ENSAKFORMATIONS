@@ -28,9 +28,10 @@ include("../Layouts/headstatic.php");
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <?php
-          $all_ins=mysql_query("select * from formations");
-          $i =1;
-          while($ligne_ins=mysql_fetch_array($all_ins)){
+          $i=1;
+          $all_ins=$_db->query("select * from formations");
+          $all_ins->setFetchMode(PDO::FETCH_NUM);
+          while($ligne_ins=$all_ins->fetch()){ 
         ?>
         <div class="item <?php if ($i==1) { echo 'active' ;}  ?>">
           <img src="../images/slider/<?php echo $i;?>.png">

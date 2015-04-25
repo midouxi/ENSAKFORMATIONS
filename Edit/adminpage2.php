@@ -60,7 +60,6 @@
         <thead>
             <tr>
               <td>DATE D'INSCRIPTION</td>
-              <td>FORMATIONS</td>
               <td>Information général</td>
               <td>CIN</td>
               <td>CONTACT</td>
@@ -78,8 +77,14 @@
         </tbody>
       </table>
     </div>
-    <?php $functdb->getModalInscription($_SESSION['filiere']); ?>
+    <?php $functdb->getModalInscription($_SESSION['filiere'],1); ?>
   <!--/ tabs -->
+    <form action="exporter.php" method="post" class="sky-form">
+      <footer>
+        <button class="btn btn-ajouter" value="Exporter Les Données"/>
+      </footer>
+      </form>
+    </form>
   <?php } else { ?> <script>window.location.href="../fr/index.php"; </script><?php } ?>
 </body>
 </html>

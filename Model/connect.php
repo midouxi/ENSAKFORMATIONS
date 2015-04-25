@@ -1,4 +1,3 @@
 <?php
-if(!$connect=mysql_connect("localhost","root","")) mysql_error();
-if(!$db=mysql_select_db("db_fc",$connect)) mysql_error();
+$_db = new PDO('mysql:host=localhost;dbname=db_fc','root', '');
 ?>

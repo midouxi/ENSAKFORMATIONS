@@ -6,7 +6,7 @@ class adminmanager {
   private $_db; 
  
   public function __construct() {
-  $this->_db = new PDO('mysql:host=localhost;dbname=db_fc','root', '');
+  include("../Model/constructconnect.php");
   }
 
   public function setDb(PDO $db) {

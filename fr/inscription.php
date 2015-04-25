@@ -7,7 +7,7 @@ include("../Layouts/headstatic.php");
     <div class="col-lg-12">
         <div class="top-banner">
             <div class="col-lg-2">
-                <img src="../images/logo-ensak.jpg">
+                <img src="images/logo-ensak.jpg">
             </div>
             <div class="col-lg-8">
                 <h3>Universite Hassan 1<sup>er</sup></h3>
@@ -52,13 +52,12 @@ include("../Layouts/headstatic.php");
   <?php
     include_once "../Controller/inscriptionmanager.php";
     include_once "../Classes/inscription.class.php";
-    var_dump($_POST);
     if(!empty($_POST['nom']) || !empty($_POST['prenom']) || !empty($_POST['date_naissance']) || !empty($_POST['cin']) || !empty($_POST['tel']) || !empty($_POST['email']) || !empty($_POST['diplome']) || !empty($_POST['etablissment']) || !empty($_POST['formation']) || !empty($_POST['lettre_motivation']) || !empty($_POST['etat']) || !empty($_POST['etat']))
     {
       $inscriptionmanager = new inscriptionmanager();
       $inscription = new inscription($_POST['nom'], $_POST['prenom'], $_POST['date_naissance'], $_POST['cin'], $_POST['tel'], $_POST['email'], $_POST['diplome'], $_POST['etablissment'], $_POST['formation'], $_POST['lettre_motivation'], $_POST['etat'], $_POST['created']);
       $inscriptionmanager->add($inscription);
-      echo "<div class='sky'><h3>Féliciation Inscription réussite</h3><p>Vous recevrez un mail dans les prochaines jours quand votre inscription sera validée</p><p>Attention vérifier aussi votre corrier indésirable!!</p>";
+      echo "<div class='sky'><h3>Féliciation Inscription réussite</h3><p>Vous recevrez un mail dans les prochaines jours quand votre inscription sera validée</p><p>Attention vérifier aussi votre courrier indésirable!!</p>";
       echo '<a href="index.php">Revenir à la page d\'accueil</a></div>';
     }else{ echo '
 							

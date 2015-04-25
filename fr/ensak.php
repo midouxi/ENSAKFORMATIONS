@@ -78,7 +78,7 @@ include("../Layouts/headstatic.php");
               <p>École Nationale des Sciences Appliquées, Bd Béni Amir, BP 77, Khouribga - Maroc</p>
             </div>
             <div class="col-lg-6">
-              <p><span class="glyphicon glyphicon-earphone"></span>+212 6 18 53 43 72</p>
+              <p><span class="glyphicon glyphicon-earphone"></span>06 62 05 77 69</p>
               <p><span class="glyphicon glyphicon-envelope"></span>contact.ensa@uh1.ac.ma</p>
               <p><span class="glyphicon glyphicon-link"></span>www.ensa.uh1.ac.ma</p>
             </div>

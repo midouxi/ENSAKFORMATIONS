@@ -54,7 +54,7 @@ session_start();
           if (isset($_POST['id_page'])) {      
         ?>        
           <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
-            <h1 class="title-center">Mettre á jour de la formation "<?php echo $functdb->getformationlinewithid($_POST['id_page'],2).' '.$functdb->getformationlinewithid($_POST['id_page'],1);?>"</h1>
+            <h1 class="title-center">Mettre à jour de la formation "<?php echo $functdb->getformationlinewithid($_POST['id_page'],2).' '.$functdb->getformationlinewithid($_POST['id_page'],1);?>"</h1>
             <fieldset>
                 <div class="form-group col-lg-12">
                   <label for="id_formations" class="col-lg-4 control-label">Id Formations : </label>
@@ -84,12 +84,11 @@ session_start();
                 <div class="form-group col-lg-12">
                   <label for="niveau" class="col-lg-4 control-label">Niveau : </label>
                   <div class="col-lg-6">
-                    <div class="input-group">
-                        <input name="niveau" id="niveau" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],2);?>" tabindex="3" class="form-control" placeholder="Niveau">
-                        <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-signal"></span>
-                        </span>
-                      </div>
+                    <select class="form-control" name="niveau" id="niveau"  tabindex="7">
+                      <option value="" selected>--Choisir--</option>
+                      <option value="Licence">Licence</option>
+                      <option value="Master">Master</option>
+                    </select>
                   </div>
                 </div>
 
@@ -278,8 +277,9 @@ session_start();
             <fieldset>
                 <?php
                 for($i=1;$i<=$_POST['nbr_semestre'];$i++) {
-                  $all_nbr_module=mysql_query("select count(id_semestre) from module where id_formations='$id' AND id_semestre='Semestre $i'");//bloc sql non encapsulable .
-                  $ligne_nbr_module=mysql_fetch_array($all_nbr_module);
+                  $all_nbr_module=$_db->query("select count(id_semestre) from module where id_formations='$id' AND id_semestre='Semestre $i'");
+                  $all_nbr_module->setFetchMode(PDO::FETCH_NUM);
+                  $ligne_nbr_module=$all_nbr_module->fetch();
                 ?>
                 <div class="form-group col-lg-12">
                   <label class="col-lg-4 control-label">Nombre de Module du Semestre <?php echo $i;?> : </label>
@@ -325,8 +325,9 @@ session_start();
                 <h3 class="title-center">Semestre <?php echo $i;?></h3>
                 <?php       
                   for($j=1;$j<=$_POST['nbr_module'.$i.''];$j++) {
-                    $all_nom_module=mysql_query("select nom_module from module where id_module='$id-S$i-M$j'"); //bloc sql non encapsulable .
-                    $ligne_nom_module=mysql_fetch_array($all_nom_module);
+                    $all_nom_module=$_db->query("select nom_module from module where id_module='$id-S$i-M$j'");
+                    $all_nom_module->setFetchMode(PDO::FETCH_NUM);
+                    $ligne_nom_module=$all_nom_module->fetch();
                   ?>
                   <div class="form-group col-lg-12">
                   <label class="col-lg-4 control-label">Nom Module <?php echo $j;?> : </label>

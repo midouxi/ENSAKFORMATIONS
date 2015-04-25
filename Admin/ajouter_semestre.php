@@ -1,6 +1,5 @@
 <?php 
 include("../Model/connect.php");
-$db = new PDO('mysql:host=localhost;dbname=db_fc','root', '');
 $title="ENSA Khouribga - Ajout Semestre";
 include("../Layouts/headstatic.php");
 include ("../Model/functdb.php");

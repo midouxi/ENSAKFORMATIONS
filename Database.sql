@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:3306
--- Généré le :  Ven 17 Avril 2015 à 20:57
+-- Généré le :  Mer 22 Avril 2015 à 21:34
 -- Version du serveur :  5.5.38
 -- Version de PHP :  5.6.2
 
@@ -26,7 +26,7 @@ CREATE TABLE `admin` (
   `mdp_admin` varchar(30) NOT NULL,
   `type` varchar(50) NOT NULL,
   `filiere` varchar(50) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `admin`
@@ -76,7 +76,8 @@ INSERT INTO `formations` (`id_formations`, `menu_titre`, `niveau`, `id_logo`, `t
 ('lar', 'Administration rÃ©seaux', 'Licence', '../images/lar-logo.jpg', 'Licence universitaire en sciences appliquÃ©es Administration RÃ©seaux', 2, 'Informatique et rÃ©seaux', 'Formation professionnelle', '12 mois', 'ensak.formations@gmail.com', '06 61 15 07 21 / 05 23 49 23 35', '05 23 49 23 39', '../images/lar.jpg', 'Etre titulaire dâ€™un Bac +2 (et +) scientifique ou technique ( DEUG , BTS , DUT â€¦ )', 'Samedi et dimanche : Du 20/10/2014 au 14/07/15', 'avant le 15/09/2014', 'Du 22 au 30/09/2014', '30 000 Dhs', '600 Dhs', '../images/sponsor-lar.jpg', 0, 0, 0),
 ('lil', 'IngÃ©nierie du logiciel', 'Licence', '../images/lil-logo.jpg', 'Licence universitaire en sciences appliquÃ©es IngÃ©nierie du logiciel', 2, 'Informatique', 'Formation professionnelle', '12 mois', 'ensak.formations@gmail.com', '06 61 15 07 21 / 05 23 49 23 35', '05 23 49 23 39', '../images/lil.jpg', 'Etre titulaire dâ€™un Bac +2 (et +) scientifique ou technique ( DEUG , BTS , DUT â€¦ )', 'Samedi et dimanche : Du 20/10/2014 au 14/07/15', 'avant le 31/08/2014', '15/09/2014', '30 000 Dhs', '600 Dhs', '../images/sponsor-lil.jpg', 0, 0, 0),
 ('lsi', 'SystÃ©me d''information', 'Licence', '../images/lsi_test-logo.jpg', 'Licence universitaire en sciences appliquÃ©es IngÃ©nierie des SystÃ¨mes dâ€™information', 2, 'Informatique', 'Formation professionnelle', '12 mois', 'ensak.formations@gmail.com', '06 61 15 07 21 / 05 23 49 23 35', '05 23 49 23 39', '../images/lsi.jpg', 'Etre titulaire dâ€™un Bac +2 (et +) scientifique ou technique ( DEUG , BTS , DUT â€¦ )', 'Samedi et dimanche : Du 20/10/2014 au 14/07/15', 'avant le 15/09/2014', 'Du 22 au 30/09/2014', '30 000 Dhs', '600 Dhs', '../images/sponsor-lsi_test.jpg', 0, 0, 0),
-('mi', 'Informatique', 'Mastère', '../images/mi-logo.jpg', 'Master universitaire en sciences appliquÃ©es : Informatique', 4, 'Informatique', 'Formation professionnelle', '2 ans', 'ensak.formations@gmail.com', '06 62 05 77 69 / 05 23 49 23 35', '05 23 49 23 39', '../images/mi.jpg', 'Etre titulaire dâ€™un Bac +3 (et +) scientifique ou technique ( License , License Pro â€¦ )', 'Samedi et dimanche : Du 20/10/2014 au 14/07/15', 'avant le 15/09/2014', 'Du 22 au 30/09/2014 ', '60 000 Dhs', '600 Dhs', '../images/sponsor-mi.jpg', 0, 0, 0);
+('mi', 'Informatique', 'Master', '../images/mi-logo.jpg', 'Master universitaire en sciences appliquÃ©es : Informatique', 4, 'Informatique', 'Formation professionnelle', '2 ans', 'ensak.formations@gmail.com', '06 62 05 77 69 / 05 23 49 23 35', '05 23 49 23 39', '../images/mi.jpg', 'Etre titulaire dâ€™un Bac +3 (et +) scientifique ou technique ( License , License Pro â€¦ )', 'Samedi et dimanche : Du 20/10/2014 au 14/07/15', 'avant le 15/09/2014', 'Du 22 au 30/09/2014 ', '60 000 Dhs', '600 Dhs', '../images/sponsor-mi.jpg', 0, 0, 0),
+('sdsd', 'sdsd', 'Master', '../images/sdsd-logo.', 'sds', 1, 'dsdsd', 'sdsds', '12', 'dsadsa@dfdsfs.com', '211212', '12121', '../images/sdsd.', 'sadasdasd', 'sadsada', '12/12/12', '1/1/1', '23232', '232323', '../images/sponsor-sdsd.', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -98,21 +99,27 @@ CREATE TABLE `inscription` (
   `etat` varchar(20) NOT NULL,
   `viewed` int(10) NOT NULL DEFAULT '0',
   `contacte` int(10) NOT NULL DEFAULT '0',
-  `inscrit` int(10) NOT NULL DEFAULT '0'
+  `inscrit` int(10) NOT NULL DEFAULT '0',
+  `created` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `inscription`
 --
 
-INSERT INTO `inscription` (`nom`, `prenom`, `date_naissance`, `cin`, `tel`, `email`, `diplome`, `etablissment`, `formation`, `lettre_motivation`, `etat`, `viewed`, `contacte`, `inscrit`) VALUES
-('inane', 'amine', '2014-01-01', 'QA157210', 5, 'inaneamine@gmail.com', 'bac+4', 'ENSAKH', 'License Ingenierie du logiciel', 'az', 'Traiter', 1, 0, 0),
-('', '', '0000-00-00', '', 0, '', '', '', '', '', 'Traiter', 0, 0, 0),
-('az', 'az', '2014-01-01', 'azaa', 1, 'azert@gmail.com', 'bac+2', 'azaz', 'License Ingenierie du logiciel', 'azazaz', 'Traiter', 0, 0, 0),
-('x', 'x', '2014-01-01', 'x', 3, 'azert@gmail.com', 'bac+3', 'x', 'License systemes information', 'xx', 'Traiter', 0, 0, 0),
-('ad', 'ad', '2014-01-01', 'ad', 1, 'azert@gmail.com', 'autre', 'ad', 'License Ingenierie du logiciel', 'ad', 'non Traiter', 1, 0, 1),
-('f', 'f', '2014-01-01', 'f', 1, 'ensak.formations@gmail.com', 'bac+2', 'f', 'License Ingenierie du logiciel', 'f', 'non Traiter', 0, 0, 0),
-('sadsa', 'dasda', '2015-03-19', 'asdas', 87, 'chouaf.yasser@gmail.com', 'bac+2', 'sadasasdasd', 'License Ingenierie du logiciel', 'sadasd', 'Traiter', 0, 0, 0);
+INSERT INTO `inscription` (`nom`, `prenom`, `date_naissance`, `cin`, `tel`, `email`, `diplome`, `etablissment`, `formation`, `lettre_motivation`, `etat`, `viewed`, `contacte`, `inscrit`, `created`) VALUES
+('inane', 'amine', '2014-01-01', 'QA157210', 5, 'inaneamine@gmail.com', 'bac+4', 'ENSAKH', 'lar', 'az', '0', 1, 0, 0, '0000-00-00 00:00:00'),
+('', '', '0000-00-00', '', 0, '', '', '', '', '', '1', 0, 0, 0, '0000-00-00 00:00:00'),
+('az', 'az', '2014-01-01', 'azaa', 1, 'azert@gmail.com', 'bac+2', 'azaz', 'lil', 'azazaz', '1', 0, 0, 0, '0000-00-00 00:00:00'),
+('x', 'x', '2014-01-01', 'x', 3, 'azert@gmail.com', 'bac+3', 'x', 'lil', 'xx', '0', 0, 0, 0, '0000-00-00 00:00:00'),
+('ad', 'ad', '2014-01-01', 'ad', 1, 'azert@gmail.com', 'autre', 'ad', 'lil', 'ad', '0', 1, 1, 1, '0000-00-00 00:00:00'),
+('f', 'f', '2014-01-01', 'f', 1, 'ensak.formations@gmail.com', 'bac+2', 'f', 'lil', 'f', '0', 0, 1, 1, '0000-00-00 00:00:00'),
+('sadsa', 'dasda', '2015-03-19', 'asdas', 87, 'chouaf.yasser@gmail.com', 'bac+2', 'sadasasdasd', 'lil', 'sadasd', '0', 1, 1, 0, '0000-00-00 00:00:00'),
+('cvcxv', 'vxcvcxv', '2015-05-01', 'fdsfds2423432', 2147483647, 'mimi@gdfss.com', 'bac+3', 'cfdsfsffsfd', 'lil', 'dsfdsfsdfsdfdsfsdf', '1', 0, 0, 0, '0000-00-00 00:00:00'),
+('sdasa', 'asdasdasd', '2015-04-16', 'sadsad', 123456234, 'czcdsfsf@g.com', 'bac+4', 'sadsadasdasd', 'lsi', 'asdasdasdasdasdasdasdsa', '0', 0, 0, 0, '0000-00-00 00:00:00'),
+('mehdi', 'asdasdasd', '2015-04-16', 'sads345678', 123456234, 'czcdsfsf@g.com', 'bac+3', 'sadsadasdasd', 'lsi', 'asdasdasdasdasdasdasdsa', '0', 0, 0, 0, '2015-04-19 18:32:41'),
+('sdfdsf', 'dsfdsfs', '2015-04-02', '2312312', 1231312, 'mimi@gdfss.com', 'bac+4', 'sdfdsfds', 'mi', 'dsfdsfsdfsdfsdfsd', '1', 0, 0, 0, '2015-04-21 18:24:35'),
+('mehdi', 'agouzal', '2015-04-15', 'sadasd', 2323, 'SADSA@ASDASC.COm', 'bac+3', 'asdasdasd', 'lsi', 'asdasdasdasdsa', '0', 0, 0, 0, '2015-04-22 20:48:54');
 
 -- --------------------------------------------------------
 
@@ -173,7 +180,10 @@ INSERT INTO `lier` (`id_formations`, `id_prof`) VALUES
 ('lsi', '1'),
 ('lar', '19'),
 ('lil', '19'),
-('lsi', '19');
+('lsi', '19'),
+('lar', '2'),
+('lil', '1'),
+('lil', '2');
 
 -- --------------------------------------------------------
 
@@ -230,6 +240,8 @@ INSERT INTO `module` (`id_module`, `nom_module`, `id_semestre`, `id_formations`)
 ('mi-S1-M3', 'Programmation systÃ¨me & rÃ©seaux', 'Semestre 1', 'mi'),
 ('mi-S1-M2', 'Programmation mathÃ©matiques', 'Semestre 1', 'mi'),
 ('mi-S1-M1', 'Programmation orientÃ© objet', 'Semestre 1', 'mi'),
+('dsad-S1-M1', 'sdasdsd', 'Semestre 1', 'dsad'),
+('sdsd-S1-M1', 'sdsdsd', 'Semestre 1', 'sdsd'),
 ('mi-S4-M1', 'Projet fin d''etude', 'Semestre 4', 'mi'),
 ('mi-S3-M3', 'ERPs', 'Semestre 3', 'mi'),
 ('mi-S3-M4', 'Informatique dÃ©cisionelle', 'Semestre 3', 'mi');
@@ -254,10 +266,8 @@ CREATE TABLE `prof` (
 --
 
 INSERT INTO `prof` (`id_prof`, `nom`, `prenom`, `resume`, `descriptif`, `photo`) VALUES
-(1, 'agouzal', 'mehdi', '3ilm l9o9', 'm9aaawed', '/images/prof/1.jpg'),
-(2, 'sfsdf', 'dsfsd', 'dsfsd', 'sdfsd', 'fdsfsdfds'),
-(17, '', '', '', '', ''),
-(18, '', '', '', '', ''),
+(1, 'agouzal', 'mehdi', '3ilm l9o9', 'dddddd', '../images/prof/aaaaa.jpg'),
+(2, 'sfsdf', 'dsfsd', 'dsfsd', 'sdfsd', '../images/prof/aaaaa.jpg'),
 (19, 'aaaaa', 'bbbbb', 'cccccc', 'dddddd', '../images/prof/aaaaa.jpg');
 
 -- --------------------------------------------------------
@@ -283,6 +293,8 @@ INSERT INTO `semestre` (`id_semestre`, `nbr_module`, `id_formations`) VALUES
 ('lsi-S1', 5, 'lsi'),
 ('lar-S2', 4, 'lar'),
 ('lar-S1', 5, 'lar'),
+('dsad-S1', 1, 'dsad'),
+('sdsd-S1', 1, 'sdsd'),
 ('cca-S1', 1, 'cca'),
 ('cca-S2', 2, 'cca'),
 ('-S1', 1, ''),
@@ -342,7 +354,7 @@ ALTER TABLE `semestre`
 -- AUTO_INCREMENT pour la table `admin`
 --
 ALTER TABLE `admin`
-MODIFY `id_c` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+MODIFY `id_c` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT pour la table `prof`
 --

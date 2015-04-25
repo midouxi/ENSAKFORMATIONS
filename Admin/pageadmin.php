@@ -71,12 +71,13 @@
       </thead>
       <tbody>
         <?php
-         $all_ins=mysql_query("select * from formations");
-         while($ligne_ins=mysql_fetch_array($all_ins)){
+         $all_ins=$_db->query("select * from formations");
+         $all_ins->setFetchMode(PDO::FETCH_NUM);
+         while($ligne_ins=$all_ins->fetch()){ 
         ?>
         <tr>
           <td><?php print($ligne_ins[0]); ?></td>
-          <td><?php print(utf8_encode($ligne_ins[2])); ?></td>
+          <td><?php print($ligne_ins[2]); ?></td>
           <td><?php print($ligne_ins[4]); ?></td>
           <td><?php print($ligne_ins[5]); ?></td>
           <td><?php print($ligne_ins[6]); ?></td>
