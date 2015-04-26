@@ -101,6 +101,6 @@
     </table>
     </div>
   </div>        
-  <?php } else { ?> <script>window.location.href="../Admin/index.php"; </script><?php } ?>                        
+  <?php } else { ?> <script>window.location.href="../Admin/index.php"; </script><?php } ob_flush();?>                        
 </body>
 </html>

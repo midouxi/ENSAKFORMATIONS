@@ -7,7 +7,7 @@ include("../Layouts/headstatic.php");
     <div class="col-lg-12">
         <div class="top-banner">
             <div class="col-lg-2">
-                <img src="images/logo-ensak.jpg">
+                <img src="../images/logo-ensak.jpg">
             </div>
             <div class="col-lg-8">
                 <h3>Universite Hassan 1<sup>er</sup></h3>

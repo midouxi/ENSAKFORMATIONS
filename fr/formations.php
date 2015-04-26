@@ -26,16 +26,25 @@ include("../Layouts/headstatic.php");
     <?php $id = $id_page; include("menu.php");  ?>
     <!--============================== Fin menu =================================-->
     
-    <!-- TOP BANNER -->
-    <div class="banner-top-formation">
-      <div class="container">
-        <div class="col-lg-12">
+    <!-- top banner -->
+      <div class="inscription">
+        <div class="container">
+          <div class="col-lg-12">
+
+            <div class="col-lg-8">
+              <h1 class="title">NOS FORMATIONS</h1>
+            </div>
+
+            <div class="col-lg-4">
+              <img src="../images/formation.png">
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
 
     <!-- titre de la formation -->
-    <div class="sub-formation">
+    <div class="sub">
       <h1 class="title"><?php print($functdb->getformationlinewithid($_GET['id_page'],4));?></h1>
     </div>
 
@@ -180,61 +189,53 @@ include("../Layouts/headstatic.php");
       </div>
     </div>
     <div class="logos"><img src='<?php echo $functdb->getformationlinewithid($_GET['id_page'],19);?>'></div>
+    
     <div class="container">
-      <div class="col-lg-12 list-prof">
-        <h1 class="title-center">STAFF</h1>
-        <?php 
-          $i = 0;
-          $idformation= $_GET['id_page'];
-          $all_ins=$_db->query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
-          $all_ins->setFetchMode(PDO::FETCH_NUM);
-          while($ligne=$all_ins->fetch()){ 
-        ?>
-            <div class="col-lg-3 prof-content">
-              <div class="prof-image">
-                <img src="<?php echo $ligne[7]; ?>">
-                <div class="overlay">
-                  <a class="overlay-content" data-toggle="modal" data-target="#data-<?php echo $i; ?>" class="btn">
-                    <h3 class="glyphicon glyphicon-search"></h3>
-                    <h3>Visualiser</h3>
-                  </a>
+      <h1 class="title-center">STAFF</h1>
+      <div id="ca-container" class="ca-container">
+        <div class="ca-nav"><span class="ca-nav-prev">Previous</span><span class="ca-nav-next">Next</span></div>
+        <div class="ca-wrapper">
+          <?php 
+            $i = 0;
+            $idformation= $_GET['id_page'];
+            $all_ins=$_db->query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
+            $all_ins->setFetchMode(PDO::FETCH_NUM);
+            while($ligne=$all_ins->fetch()){ 
+          ?>
+          <!-- element -->
+            <div class="ca-item ca-item-1">
+              <div class="ca-item-main">
+                <div class="ca-icon"><img src="<?php echo $ligne[7]; ?>"></div>
+                <h3><?php echo $ligne[3].' '.$ligne[4]; ?></h3>
+                <h4>
+                  <span><?php echo $ligne[5]; ?></span>
+                </h4>
+                  <a href="#" class="ca-more">Visualiser</a>
+              </div>
+              <div class="ca-content-wrapper">
+                <div class="ca-content">
+                  <h6>Descriptif</h6>
+                  <a href="#" class="ca-close">close</a>
+                  <div class="ca-content-text">
+                    <p><?php echo $ligne[6]; ?></p>
+                  </div>
                 </div>
               </div>
-              <h3><?php echo $ligne[3].' '.$ligne[4]; ?></h3>
-              <p><?php echo $ligne[5]; ?></p>
             </div>
-        <?php $i++; } ?>
+            <!-- end of element -->
+          <?php $i++; } ?>
+        </div>
       </div>
     </div>
 
-
-    <?php 
-      $j = 0;
-      $idformation= $_GET['id_page'];
-      $all_ins=$_db->query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
-      $all_ins->setFetchMode(PDO::FETCH_NUM);
-      while($ligne=$all_ins->fetch()){ 
-    ?>
-        <!-- modal prof definition -->
-        <div class="modal fade" id="data-<?php echo $j; ?>" tabindex="-1" role="dialog" aria-labelledby="compt-Label" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header modal-header-compt">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="compt-Label">Information</h4>
-                  </div>
-                  <div class="modal-body modal-body-compt">
-                      <img src="<?php echo $ligne[7]; ?>">
-                      <h3><?php echo $ligne[3].' '.$ligne[4]; ?></h3>
-                      <p class="colored">Résumé</p>
-                      <p><?php echo $ligne[5]; ?></p>
-                      <p class="colored">Description</p>
-                      <p><?php echo $ligne[6]; ?></p>
-                  </div>
-                </div>
-              </div>
-        </div>
-    <?php $j++; } ?>
 <?php include "../Layouts/footerstatic.php"; ?>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../carousel/js/jquery.easing.1.3.js"></script>
+    <!-- the jScrollPane script -->
+    <script type="text/javascript" src="../carousel/js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="../carousel/js/jquery.contentcarousel.js"></script>
+    <script type="text/javascript">
+      $('#ca-container').contentcarousel();
+    </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 //error_reporting(E_ALL ^ E_WARNING); 
 error_reporting(E_ERROR | E_PARSE); //pour afficher tous les erreurs a part warning et notice 
+ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +16,10 @@ error_reporting(E_ERROR | E_PARSE); //pour afficher tous les erreurs a part warn
 <link rel="stylesheet" href="../css/style.css" />
 <link rel="stylesheet" href="../css/adminstyle.css" />
 <link rel="stylesheet" href="../dist/css/bootstrap.css">
+
+<!-- carousel style -->
+<link rel="stylesheet" type="text/css" href="../carousel/css/style.css" />
+<link rel="stylesheet" type="text/css" href="../carousel/css/jquery.jscrollpane.css" media="all" />
 <!-- fin css pour menu -->
 
 <!--[if lt IE 8]>

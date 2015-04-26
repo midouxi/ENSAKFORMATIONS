@@ -1,5 +1,6 @@
 <?php session_start(); 
 error_reporting(E_ALL ^ E_WARNING);
+ob_start();
 //error_reporting(E_ERROR | E_PARSE); pour afficher tous les erreurs a part warning et notice 
 ?>
 <!DOCTYPE html>

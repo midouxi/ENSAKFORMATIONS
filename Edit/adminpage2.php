@@ -80,10 +80,11 @@
     <?php $functdb->getModalInscription($_SESSION['filiere'],1); ?>
   <!--/ tabs -->
     <form action="exporter.php" method="post" class="sky-form">
-      <footer>
-        <button class="btn btn-ajouter" value="Exporter Les Données"/>
-      </footer>
-      </form>
+      <div class="form-group col-lg-12">
+        <div class="col-lg-4 col-lg-offset-8">  
+          <input type="submit"  class="btn btn-valide" value="Exporter Les Données" tabindex="4">
+        </div>
+      </div>
     </form>
   <?php } else { ?> <script>window.location.href="../fr/index.php"; </script><?php } ?>
 </body>
