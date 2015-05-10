@@ -56,7 +56,7 @@
                   <label for="email" class="col-lg-4 control-label">Email * : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="email" id="email" type="email" value="" tabindex="1" class="form-control" placeholder="Email">
+                        <input name="email" id="email" type="email" value="" tabindex="1" class="form-control" placeholder="Email" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-envelope"></span>
                         </span>
@@ -68,7 +68,7 @@
                   <label for="mdp" class="col-lg-4 control-label">Mot de passe * : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="mdp" id="mdp" type="text" value="" tabindex="2" class="form-control" placeholder="Mot de passe">
+                        <input name="mdp" id="mdp" type="text" value="" tabindex="2" class="form-control" placeholder="Mot de passe" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-envelope"></span>
                         </span>
@@ -78,12 +78,13 @@
                 <div class="form-group col-lg-12">
                   <label for="filiere" class="col-lg-4 control-label">Filière * :</label> 
                   <div class="col-lg-6">
-                    <select class="form-control" name="filiere" id="filiere"  tabindex="7">
+                    <select class="form-control" name="filiere" id="filiere"  tabindex="7" required>
                       <option value="" selected>--Choisir--</option>
-                      <option value="lar">Licence Administration réseaux</option>
-                      <option value="lsi">Licence Systèmes d'informations</option>
-                      <option value="lil">Licence Ingenierie Logicielle</option>
-                      <option value="mi">Master Informatique</option>
+                      <?php 
+                        include("../Model/functdb.php");
+                        $functdb = new functdb();
+                        $functdb->getformationline();
+                      ?>
                     </select>
                   </div>
                 </div>

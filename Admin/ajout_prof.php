@@ -57,7 +57,7 @@
                   <label for="nom" class="col-lg-4 control-label">Nom * : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="nom" id="nom" type="text" value="" tabindex="1" class="form-control" placeholder="Nom">
+                        <input name="nom" id="nom" type="text" value="" tabindex="1" class="form-control" placeholder="Nom" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-user"></span>
                         </span>
@@ -69,7 +69,7 @@
                   <label for="prenom" class="col-lg-4 control-label">Prénom * : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="prenom" id="prenom" type="text" value="" tabindex="2" class="form-control" placeholder="Prénom">
+                        <input name="prenom" id="prenom" type="text" value="" tabindex="2" class="form-control" placeholder="Prénom" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-user"></span>
                         </span>
@@ -80,19 +80,19 @@
                 <div class="form-group col-lg-12">
                   <label for="resume" class="col-lg-4 control-label">Résumé * : </label>
                   <div class="col-lg-6">
-                    <textarea class="form-control" name="resume" id="resume" tabindex="14"></textarea>
+                    <textarea class="form-control" name="resume" id="resume" tabindex="14" required></textarea>
                   </div>
                 </div>
 
                 <div class="form-group col-lg-12">
                   <label for="descriptif" class="col-lg-4 control-label">Descriptif * : </label>
                   <div class="col-lg-6">
-                    <textarea class="form-control" name="descriptif" id="descriptif" tabindex="14"></textarea>
+                    <textarea class="form-control" name="descriptif" id="descriptif" tabindex="14" required></textarea>
                   </div>
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <label for="photo" class="col-sm-4 control-label">Photo *: </label>
+                  <label for="photo" class="col-sm-4 control-label">Photo : </label>
                   <div class="col-sm-6">
                       <div class="input-group">
                       <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>

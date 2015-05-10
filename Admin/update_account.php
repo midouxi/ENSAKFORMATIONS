@@ -84,23 +84,8 @@
                   <label for="filiere" class="col-lg-4 control-label">Filière * :</label> 
                   <div class="col-lg-6">
                     <select class="form-control" name="filiere" id="filiere"  tabindex="7">
-                <?php if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="lar") { 
-                        $select1="selected";}
-                      else if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="lsi") { 
-                        $select2="selected";}
-                      else if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="lil") { 
-                        $select3="selected";}
-                      else if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="mi") { 
-                        $select4="selected";}
-                      else if($functdb->getinfoaccount($_POST['id_c'],"filiere")=="admin") { 
-                        $select5="selected";}
-                ?>
-                    <option value="" <?php echo $select0; ?>>--Choisir--</option>
-                    <option value="lar" <?php echo $select1; ?>>Licence Administration réseaux</option>
-                    <option value="lsi" <?php echo $select2; ?>>Licence Systèmes d\'informations</option>
-                    <option value="lil" <?php echo $select3; ?>>Licence Ingenierie Logicielle</option>
-                    <option value="mi"  <?php echo $select4; ?>>Master Informatique</option>
-                    <option value="admin" <?php echo $select5; ?>>ALL (Admin)</option>
+                      <option value="" selected>--Choisir--</option>
+                      <?php $functdb->getformationline();?>
                     </select>
                   </div>
                 </div> 

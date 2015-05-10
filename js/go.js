@@ -63,6 +63,7 @@ function goo(idprof,idformation,id) {
  		} 
  		return xhr;
 	}
+  window.location.reload();
 }
 
 function validation(cin) {

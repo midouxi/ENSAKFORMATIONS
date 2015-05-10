@@ -67,7 +67,7 @@ include("../Layouts/headstatic.php");
                   <label for="name" class="col-lg-4 control-label">Nom *</label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input class="form-control" name="nom" id="name" type="text" value="" tabindex="1" placeholder="Nom">
+                        <input class="form-control" name="nom" id="name" type="text" value="" tabindex="1" placeholder="Nom" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-user"></span>
                         </span>
@@ -79,7 +79,7 @@ include("../Layouts/headstatic.php");
                   <label for="prenom" class="col-lg-4 control-label">Prénom *</label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input class="form-control" name="prenom" id="prenom" type="text" value="" tabindex="2" placeholder="Prénom">
+                        <input class="form-control" name="prenom" id="prenom" type="text" value="" tabindex="2" placeholder="Prénom" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-user"></span>
                         </span>
@@ -91,7 +91,7 @@ include("../Layouts/headstatic.php");
                   <label for="date" class="col-lg-4 control-label">Date de naissance *</label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input class="form-control" name="date_naissance" id="date" type="date" value="" tabindex="3" placeholder="Date de naissance">
+                        <input class="form-control" name="date_naissance" id="date" type="date" value="" tabindex="3" placeholder="Date de naissance" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -103,7 +103,7 @@ include("../Layouts/headstatic.php");
                   <label for="cin" class="col-lg-4 control-label">Numéro de la carte Nationale(CIN) *</label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input class="form-control" name="cin" id="cin" type="text" value="" tabindex="4" placeholder="CIN">
+                        <input class="form-control" name="cin" id="cin" type="text" value="" tabindex="4" placeholder="CIN" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-credit-card"></span>
                         </span>
@@ -115,7 +115,7 @@ include("../Layouts/headstatic.php");
                   <label for="phone" class="col-lg-4 control-label">Téléphone *</label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input class="form-control" name="tel" id="phone" type="number" value="" tabindex="5" placeholder="Téléphone">
+                        <input class="form-control" name="tel" id="phone" type="number" value="" tabindex="5" placeholder="Téléphone" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-earphone"></span>
                         </span>
@@ -127,7 +127,7 @@ include("../Layouts/headstatic.php");
                   <label for="email" class="col-lg-4 control-label">Email *</label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input class="form-control" name="email" id="email" type="email" value="" tabindex="6" placeholder="Email">
+                        <input class="form-control" name="email" id="email" type="email" value="" tabindex="6" placeholder="Email" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-envelope"></span>
                         </span>
@@ -138,7 +138,7 @@ include("../Layouts/headstatic.php");
                 <div class="form-group col-lg-12">
                   <label for="diplome" class="col-lg-4 control-label">Dernier diplome obtenu *</label>
                   <div class="col-lg-6">
-                    <select class="form-control" name="diplome" id="diplome"  tabindex="7">
+                    <select class="form-control" name="diplome" id="diplome"  tabindex="7" required>
                       <option value="" selected>--Choisir--</option>
                       <option value="bac+2">BAC +2</option>
                       <option value="bac+3">BAC +3</option>
@@ -152,7 +152,7 @@ include("../Layouts/headstatic.php");
                   <label for="etablissment" class="col-lg-4 control-label">Etablissement *</label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input class="form-control" name="etablissment" id="ecole" type="text" value="" tabindex="8"placeholder="Etablissement">
+                        <input class="form-control" name="etablissment" id="ecole" type="text" value="" tabindex="8"placeholder="Etablissement" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-home"></span>
                         </span>
@@ -163,7 +163,7 @@ include("../Layouts/headstatic.php");
                 <div class="form-group col-lg-12">
                   <label for="formation" class="col-lg-4 control-label">Formation souhaitée :</label>
                   <div class="col-lg-6">
-                    <select class="form-control" name="formation" id="formation"  tabindex="9">
+                    <select class="form-control" name="formation" id="formation"  tabindex="9" required>
                       <option value="" selected>--Choisir--</option>
                       ';
                         include("../Model/functdb.php");
@@ -177,7 +177,7 @@ include("../Layouts/headstatic.php");
                 <div class="form-group col-lg-12">
                   <label for="message" class="col-lg-4 control-label">Lettre de motivation *</label>
                   <div class="col-lg-6">
-                    <textarea class="form-control" rows="3" name="lettre_motivation" id="message" tabindex="10"></textarea>
+                    <textarea class="form-control" rows="3" name="lettre_motivation" id="message" tabindex="10" required></textarea>
                   </div>
                 </div>
 

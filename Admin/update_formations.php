@@ -250,9 +250,42 @@ session_start();
                       </div>
                   </div>
                 </div>
+
+                <div class="form-group col-lg-12">
+                  <label for="partenaire" class="col-sm-4 control-label">Partenaire Logo : </label>
+                  <div class="col-sm-6">
+                      <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="100048576"/>
+                        <input type="file" name="partenaire" id="partenaire" tabindex="4" style="display:none">
+                        <input type="text" id="imagepartenaire" class="form-control">
+                        <span class="input-group-btn">
+                          <botton class="btn btn-browse" onclick="$('input[id=partenaire]').click();">Browse</botton>
+                        </span>
+                      </div>
+                    </div>
+                  <div class="col-sm-2"><img src="<?php echo $functdb->getformationlinewithid($_POST['id_page'],19); ?>" style="height:auto; width:100%;"></div>
+                </div>
+
+                <div class="form-group col-lg-12">
+                  <label for="icone" class="col-sm-4 control-label">Débouché de la formation : </label>
+                  <div class="col-sm-6">
+                      <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="100048576"/>
+                        <input type="file" name="debouche" id="debouche" tabindex="4" style="display:none">
+                        <input type="text" id="imagedebouche" class="form-control">
+                        <span class="input-group-btn">
+                          <botton class="btn btn-browse" onclick="$('input[id=debouche]').click();">Browse</botton>
+                        </span>
+                      </div>
+                    </div>
+                  <div class="col-sm-2"><img src="<?php echo $functdb->getformationlinewithid($_POST['id_page'],12); ?>" style="height:auto; width:100%;"></div>
+                </div>
+
               <div class="form-group col-lg-12">
                 <div class="col-lg-6 col-lg-offset-4">
-                  <input type="hidden" name="logos" value="<?php echo$functdb->getformationlinewithid($_POST['id_page'],3);?>"/>
+                  <input type="hidden" name="logos" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],3);?>"/>
                   <input type="hidden" name="debouche" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],12);?>"/>
                   <input type="hidden" name="partenaire" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],19);?>"/>
                   <input type="submit"  class="btn btn-valide" id="send-message" value="Mettre à jour" tabindex="20">
@@ -264,12 +297,22 @@ session_start();
         <!-- # 2 eme Affichage # -->
         <?php
         if(!(empty($_POST['id_formations']))){
-          $id=$_POST['id_formations'];
-          
           include_once "../Controller/formationsmanager.php";
+          include "../Controller/chargerfichier.php"; 
 
+          $id=$_POST['id_formations'];
+          $charger=new charger();
+
+          if(!(empty($_FILES['partenaire']['name']))){
+            $partenaire=$charger->addfile($id,$_FILES['partenaire'],"sponsor");
+          } else { $partenaire=$_POST['partenaire'] ;}
+
+          if(!(empty($_FILES['debouche']['name']))){
+            $debouche=$charger->addfile($id,$_FILES['debouche'],"icone");
+          } else { $debouche=$_POST['debouche'] ;}
+          
           $formationsmanager = new formationsmanager();
-          $formations = new formations($_POST['id_formations'], $_POST['menu_titre'], $_POST['niveau'], $_POST['logos'], $_POST['titre'], $_POST['nbr_semestre'],$_POST['domaine'], $_POST['type_formations'], $_POST['duree'], $_POST['email'], $_POST['telephone'], $_POST['fax'], $_POST['debouche'], $_POST['condition_admission'], $_POST['organisation_formations'], $_POST['date_depot'], $_POST['date_entretien'], $_POST['frais_formations'], $_POST['frais_entretien'], $_POST['partenaire']);
+          $formations = new formations($_POST['id_formations'], $_POST['menu_titre'], $_POST['niveau'], $_POST['logos'], $_POST['titre'], $_POST['nbr_semestre'],$_POST['domaine'], $_POST['type_formations'], $_POST['duree'], $_POST['email'], $_POST['telephone'], $_POST['fax'], $debouche, $_POST['condition_admission'], $_POST['organisation_formations'], $_POST['date_depot'], $_POST['date_entretien'], $_POST['frais_formations'], $_POST['frais_entretien'], $partenaire);
           $formationsmanager->update($formations);      
         ?>     
           <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
@@ -377,5 +420,14 @@ session_start();
     </div>
   </div>
   <?php } else { ?> <script>window.location.href="../fr/index.php"; </script><?php } ?>
+
+  <script type="text/javascript">
+    $('input[id=debouche]').change(function() {
+      $('#imagedebouche').val($(this).val());
+    });
+    $('input[id=partenaire]').change(function() {
+      $('#imagepartenaire').val($(this).val());
+    });
+  </script>
 </body>
 </html>

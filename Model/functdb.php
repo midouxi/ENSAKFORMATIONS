@@ -7,7 +7,7 @@ Class functdb {
     include("../Model/constructconnect.php");
   }
 
-	public function getformationline() { //existe 2 ds administrateur1 et 1 ds administrateur 1
+	public function getformationline() { 
 		$all_ins=$this->_db->query("select * from formations");    
     $all_ins->setFetchMode(PDO::FETCH_NUM);
 		while($ligne=$all_ins->fetch()){     
@@ -205,6 +205,18 @@ Class functdb {
     }
   }
 
+  public function profexiste($idformation) {
+     $all_ins=$this->_db->query("SELECT * FROM lier ");
+     $all_ins->setFetchMode(PDO::FETCH_NUM);
+     while($ligne=$all_ins->fetch()){ 
+        if($ligne[0]==$idformation){
+            return "disabled";
+        }
+      }
+      return null;
+
+  }
+
   public function getprofs() {
     $all_ins=$this->_db->query("select * from prof");
     $i=0;
@@ -227,7 +239,7 @@ Class functdb {
           }
           echo $ligne_ins_form[1].'  ';
           if($a==$ligne_ins_form[0] && $b==$ligne_ins[0]) $checked1="checked";
-          echo '<input type="checkbox" id="'.$idv.'" '.$checked1.'  onclick="goo(\''.$ligne_ins[0].'\',\''.$ligne_ins_form[0].'\','.$idv.')" /></br>';
+          echo '<input type="checkbox" id="'.$idv.'" '.$checked1.' '.$this->profexiste($ligne_ins_form[0]).' onclick="goo(\''.$ligne_ins[0].'\',\''.$ligne_ins_form[0].'\','.$idv.')" /></br>';
           $i++;
           $checked1=null;
         }
@@ -264,6 +276,8 @@ Class functdb {
   public function addprof($nom,$prenom,$resume,$descriptif,$photo) {
     $this->_db->exec("INSERT INTO prof (nom, prenom, resume, descriptif, photo) VALUES ('$nom', '$prenom', '$resume', '$descriptif', '$photo')");
   }
+
+  
 
 }
 ?>

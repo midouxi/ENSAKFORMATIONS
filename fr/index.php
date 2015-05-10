@@ -28,20 +28,28 @@ include("../Layouts/headstatic.php");
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <?php
+          $j=1;
           $i=1;
           $all_ins=$_db->query("select * from formations");
           $all_ins->setFetchMode(PDO::FETCH_NUM);
           while($ligne_ins=$all_ins->fetch()){ 
+            if($j == 5)
+            {
+              $j = 1;
+            }
         ?>
         <div class="item <?php if ($i==1) { echo 'active' ;}  ?>">
-          <img src="../images/slider/<?php echo $i;?>.png">
+          <img src="../images/slider/<?php echo $j;?>.png">
           <div class="carousel-caption">
             <img class="slider-icons" src="../images/icons/code.png">
             <h2><?php print($ligne_ins[4]); ?></h2>
             <h4>Une formation professionnelle en nouvelles technologies informatiques sur <?php print($ligne_ins[8]); ?></h4>
           </div>
         </div>
-        <?php  $i++ ;} ?>
+        <?php  $i++ ;
+               $j++ ;
+          } 
+        ?>
 
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -84,7 +92,20 @@ include("../Layouts/headstatic.php");
                 <p class="colored">Analyse et conception des systèmes informatiques</p>
               </div>
             </div>
-            
+            <div class="col-lg-12 items">
+              <div class="col-lg-3 item">
+                <img src="../images/icons/5.png">
+                <p class="colored">Génie Energétique</p>
+              </div>
+              <div class="col-lg-3 item">
+                <img src="../images/icons/6.png">
+                <p class="colored">Génie des Procédés</p>
+              </div>
+              <div class="col-lg-3 item">
+                <img src="../images/icons/7.png">
+                <p class="colored">Réseau et télécommunication</p>
+              </div>
+            </div>
             <p>Ces programmes se déclinent en licences de niveau Bac + 3, Maîtrise (Master 1), Master 2 ou diplômes d'Université de niveau Bac + 5.</p>
             <p>Les conditions d'accès sont propres à chaque formation. Pour télécharger le calendrier et dossier de candidature, rendez vous sur la formation de votre choix.</p>
             <p>Que vous cherchiez une formation pour vous-même ou pour une personne de votre équipe, n'hésitez pas à nous contacter !</p>

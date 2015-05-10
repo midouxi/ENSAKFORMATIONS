@@ -73,11 +73,17 @@ body.login-body {
 	background-color: #ffffff;
 	padding: 30px 30px;
 	border-radius: 5px;
-	width: 500px;
+	width: 800px;
 	height: auto;
 	margin:auto auto;
 }
-
+.login-body .login-content img {
+	width: 100%;
+	height: auto;
+}
+.login-body .login-content img.image {
+	padding-top: 40px;
+}
 .login-body .login-content h2 {
 	color: #eb3e44;
 	margin-top: 0px;

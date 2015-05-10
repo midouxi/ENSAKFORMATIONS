@@ -1,5 +1,5 @@
-<?php 
-  include "../Model/connect.php";
+<?php
+  include "../Model/connect.php"; 
   include_once "../Model/functdb.php";
   $functdb = new functdb(); 
   $title="ENSA Khouribga - Formation continue";
@@ -190,52 +190,29 @@ include("../Layouts/headstatic.php");
     </div>
     <div class="logos"><img src='<?php echo $functdb->getformationlinewithid($_GET['id_page'],19);?>'></div>
     
+    <!-- Responsable -->
+
     <div class="container">
-      <h1 class="title-center">STAFF</h1>
-      <div id="ca-container" class="ca-container">
-        <div class="ca-nav"><span class="ca-nav-prev">Previous</span><span class="ca-nav-next">Next</span></div>
-        <div class="ca-wrapper">
-          <?php 
-            $i = 0;
-            $idformation= $_GET['id_page'];
-            $all_ins=$_db->query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
-            $all_ins->setFetchMode(PDO::FETCH_NUM);
-            while($ligne=$all_ins->fetch()){ 
-          ?>
-          <!-- element -->
-            <div class="ca-item ca-item-1">
-              <div class="ca-item-main">
-                <div class="ca-icon"><img src="<?php echo $ligne[7]; ?>"></div>
-                <h3><?php echo $ligne[3].' '.$ligne[4]; ?></h3>
-                <h4>
-                  <span><?php echo $ligne[5]; ?></span>
-                </h4>
-                  <a href="#" class="ca-more">Visualiser</a>
-              </div>
-              <div class="ca-content-wrapper">
-                <div class="ca-content">
-                  <h6>Descriptif</h6>
-                  <a href="#" class="ca-close">close</a>
-                  <div class="ca-content-text">
-                    <p><?php echo $ligne[6]; ?></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- end of element -->
-          <?php $i++; } ?>
+      <h1 class="title-center">Responsable de filière</h1>
+      <div class="col-lg-12 responsable">
+          <?php $idformation= $_GET['id_page'];
+          $all_ins=$_db->query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
+          $all_ins->setFetchMode(PDO::FETCH_NUM);
+          while($ligne=$all_ins->fetch()){ ?>
+        <div class="col-lg-3">
+          <img src="<?php echo $ligne[7];?>">
         </div>
+        <div class="col-lg-9">
+          <h3><?php echo $ligne[3]." ".$ligne[4];?></h3>
+          <p><?php echo $ligne[5];?></p>
+          <p><?php echo $ligne[6];?></p>
+        </div>
+        <?php } ?>
       </div>
     </div>
 
+
 <?php include "../Layouts/footerstatic.php"; ?>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script type="text/javascript" src="../carousel/js/jquery.easing.1.3.js"></script>
-    <!-- the jScrollPane script -->
-    <script type="text/javascript" src="../carousel/js/jquery.mousewheel.js"></script>
-    <script type="text/javascript" src="../carousel/js/jquery.contentcarousel.js"></script>
-    <script type="text/javascript">
-      $('#ca-container').contentcarousel();
-    </script>
+
 </body>
 </html>

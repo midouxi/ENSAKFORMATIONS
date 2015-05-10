@@ -2,7 +2,7 @@
  class charger{
 	 function addfile($post,$file,$type) {
 		$extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
-		$extension_upload=strtolower(  substr(  strrchr($file['name'], '.')  ,1)  );
+		$extension_upload=strtolower(substr(strrchr($file['name'],'.'),1) );
 		if ($type == "logo") {
 			$nom = "../images/".$post."-logo.{$extension_upload}";
 		} else if ($type =="icone") {

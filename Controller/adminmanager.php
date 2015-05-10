@@ -58,20 +58,26 @@ class adminmanager {
 
   public function signForm() {
     echo '<form action="" class="bs-example form-horizontal" method="post">
-                <h2>Connexion</h2>            
-                <fieldset>
-                    <div class="form-group">
-                      <div class="col-lg-12">
-                        <input class="form-control" type="email" name="email" placeholder="Email">
-                      </div>
-                    </div> 
-                    <div class="form-group">
-                      <div class="col-lg-12">
-                        <input class="form-control" type="password" name="mdp_siteadmin" placeholder="Mot de passe">
-                      </div>
-                    </div> 
-                    <button type="submit" class="btn btn-valide">Se connecter</button>
-                </fieldset>
+    <div class="row">
+                <div class="col-lg-3"><img class="image" src="../images/logo-ensak.jpg"></div>
+                <div class="col-lg-6">
+                  <h2>Connexion</h2>            
+                  <fieldset>
+                      <div class="form-group">
+                        <div class="col-lg-12">
+                          <input class="form-control" type="email" name="email" placeholder="Email">
+                        </div>
+                      </div> 
+                      <div class="form-group">
+                        <div class="col-lg-12">
+                          <input class="form-control" type="password" name="mdp_siteadmin" placeholder="Mot de passe">
+                        </div>
+                      </div> 
+                      <button type="submit" class="btn btn-valide">Se connecter</button>
+                  </fieldset>
+                </div>
+                <div class="col-lg-3"><img src="../images/logo-uh1.png"></div>
+                </div>
             </form>';
   }
 
