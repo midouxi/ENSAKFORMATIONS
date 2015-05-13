@@ -80,6 +80,7 @@
                   <div class="col-lg-6">
                     <select class="form-control" name="filiere" id="filiere"  tabindex="7" required>
                       <option value="" selected>--Choisir--</option>
+                      <option value="admin">ALL (Admin)</option>
                       <?php 
                         include("../Model/functdb.php");
                         $functdb = new functdb();
@@ -92,7 +93,7 @@
                 <div class="form-group col-lg-12">
                   <label for="type" class="col-lg-4 control-label">Type * :</label> 
                   <div class="col-lg-6">
-                    <select class="form-control" name="type" id="type"  tabindex="7">
+                    <select class="form-control" name="type" id="type"  tabindex="7" required>
                       <option value="" selected>--Choisir--</option>
                       <option value="admin">Administrateur</option>
                       <option value="editeur">Editeur</option>

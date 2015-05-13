@@ -277,6 +277,18 @@ Class functdb {
     $this->_db->exec("INSERT INTO prof (nom, prenom, resume, descriptif, photo) VALUES ('$nom', '$prenom', '$resume', '$descriptif', '$photo')");
   }
 
+  public function getresponsable($idprof) {
+    $all_ins=$this->_db->query("select * from lier where id_prof= '$idprof'");
+    $all_ins->setFetchMode(PDO::FETCH_NUM);
+    while($ligne_ins=$all_ins->fetch()){  
+      echo '<tr>'; 
+        echo '<td>'.$this->getformationlinewithid($ligne_ins[0],2).' '.$this->getformationlinewithid($ligne_ins[0],1).'</td>';
+        echo '<td>';
+        echo '<input class="btn btn-table" value="Supprimer" onclick="supprimer(\''.$ligne_ins[0].'\',\''.$ligne_ins[1].'\')"/>';
+        echo '</td>';
+      echo '</tr>'; 
+    }
+  }
   
 
 }

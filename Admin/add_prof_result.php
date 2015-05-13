@@ -45,6 +45,7 @@ session_start();
     <?php
         include "../Model/functdb.php";
         include "../Controller/chargerfichier.php";
+        var_dump($_FILES);
         if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['resume']) && !empty($_POST['descriptif']) && !empty($_FILES['photo'])) { 
           $functdb = new functdb();
           $charger=new charger();

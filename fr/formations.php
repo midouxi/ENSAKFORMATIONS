@@ -178,10 +178,10 @@ include("../Layouts/headstatic.php");
               <p><span>Durée :</span> <?php print($functdb->getformationlinewithid($_GET['id_page'],8)); ?></p>
             </div>
             <div class="col-lg-6">
-              <p><span class="glyphicon glyphicon-map-marker"></span>ENSA Khouriga</p>
+              <p><span class="glyphicon glyphicon-map-marker"></span>ENSA Khouribga</p>
               <p><span class="glyphicon glyphicon-envelope"></span><?php print($functdb->getformationlinewithid($_GET['id_page'],9)); ?></p>
               <p><span class="glyphicon glyphicon-earphone"></span><?php print($functdb->getformationlinewithid($_GET['id_page'],10)); ?></p>
-              <p><span class="glyphicon glyphicon-print"></span><?php print($functdb->getformationlinewithid($_GET['id_page'],11)); ?></p>
+              <p><span class="glyphicon glyphicon-print"></span>05 23 49 23 39</p>
             </div>
           </div>
 

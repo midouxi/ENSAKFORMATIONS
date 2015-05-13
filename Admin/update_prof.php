@@ -5,6 +5,7 @@
   session_start();
   if (isset($_SESSION['email']) && isset($_SESSION['mdp'])&& $_SESSION['type']=="admin") { 
 ?>
+<script src="../js/go.js"></script>
 <body>
   <!-- TOP BANNER -->
     <div class="col-lg-12">
@@ -111,12 +112,32 @@
                   </div>
                   <div class="col-sm-2"><img src="<?php echo $ligne[5]; ?>" style="height:auto; width:100%;"></div>
                 </div>
+                <div class="form-group col-lg-12">
+                  <div class="col-lg-4 control-label"></div>
+                  <div class="form-group col-lg-6">  
+                    <table class="table table-striped table-bordered" style="margin-left: 15px;">
+                      <thead>
+                          <tr>
+                            <td>FORMATIONS</td>
+                            <td>TRAITEMENT</td>
+                          </tr>
+                      </thead>
+                      <tbody>
+                       <?php
+                          include "../Model/functdb.php";
+                          $functdb = new functdb();
+                          $functdb->getresponsable($idprof);
+                        ?>   
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
                 <input type="hidden" name="id_prof" value=<?php echo $_POST['id_prof']; ?> >
               <div class="form-group col-lg-12">
                 <div class="col-lg-6 col-lg-offset-4">
                   <input type="submit"  class="btn btn-valide" id="send-message" value="Modifier" tabindex="10">
                 </div>
-              </div>	
+              </div>  
           </fieldset>
         </form>
       </div>

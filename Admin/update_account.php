@@ -60,7 +60,7 @@
                   <label for="email" class="col-lg-4 control-label">Email * : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="email" id="email" type="email" value=<?php echo $functdb->getinfoaccount($_POST['id_c'],"email"); ?> tabindex="1" class="form-control" placeholder="Email">
+                        <input name="email" id="email" type="email" value=<?php echo $functdb->getinfoaccount($_POST['id_c'],"email"); ?> tabindex="1" class="form-control" placeholder="Email" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-envelope"></span>
                         </span>
@@ -72,7 +72,7 @@
                   <label for="mdp" class="col-lg-4 control-label">Mot de passe * : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="mdp" id="mdp" type="text" value=<?php echo $functdb->getinfoaccount($_POST['id_c'],"mdp"); ?> tabindex="2" class="form-control" placeholder="Mot de passe">
+                        <input name="mdp" id="mdp" type="text" value=<?php echo $functdb->getinfoaccount($_POST['id_c'],"mdp"); ?> tabindex="2" class="form-control" placeholder="Mot de passe" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-envelope"></span>
                         </span>
@@ -83,8 +83,9 @@
               <div class="form-group col-lg-12">
                   <label for="filiere" class="col-lg-4 control-label">Filière * :</label> 
                   <div class="col-lg-6">
-                    <select class="form-control" name="filiere" id="filiere"  tabindex="7">
+                    <select class="form-control" name="filiere" id="filiere"  tabindex="7" required>
                       <option value="" selected>--Choisir--</option>
+                      <option value="admin" <?php echo $select5; ?>>ALL (Admin)</option>
                       <?php $functdb->getformationline();?>
                     </select>
                   </div>
@@ -93,7 +94,7 @@
                 <div class="form-group col-lg-12">
                   <label for="type" class="col-lg-4 control-label">Type * :</label> 
                   <div class="col-lg-6">
-                    <select class="form-control" name="type" id="type"  tabindex="8">
+                    <select class="form-control" name="type" id="type"  tabindex="8" required>
                     <?php if($functdb->getinfoaccount($_POST['id_c'],"type")=="admin") { 
                             $select1="selected";}
                           else if($functdb->getinfoaccount($_POST['id_c'],"type")=="editeur") { 
