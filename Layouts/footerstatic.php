@@ -36,8 +36,13 @@
 
           <div class="col-lg-4 lien">
             <a href="https://www.facebook.com/ensak.formations" target="_blank" class="btn btn-facebook">
-              <img src="../images/icons/facebook.png"> Page Facebook
-            </a>
+              <img src="../images/icons/facebook.png"> Suivez-nous sur Facebook
+            </a>         
+          </div>
+          <div class="col-lg-4 lien">
+            <a href="https://twitter.com/ensak_formation" target="_blank" class="btn btn-facebook">
+              <img src="../images/icons/facebook.png"> Suivez-nous sur Twitter
+            </a>        
           </div>
 
         </div>

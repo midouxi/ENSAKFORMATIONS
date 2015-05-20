@@ -112,6 +112,7 @@
                   </div>
                   <div class="col-sm-2"><img src="<?php echo $ligne[5]; ?>" style="height:auto; width:100%;"></div>
                 </div>
+
                 <div class="form-group col-lg-12">
                   <div class="col-lg-4 control-label"></div>
                   <div class="form-group col-lg-6">  

@@ -91,12 +91,15 @@ include("../Layouts/headstatic.php");
           <h1 class="title">La formation</h1>
         </div>
 
+        <?php if($functdb->getformationlinewithid($_GET['id_page'],12)) { ?>
         <div class="col-lg-9 section-content">
           <div class="col-lg-12">
             <h4>Débouché de la formation</h4>
             <img src='<?php echo $functdb->getformationlinewithid($_GET['id_page'],12);?>'>
           </div>
         </div>
+        <?php }?>
+
       </div>
     </div>
     <!-- Condition d'admission -->
@@ -170,7 +173,7 @@ include("../Layouts/headstatic.php");
           </div>
 
           <div class="col-lg-8">
-            <h1>Informations Generales</h1>
+            <h1>Informations Générales</h1>
             <div class="col-lg-6">
               <p><span>Domaine :</span> <?php print($functdb->getformationlinewithid($_GET['id_page'],6)); ?></p>
               <p><span>Type de formation :</span> <?php print($functdb->getformationlinewithid($_GET['id_page'],7)); ?></p>
@@ -188,28 +191,34 @@ include("../Layouts/headstatic.php");
         </div>
       </div>
     </div>
+    <?php if($functdb->getformationlinewithid($_GET['id_page'],12)) { ?>
     <div class="logos"><img src='<?php echo $functdb->getformationlinewithid($_GET['id_page'],19);?>'></div>
+    <?php } ?>
     
     <!-- Responsable -->
-
-    <div class="container">
-      <h1 class="title-center">Responsable de filière</h1>
-      <div class="col-lg-12 responsable">
-          <?php $idformation= $_GET['id_page'];
-          $all_ins=$_db->query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
-          $all_ins->setFetchMode(PDO::FETCH_NUM);
-          while($ligne=$all_ins->fetch()){ ?>
-        <div class="col-lg-3">
-          <img src="<?php echo $ligne[7];?>">
+    <?php 
+      $idformation= $_GET['id_page'];
+      $all_ins=$_db->query("SELECT * FROM lier RIGHT JOIN prof ON prof.id_prof=lier.id_prof WHERE lier.id_formations='$idformation'");
+      $all_ins->setFetchMode(PDO::FETCH_NUM);
+      $ligne=$all_ins->fetch();
+      if($ligne){
+    ?>
+        <div class="container">
+          <h1 class="title-center">Responsable de filière</h1>
+          <div class="col-lg-12 responsable">
+              <?php while($ligne=$all_ins->fetch()){ ?>
+            <div class="col-lg-3">
+              <img src="<?php echo $ligne[7];?>">
+            </div>
+            <div class="col-lg-9">
+              <h3><?php echo $ligne[3]." ".$ligne[4];?></h3>
+              <p><?php echo $ligne[5];?></p>
+              <p><?php echo $ligne[6];?></p>
+            </div>
+            <?php } ?>
+          </div>
         </div>
-        <div class="col-lg-9">
-          <h3><?php echo $ligne[3]." ".$ligne[4];?></h3>
-          <p><?php echo $ligne[5];?></p>
-          <p><?php echo $ligne[6];?></p>
-        </div>
-        <?php } ?>
-      </div>
-    </div>
+    <?php } ?>
 
 
 <?php include "../Layouts/footerstatic.php"; ?>

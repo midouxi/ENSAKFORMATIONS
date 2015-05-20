@@ -80,7 +80,7 @@
                   <div class="col-lg-6">
                     <select class="form-control" name="filiere" id="filiere"  tabindex="7" required>
                       <option value="" selected>--Choisir--</option>
-                      <option value="admin">ALL (Admin)</option>
+                      <option value="All">ALL (Admin)</option>
                       <?php 
                         include("../Model/functdb.php");
                         $functdb = new functdb();

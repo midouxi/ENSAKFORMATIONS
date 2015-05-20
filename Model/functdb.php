@@ -65,8 +65,8 @@ Class functdb {
   }
 
 	public function getinscription($type) {
-		if ($type=="all") {
-			$type="'' OR 1=1";
+		if ($type=="All") {
+			$type="' OR '1'='1";
 		}
 		$all_ins=$this->_db->query("select * from inscription where formation= '$type' AND etat='0'");
     $i=0;
@@ -115,8 +115,8 @@ Class functdb {
 	}
 
   public function getinscriptionfin($type) {
-    if ($type=="all") {
-      $type="'' OR 1=1";
+    if ($type=="All") {
+      $type="' OR '1'='1";
     }
     $i=0;
     $all_ins=$this->_db->query("select * from inscription where formation= '$type' AND etat='1'");
@@ -136,8 +136,8 @@ Class functdb {
   }
 
   public function getModalInscription($type,$etat) {
-    if ($type=="all") {
-      $type="'' OR 1=1";
+    if ($type=="All") {
+      $type="' OR '1'='1";
     }
     $all_ins=$this->_db->query("select * from inscription where formation= '$type' AND etat='$etat'");
     $i=0;
@@ -237,7 +237,7 @@ Class functdb {
             $a= $row['id_formations'];
             $b= $row['id_prof'];
           }
-          echo $ligne_ins_form[1].'  ';
+          echo $ligne_ins_form[2].' '.$ligne_ins_form[1].'  ';
           if($a==$ligne_ins_form[0] && $b==$ligne_ins[0]) $checked1="checked";
           echo '<input type="checkbox" id="'.$idv.'" '.$checked1.' '.$this->profexiste($ligne_ins_form[0]).' onclick="goo(\''.$ligne_ins[0].'\',\''.$ligne_ins_form[0].'\','.$idv.')" /></br>';
           $i++;
