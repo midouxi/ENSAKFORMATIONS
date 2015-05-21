@@ -41,7 +41,7 @@
           </div>
           <div class="col-lg-4 lien">
             <a href="https://twitter.com/ensak_formation" target="_blank" class="btn btn-facebook">
-              <img src="../images/icons/facebook.png"> Suivez-nous sur Twitter
+              <img src="../images/icons/twitter.png"> Suivez-nous sur Twitter
             </a>        
           </div>
 

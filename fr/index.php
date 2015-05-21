@@ -105,6 +105,10 @@ include("../Layouts/headstatic.php");
                 <img src="../images/icons/7.png">
                 <p class="colored">Réseau et télécommunication</p>
               </div>
+              <div class="col-lg-3 item">
+                <img src="../images/icons/8.png">
+                <p class="colored">Production industrielle et Logistique</p>
+              </div>
             </div>
             <p>Ces programmes se déclinent en licences de niveau Bac + 3, Maîtrise (Master 1), Master 2 ou diplômes d'Université de niveau Bac + 5.</p>
             <p>Les conditions d'accès sont propres à chaque formation. Pour télécharger le calendrier et dossier de candidature, rendez vous sur la formation de votre choix.</p>

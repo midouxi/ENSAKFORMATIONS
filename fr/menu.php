@@ -34,7 +34,7 @@
           $all_niveau->setFetchMode(PDO::FETCH_NUM);
           while($niveau=$all_niveau->fetch()){ 
             ?>
-          	<div class="col-lg-3">
+          	<div class="col-lg-6">
 	            <legend></i><?php echo $niveau[0]; ?></legend>
 	            <ul class="nav nav-pills nav-stacked">
 	            	<?php 
