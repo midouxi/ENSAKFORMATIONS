@@ -61,7 +61,7 @@ session_start();
                   <div class="col-lg-6">
                     <div class="input-group">
                       <input type="hidden" name="id_formations" id="id_formations" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],0);?>">
-                      <input type="text" name="disabled" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],0);?>" tabindex="1" disabled class="form-control" placeholder="Id Formations">
+                      <input type="text" name="disabled" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],0);?>" tabindex="1" disabled class="form-control" placeholder="Id Formations" required>
                       <span class="input-group-addon">
                         <span class="glyphicon glyphicon-asterisk"></span>
                       </span>
@@ -73,7 +73,7 @@ session_start();
                   <label for="menu_titre" class="col-lg-4 control-label">Titre du Menu : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                      <input name="menu_titre" id="menu_titre" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],1);?>" tabindex="2" class="form-control" placeholder="Titre du Menu">
+                      <input name="menu_titre" id="menu_titre" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],1);?>" tabindex="2" class="form-control" placeholder="Titre du Menu" required>
                       <span class="input-group-addon">
                         <span class="glyphicon glyphicon-text-size"></span>
                       </span>
@@ -84,7 +84,7 @@ session_start();
                 <div class="form-group col-lg-12">
                   <label for="niveau" class="col-lg-4 control-label">Niveau : </label>
                   <div class="col-lg-6">
-                    <select class="form-control" name="niveau" id="niveau"  tabindex="7">
+                    <select class="form-control" name="niveau" id="niveau"  tabindex="7" required>
                       <option value="" selected>--Choisir--</option>
                       <option value="Licence">Licence</option>
                       <option value="Master">Master</option>
@@ -96,7 +96,7 @@ session_start();
                   <label for="titre" class="col-lg-4 control-label">Titre : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="titre" id="titre" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],4);?>" tabindex="4" class="form-control" placeholder="Titre">
+                        <input name="titre" id="titre" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],4);?>" tabindex="4" class="form-control" placeholder="Titre" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-text-size"></span>
                         </span>
@@ -109,7 +109,7 @@ session_start();
                   <div class="col-lg-6">
                     <div class="input-group">
                       <input type="hidden" name="nbr_semestre" id="nbr_semestre" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],5);?>">
-                        <input name="semestre" id="semestre" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],5);?>" tabindex="7" disabled class="form-control" placeholder="Nombre de Semestre">
+                        <input name="semestre" id="semestre" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],5);?>" tabindex="7" disabled class="form-control" placeholder="Nombre de Semestre" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-list-alt"></span>
                         </span>
@@ -121,7 +121,7 @@ session_start();
                   <label for="domaine" class="col-lg-4 control-label">Domaine : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="domaine" id="domaine" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],6);?>" tabindex="8" class="form-control" placeholder="Domaine">
+                        <input name="domaine" id="domaine" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],6);?>" tabindex="8" class="form-control" placeholder="Domaine" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-briefcase"></span>
                         </span>
@@ -133,7 +133,7 @@ session_start();
                   <label for="type_formations" class="col-lg-4 control-label">Type de formations : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="type_formations" id="type_formations" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],7);?>" tabindex="9" class="form-control" placeholder="Type de formations">
+                        <input name="type_formations" id="type_formations" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],7);?>" tabindex="9" class="form-control" placeholder="Type de formations" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-tag"></span>
                         </span>
@@ -145,7 +145,7 @@ session_start();
                   <label for="duree" class="col-lg-4 control-label">Durée : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="duree" id="duree" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],8);?>" tabindex="10" class="form-control" placeholder="Durée">
+                        <input name="duree" id="duree" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],8);?>" tabindex="10" class="form-control" placeholder="Durée" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-hourglass"></span>
                         </span>
@@ -157,7 +157,7 @@ session_start();
                   <label for="email" class="col-lg-4 control-label">Email : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="email" id="email" type="email" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],9);?>" tabindex="11" class="form-control" placeholder="Email">
+                        <input name="email" id="email" type="email" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],9);?>" tabindex="11" class="form-control" placeholder="Email" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-envelope"></span>
                         </span>
@@ -169,7 +169,7 @@ session_start();
                   <label for="phone" class="col-lg-4 control-label">Télephone : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="telephone" id="phone" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],10);?>" tabindex="12" class="form-control" placeholder="Télephone">
+                        <input name="telephone" id="phone" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],10);?>" tabindex="12" class="form-control" placeholder="Télephone" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-earphone"></span>
                         </span>
@@ -199,7 +199,7 @@ session_start();
                 <div class="form-group col-lg-12">
                   <label for="organisation_formations" class="col-lg-4 control-label">Organisation de la formation : </label>
                   <div class="col-lg-6">
-                    <textarea class="form-control" name="organisation_formations" id="organisation_formations" tabindex="15"><?php echo $functdb->getformationlinewithid($_POST['id_page'],14);?></textarea>
+                    <textarea class="form-control" name="organisation_formations" id="organisation_formations" tabindex="15" required><?php echo $functdb->getformationlinewithid($_POST['id_page'],14);?></textarea>
                   </div>
                 </div>
 
@@ -207,7 +207,7 @@ session_start();
                   <label for="date_depot" class="col-lg-4 control-label">Calendrier Date de depot dossier : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="date_depot" id="date_depot" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],15);?>" tabindex="16" class="form-control" placeholder="Calendrier Date de depot dossier">
+                        <input name="date_depot" id="date_depot" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],15);?>" tabindex="16" class="form-control" placeholder="Calendrier Date de depot dossier" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -219,7 +219,7 @@ session_start();
                   <label for="date_entretien" class="col-lg-4 control-label">Calendrier Date d'entretien : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="date_entretien" id="date_entretien" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],16);?>" tabindex="17" class="form-control" placeholder="Calendrier Date d'entretien">
+                        <input name="date_entretien" id="date_entretien" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],16);?>" tabindex="17" class="form-control" placeholder="Calendrier Date d'entretien" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -231,7 +231,7 @@ session_start();
                   <label for="frais_formations" class="col-lg-4 control-label">Frais De Formations : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="frais_formations" id="frais_formations" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],17);?>" tabindex="18" class="form-control" placeholder="Frais De Formations">
+                        <input name="frais_formations" id="frais_formations" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],17);?>" tabindex="18" class="form-control" placeholder="Frais De Formations" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-usd"></span>
                         </span>
@@ -243,7 +243,7 @@ session_start();
                   <label for="frais_entretien" class="col-lg-4 control-label">Frais D'entretien : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="frais_entretien" id="frais_entretien" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],18);?>" tabindex="19" class="form-control" placeholder="Frais D'entretien">
+                        <input name="frais_entretien" id="frais_entretien" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],18);?>" tabindex="19" class="form-control" placeholder="Frais D'entretien" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-usd"></span>
                         </span>
@@ -280,7 +280,7 @@ session_start();
                         </span>
                       </div>
                     </div>
-                  <div class="col-sm-2"><img src="<?php echo $functdb->getformationlinewithid($_POST['id_page'],12); ?>" style="height:auto; width:100%;"></div>
+                  <div class="col-sm-2"><img src="<?php echo $functdb->getformationlinewithid($_POST['id_page'],12); ?>" style="height:auto; width:100%;" required></div>
                 </div>
 
               <div class="form-group col-lg-12">
