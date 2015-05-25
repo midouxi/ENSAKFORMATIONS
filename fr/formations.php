@@ -91,7 +91,8 @@ include("../Layouts/headstatic.php");
           <h1 class="title">La formation</h1>
         </div>
 
-        <?php if($functdb->getformationlinewithid($_GET['id_page'],12)) { ?>
+        <?php $rest = substr($functdb->getformationlinewithid($_GET['id_page'],12), -3);
+        if($rest=="jpg" || $rest=="jpeg" || $rest=="gif" || $rest=="png") { ?>
         <div class="col-lg-9 section-content">
           <div class="col-lg-12">
             <h4>Débouché de la formation</h4>
@@ -191,7 +192,8 @@ include("../Layouts/headstatic.php");
         </div>
       </div>
     </div>
-    <?php if($functdb->getformationlinewithid($_GET['id_page'],12)) { ?>
+    <?php $rest = substr($functdb->getformationlinewithid($_GET['id_page'],19), -3);
+        if($rest=="jpg" || $rest=="jpeg" || $rest=="gif" || $rest=="png") { ?>
     <div class="logos"><img src='<?php echo $functdb->getformationlinewithid($_GET['id_page'],19);?>'></div>
     <?php } ?>
     

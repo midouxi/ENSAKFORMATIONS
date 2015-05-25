@@ -30,7 +30,7 @@ include("../Layouts/headstatic.php");
       </div>
     </div>
     <div class="sub-title">
-      <h1 class="title">Ecole Nationale des sciences appliquées Khouribga</h1>
+      <h1 class="title">École Nationale des Sciences Appliquées de Khouribga</h1>
     </div>
     <!-- page content -->
     <div class="content">
