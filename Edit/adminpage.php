@@ -46,10 +46,13 @@
 
   <!-- tabs -->
   <?php 
-    if($_SESSION['filiere'] == "lar") { $name="Licence Administration réseaux";}
-    if($_SESSION['filiere'] == "mi") { $name="Master Informatique";}
-    if($_SESSION['filiere'] == "lil") { $name="Licence Génie logiciel";}
-    if($_SESSION['filiere'] == "lsi") { $name="Licence Systeme d'information";}
+    include("../Model/functdb.php");
+    $functdb = new functdb();
+    if($_SESSION['filiere']=="All") {
+      $name="Toutes les filières (Super Admin)";
+    } else {
+      $name=$functdb->getformationlinewithid($_SESSION['filiere'],2).' '.$functdb->getformationlinewithid($_SESSION['filiere'],1);
+    }
   ?>
     <div class="sub">
       <h2 class="title"><?php echo $name; ?></h2>
@@ -74,8 +77,8 @@
         </thead>
         <tbody>
             <?php
-				 	    include "../Model/functdb.php";
-              $functdb = new functdb();
+				 	    //include "../Model/functdb.php";
+              //$functdb = new functdb();
               $functdb->getinscription($_SESSION['filiere']);
             ?>
         </tbody>

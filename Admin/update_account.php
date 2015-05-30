@@ -85,7 +85,7 @@
                   <div class="col-lg-6">
                     <select class="form-control" name="filiere" id="filiere"  tabindex="7" required>
                       <option value="" selected>--Choisir--</option>
-                      <option value="all" <?php echo $select5; ?>>ALL (Admin)</option>
+                      <option value="All" <?php echo $select5; ?>>ALL (Admin)</option>
                       <?php $functdb->getformationline();?>
                     </select>
                   </div>

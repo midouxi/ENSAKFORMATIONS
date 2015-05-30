@@ -57,7 +57,7 @@ include("../Layouts/headstatic.php");
       $inscriptionmanager = new inscriptionmanager();
       $inscription = new inscription($_POST['nom'], $_POST['prenom'], $_POST['date_naissance'], $_POST['cin'], $_POST['tel'], $_POST['email'], $_POST['diplome'], $_POST['etablissment'], $_POST['formation'], $_POST['lettre_motivation'], $_POST['etat'], $_POST['created']);
       $inscriptionmanager->add($inscription);
-      echo "<div class='sky'><h3>Féliciation Inscription réussite</h3><p>Vous recevrez un mail dans les prochaines jours quand votre inscription sera validée</p><p>Attention vérifier aussi votre courrier indésirable!!</p>";
+      echo "<div class='sky'><h3>Félicitation Inscription réussite</h3><p>Vous recevrez un mail dans les prochaines jours quand votre inscription sera validée .</p><p>Attention ! Vérifiez aussi votre courrier indésirable .</p>";
       echo '<a href="index.php">Revenir à la page d\'accueil</a></div>';
     }else{ echo '
 							
@@ -152,11 +152,12 @@ include("../Layouts/headstatic.php");
                   <label for="etablissment" class="col-lg-4 control-label">Etablissement *</label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input class="form-control" name="etablissment" id="ecole" type="text" value="" tabindex="8"placeholder="Etablissement" required>
+                        <input class="form-control" name="etablissment" id="ecole" type="text" value="" tabindex="8"placeholder="Etablissement" maxlength="100" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-home"></span>
                         </span>
                       </div>
+                      <h6 style="color:red;">100 Caractères max. </h6>
                   </div>
                 </div>
 
@@ -177,7 +178,8 @@ include("../Layouts/headstatic.php");
                 <div class="form-group col-lg-12">
                   <label for="message" class="col-lg-4 control-label">Lettre de motivation *</label>
                   <div class="col-lg-6">
-                    <textarea class="form-control" rows="3" name="lettre_motivation" id="message" tabindex="10" required></textarea>
+                    <textarea class="form-control" rows="3" name="lettre_motivation" id="message" tabindex="10" maxlength="2000" required></textarea>
+                    <h6 style="color:red;">2000 Caractères max. </h6>
                   </div>
                 </div>
 

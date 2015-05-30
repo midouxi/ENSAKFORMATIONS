@@ -8,10 +8,10 @@ Class functdb {
   }
 
 	public function getformationline() { 
-		$all_ins=$this->_db->query("select * from formations");    
+		$all_ins=$this->_db->query("select * from formations ORDER BY niveau ASC");    
     $all_ins->setFetchMode(PDO::FETCH_NUM);
 		while($ligne=$all_ins->fetch()){     
-			echo '<option value="'.$ligne[0].'" name="id_page">'.utf8_encode($ligne[2]).' '.$ligne[1].'</option>';
+			echo '<option value="'.$ligne[0].'" name="id_page">'.$ligne[2].' '.$ligne[1].'</option>';
 		}
 	}
 
@@ -153,7 +153,7 @@ Class functdb {
                       </div>
                       <div class="modal-body modal-body-compt">
                         <h3>Lettre de motivation de '.$ligne_ins[0].' '.$ligne_ins[1].'</h3>
-                        <p>'.utf8_encode($ligne_ins[9]).'</p>
+                        <p>'.$ligne_ins[9].'</p>
                       </div>
                     </div>
                   </div>
@@ -197,7 +197,7 @@ Class functdb {
                 <input type="hidden" name="id_c" value="'.$ligne_ins[0].'" />
              </form>
              <form action="delete_account.php" class="sky-form" method="post">
-                <input type="submit" class="btn btn-table" value="Supprimer" name="val" onclick="return confirm(\'Etes-vous sûr que vous voulez supprimer cette formation ?\')"/>
+                <input type="submit" class="btn btn-table" value="Supprimer" name="val" onclick="return confirm(\'Etes-vous sûr que vous voulez supprimer ce compte ?\')"/>
                 <input type="hidden" name="id_c" value="'.$ligne_ins[0].'" />
              </form>'; 
         echo '</td>';
@@ -250,7 +250,7 @@ Class functdb {
                 <input type="hidden" name="id_prof" value="'.$ligne_ins[0].'" />
              </form>
              <form action="delete_prof.php" class="sky-form" method="post">
-                <input type="submit" class="btn btn-table" value="Supprimer" name="val" onclick="return confirm(\'Etes-vous sûr que vous voulez supprimer cette formation ?\')"/>
+                <input type="submit" class="btn btn-table" value="Supprimer" name="val" onclick="return confirm(\'Etes-vous sûr que vous voulez supprimer ce prof ?\')"/>
                 <input type="hidden" name="id_prof" value="'.$ligne_ins[0].'" />
              </form>'; 
         echo '</td>';
