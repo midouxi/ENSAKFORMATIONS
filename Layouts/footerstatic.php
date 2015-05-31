@@ -29,13 +29,13 @@
           </div>
 
           <div class="col-lg-4">
-            <p><span>Responsable</span>Pr. Imad HAFIDI</p>
+            <p><span>Responsable :</span>Pr. Imad HAFIDI</p>
             <p><span class="glyphicon glyphicon-envelope"></span>ensak.formations@gmail.com</p>
             <p><span class="glyphicon glyphicon-earphone"></span>06 62 05 77 69 </p>
           </div>
 
           <div class="col-lg-4 lien">
-            <a href="https://www.facebook.com/ensak.formations" target="_blank" class="btn btn-facebook">
+            <a href="https://www.facebook.com/fcensak" target="_blank" class="btn btn-facebook">
               <img src="../images/icons/facebook.png"> Suivez-nous sur Facebook
             </a>         
           </div>

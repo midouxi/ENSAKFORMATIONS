@@ -162,7 +162,7 @@ include("../Layouts/headstatic.php");
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <label for="formation" class="col-lg-4 control-label">Formation souhaitée :</label>
+                  <label for="formation" class="col-lg-4 control-label">Formation souhaitée *</label>
                   <div class="col-lg-6">
                     <select class="form-control" name="formation" id="formation"  tabindex="9" required>
                       <option value="" selected>--Choisir--</option>

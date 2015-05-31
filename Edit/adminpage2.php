@@ -73,8 +73,6 @@
         </thead>
         <tbody>
             <?php
-              include "../Model/functdb.php";
-              $functdb = new functdb();
               $functdb->getinscriptionfin($_SESSION['filiere']);
             ?>
         </tbody>

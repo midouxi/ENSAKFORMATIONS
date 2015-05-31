@@ -68,7 +68,7 @@ Class functdb {
 		if ($type=="All") {
 			$type="' OR '1'='1";
 		}
-		$all_ins=$this->_db->query("select * from inscription where formation= '$type' AND etat='0'");
+		$all_ins=$this->_db->query("select * from inscription where formation= '$type' AND etat='0' ORDER BY created DESC");
     $i=0;
     $all_ins->setFetchMode(PDO::FETCH_NUM);
     while($ligne_ins=$all_ins->fetch()){  
@@ -119,7 +119,7 @@ Class functdb {
       $type="' OR '1'='1";
     }
     $i=0;
-    $all_ins=$this->_db->query("select * from inscription where formation= '$type' AND etat='1'");
+    $all_ins=$this->_db->query("select * from inscription where formation= '$type' AND etat='1' ORDER BY created DESC");
     $all_ins->setFetchMode(PDO::FETCH_NUM);
     while($ligne_ins=$all_ins->fetch()){   
       echo '<tr>'; 

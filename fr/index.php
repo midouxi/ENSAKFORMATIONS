@@ -73,29 +73,29 @@ include("../Layouts/headstatic.php");
           </div>
 
           <div class="col-lg-9 text-content">
-            <p>Pour répondre aux besoins en formations des cadres et des organisations, les formations Continues de l'ENSA Khouribga vous propose des formations diplômants, en :</p>
+            <p>Pour répondre aux besoins en formations des cadres et des organisations, les formations continues de l'ENSA Khouribga vous propose des formations diplômantes, en :</p>
             <div class="col-lg-12 items">
               <div class="col-lg-3 item">
                 <img src="../images/icons/3.png">
-                <p class="colored">Système d’information</p>
+                <p class="colored">Système d’Information</p>
               </div>
               <div class="col-lg-3 item">
                 <img src="../images/icons/4.png">
-                <p class="colored">Génie logiciel</p>
+                <p class="colored">Génie Logiciel</p>
               </div>
               <div class="col-lg-3 item">
                 <img src="../images/icons/1.png">
-                <p class="colored">Administration réseaux</p>
+                <p class="colored">Administration Réseaux</p>
               </div>
               <div class="col-lg-3 item">
                 <img src="../images/icons/2.png">
-                <p class="colored">Analyse et conception des systèmes informatiques</p>
+                <p class="colored">Analyse et Conception des Systèmes Informatiques</p>
               </div>
             </div>
             <div class="col-lg-12 items">
               <div class="col-lg-3 item">
                 <img src="../images/icons/5.png">
-                <p class="colored">Génie Energétique</p>
+                <p class="colored">Génie Énergétique</p>
               </div>
               <div class="col-lg-3 item">
                 <img src="../images/icons/6.png">
@@ -103,11 +103,11 @@ include("../Layouts/headstatic.php");
               </div>
               <div class="col-lg-3 item">
                 <img src="../images/icons/7.png">
-                <p class="colored">Réseau et télécommunication</p>
+                <p class="colored">Réseaux et télécommunications</p>
               </div>
               <div class="col-lg-3 item">
                 <img src="../images/icons/8.png">
-                <p class="colored">Production industrielle et Logistique</p>
+                <p class="colored">Production Industrielle et Logistique</p>
               </div>
             </div>
             <p>Ces programmes se déclinent en licences de niveau Bac + 3, Maîtrise (Master 1), Master 2 ou diplômes d'Université de niveau Bac + 5.</p>
