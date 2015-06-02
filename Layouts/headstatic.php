@@ -42,7 +42,7 @@ ob_start();
     <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="../map/prettymaps.js"></script>
 <!-- fin js map -->
-	  
+	  <script src="../js/countercarac.js"></script>
 <!--
 	<script type="text/javascript" src="../js/jquery.easing.1.3.js"></script> 
 	<script src="../js/jquery.carouFredSel-6.1.0-packed.js" type="text/javascript"></script> 

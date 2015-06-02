@@ -73,11 +73,12 @@ session_start();
                   <label for="menu_titre" class="col-lg-4 control-label">Titre du Menu : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                      <input name="menu_titre" id="menu_titre" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],1);?>" tabindex="2" class="form-control" placeholder="Titre du Menu" required>
+                      <input name="menu_titre" id="menu_titre" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],1);?>" tabindex="2" class="form-control" placeholder="Titre du Menu" maxlength="1000" onkeyup="limitTextCount('menu_titre', 'divmenu', 1000);" onkeydown="limitTextCount('menu_titre', 'divmenu', 1000);" required>
                       <span class="input-group-addon">
                         <span class="glyphicon glyphicon-text-size"></span>
                       </span>
                     </div>
+                    <h6 style="color:red;"><span id="divmenu">XXXX Caractères restants.</span></h6>
                   </div>
                 </div>
 
@@ -96,11 +97,12 @@ session_start();
                   <label for="titre" class="col-lg-4 control-label">Titre : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="titre" id="titre" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],4);?>" tabindex="4" class="form-control" placeholder="Titre" required>
+                        <input name="titre" id="titre" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],4);?>" tabindex="4" class="form-control" placeholder="Titre" maxlength="1000" onkeyup="limitTextCount('titre', 'divtitre', 1000);" onkeydown="limitTextCount('titre', 'divtitre', 1000);" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-text-size"></span>
                         </span>
                       </div>
+                      <h6 style="color:red;"><span id="divtitre">XXXX Caractères restants.</span></h6>
                   </div>
                 </div>
 
@@ -121,11 +123,12 @@ session_start();
                   <label for="domaine" class="col-lg-4 control-label">Domaine : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="domaine" id="domaine" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],6);?>" tabindex="8" class="form-control" placeholder="Domaine" required>
+                        <input name="domaine" id="domaine" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],6);?>" tabindex="8" class="form-control" placeholder="Domaine" maxlength="1000" onkeyup="limitTextCount('domaine', 'divdomaine', 1000);" onkeydown="limitTextCount('domaine', 'divdomaine', 1000);" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-briefcase"></span>
                         </span>
                       </div>
+                      <h6 style="color:red;"><span id="divdomaine">XXXX Caractères restants.</span></h6>
                   </div>
                 </div>
 
@@ -133,11 +136,12 @@ session_start();
                   <label for="type_formations" class="col-lg-4 control-label">Type de formations : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="type_formations" id="type_formations" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],7);?>" tabindex="9" class="form-control" placeholder="Type de formations" required>
+                        <input name="type_formations" id="type_formations" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],7);?>" tabindex="9" class="form-control" placeholder="Type de formations" maxlength="1000" onkeyup="limitTextCount('type_formations', 'divtype', 1000);" onkeydown="limitTextCount('type_formations', 'divtype', 1000);" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-tag"></span>
                         </span>
                       </div>
+                      <h6 style="color:red;"><span id="divtype">XXXX Caractères restants.</span></h6>
                   </div>
                 </div>  
 
@@ -145,11 +149,12 @@ session_start();
                   <label for="duree" class="col-lg-4 control-label">Durée : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="duree" id="duree" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],8);?>" tabindex="10" class="form-control" placeholder="Durée" required>
+                        <input name="duree" id="duree" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],8);?>" tabindex="10" class="form-control" placeholder="Durée" maxlength="200" onkeyup="limitTextCount('duree', 'divduree', 200);" onkeydown="limitTextCount('duree', 'divduree', 200);" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-hourglass"></span>
                         </span>
                       </div>
+                      <h6 style="color:red;"><span id="divduree">XXXX Caractères restants.</span></h6>
                   </div>
                 </div>
 
@@ -157,11 +162,12 @@ session_start();
                   <label for="email" class="col-lg-4 control-label">Email : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="email" id="email" type="email" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],9);?>" tabindex="11" class="form-control" placeholder="Email" required>
+                        <input name="email" id="email" type="email" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],9);?>" tabindex="11" class="form-control" placeholder="Email" maxlength="500" onkeyup="limitTextCount('email', 'divemail', 500);" onkeydown="limitTextCount('email', 'divemail', 500);" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-envelope"></span>
                         </span>
                       </div>
+                      <h6 style="color:red;"><span id="divemail">XXXX Caractères restants.</span></h6>
                   </div>
                 </div>
 
@@ -169,11 +175,12 @@ session_start();
                   <label for="phone" class="col-lg-4 control-label">Télephone : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="telephone" id="phone" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],10);?>" tabindex="12" class="form-control" placeholder="Télephone" required>
+                        <input name="telephone" id="phone" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],10);?>" tabindex="12" class="form-control" placeholder="Télephone" maxlength="600" onkeyup="limitTextCount('phone', 'divtel', 600);" onkeydown="limitTextCount('phone', 'divtel', 600);" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-earphone"></span>
                         </span>
                       </div>
+                      <h6 style="color:red;"><span id="divtel">XXXX Caractères restants.</span></h6>
                   </div>
                 </div> 
 
@@ -192,14 +199,16 @@ session_start();
                 <div class="form-group col-lg-12">
                   <label for="condition_admission" class="col-lg-4 control-label">Condition d'admission : </label>
                   <div class="col-lg-6">
-                    <textarea class="form-control" name="condition_admission" id="condition_admission" tabindex="14"><?php echo $functdb->getformationlinewithid($_POST['id_page'],13);?></textarea>
+                    <textarea class="form-control" name="condition_admission" id="condition_admission" tabindex="14" maxlength="1000" onkeyup="limitTextCount('condition_admission', 'divadmission', 1000);" onkeydown="limitTextCount('condition_admission', 'divadmission', 1000);" required><?php echo $functdb->getformationlinewithid($_POST['id_page'],13);?></textarea>
+                    <h6 style="color:red;"><span id="divadmission">XXXX Caractères restants.</span></h6>
                   </div>
                 </div>
 
                 <div class="form-group col-lg-12">
                   <label for="organisation_formations" class="col-lg-4 control-label">Organisation de la formation : </label>
                   <div class="col-lg-6">
-                    <textarea class="form-control" name="organisation_formations" id="organisation_formations" tabindex="15" required><?php echo $functdb->getformationlinewithid($_POST['id_page'],14);?></textarea>
+                    <textarea class="form-control" name="organisation_formations" id="organisation_formations" tabindex="15" maxlength="1000" onkeyup="limitTextCount('organisation_formations', 'divorg', 1000);" onkeydown="limitTextCount('organisation_formations', 'divorg', 1000);" required><?php echo $functdb->getformationlinewithid($_POST['id_page'],14);?></textarea>
+                    <h6 style="color:red;"><span id="divorg">XXXX Caractères restants.</span></h6>
                   </div>
                 </div>
 
@@ -231,11 +240,12 @@ session_start();
                   <label for="frais_formations" class="col-lg-4 control-label">Frais De Formations : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="frais_formations" id="frais_formations" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],17);?>" tabindex="18" class="form-control" placeholder="Frais De Formations" required>
+                        <input name="frais_formations" id="frais_formations" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],17);?>" tabindex="18" class="form-control" placeholder="Frais De Formations" maxlength="1000" onkeyup="limitTextCount('frais_formations', 'divfrais', 1000);" onkeydown="limitTextCount('frais_formations', 'divfrais', 1000);" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-usd"></span>
                         </span>
                       </div>
+                      <h6 style="color:red;"><span id="divfrais">XXXX Caractères restants.</span></h6>
                   </div>
                 </div>
 
@@ -243,11 +253,12 @@ session_start();
                   <label for="frais_entretien" class="col-lg-4 control-label">Frais D'entretien : </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="frais_entretien" id="frais_entretien" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],18);?>" tabindex="19" class="form-control" placeholder="Frais D'entretien" required>
+                        <input name="frais_entretien" id="frais_entretien" type="text" value="<?php echo $functdb->getformationlinewithid($_POST['id_page'],18);?>" tabindex="19" class="form-control" placeholder="Frais D'entretien" maxlength="1000" onkeyup="limitTextCount('frais_entretien', 'diventretien', 1000);" onkeydown="limitTextCount('frais_entretien', 'diventretien', 1000);"required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-usd"></span>
                         </span>
                       </div>
+                      <h6 style="color:red;"><span id="diventretien">XXXX Caractères restants.</span></h6>
                   </div>
                 </div>
 

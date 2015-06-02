@@ -2,6 +2,7 @@
 $title="ENSA Khouribga - Inscription";
 include("../Layouts/headstatic.php");
 ?>
+<script src="../js/countercarac.js"></script>
 <body>
     <!-- TOP BANNER -->
     <div class="col-lg-12">
@@ -152,12 +153,12 @@ include("../Layouts/headstatic.php");
                   <label for="etablissment" class="col-lg-4 control-label">Etablissement *</label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input class="form-control" name="etablissment" id="ecole" type="text" value="" tabindex="8"placeholder="Etablissement" maxlength="100" required>
+                        <input class="form-control" name="etablissment" id="ecole" type="text" value="" tabindex="8" placeholder="Etablissement" maxlength="100" onkeyup="limitTextCount(\'ecole\', \'divcount\', 100);" onkeydown="limitTextCount(\'ecole\', \'divcount\', 100);" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-home"></span>
                         </span>
-                      </div>
-                      <h6 style="color:red;">100 Caractères max. </h6>
+                    </div>
+                    <h6 style="color:red;"><span id="divcount">100 Caractères restants.</span></h6>
                   </div>
                 </div>
 
@@ -178,8 +179,8 @@ include("../Layouts/headstatic.php");
                 <div class="form-group col-lg-12">
                   <label for="message" class="col-lg-4 control-label">Lettre de motivation *</label>
                   <div class="col-lg-6">
-                    <textarea class="form-control" rows="3" name="lettre_motivation" id="message" tabindex="10" maxlength="2000" required></textarea>
-                    <h6 style="color:red;">2000 Caractères max. </h6>
+                    <textarea class="form-control" rows="3" name="lettre_motivation" id="message" tabindex="10" maxlength="2000" onkeyup="limitTextCount(\'message\', \'divmotiv\', 2000);" onkeydown="limitTextCount(\'message\', \'divmotiv\', 2000);" required></textarea>
+                    <h6 style="color:red;"><span id="divmotiv">2000 Caractères restants.</span></h6>
                   </div>
                 </div>
 
@@ -197,7 +198,6 @@ include("../Layouts/headstatic.php");
         </div>
       </div>
     </div>
-
 <?php include("../Layouts/footerstatic.php");?>
 </body>
 </html>
