@@ -263,13 +263,8 @@
                 <div class="form-group col-lg-12">
                   <label for="frais_formations" class="col-lg-4 control-label">Frais De Formations *: </label>
                   <div class="col-lg-6">
-                    <div class="input-group">
-                        <input name="frais_formations" id="frais_formations" type="text" value="" tabindex="18" class="form-control" placeholder="Frais De Formations" maxlength="1000" onkeyup="limitTextCount('frais_formations', 'divfrais', 1000);" onkeydown="limitTextCount('frais_formations', 'divfrais', 1000);" required>
-                        <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-usd"></span>
-                        </span>
-                      </div>
-                      <h6 style="color:red;"><span id="divfrais">1000 Caractères restants.</span></h6>
+                    <textarea class="form-control" name="frais_formations" id="frais_formations" tabindex="15" maxlength="1000" onkeyup="limitTextCount('frais_formations', 'divfrais', 1000);" onkeydown="limitTextCount('frais_formations', 'divfrais', 1000);" required></textarea>
+                    <h6 style="color:red;"><span id="divfrais">1000 Caractères restants.</span></h6>
                   </div>
                 </div>
 
