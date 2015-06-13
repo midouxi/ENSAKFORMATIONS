@@ -77,6 +77,7 @@ Class functdb {
       $idi="inscrit".$i;		   
       echo '<tr>'; 
       echo '<td>'.$ligne_ins[14].'</td>';
+      echo '<td>'.$this->getformationlinewithid($ligne_ins[8],2).' '.$this->getformationlinewithid($ligne_ins[8],1).'</td>';
       echo '<td><strong>Nom :</strong><br>'.$ligne_ins[0].'<br><strong>Prénom :</strong><br>'.$ligne_ins[1].'<br><strong>Date De Naissance :</strong><br>'.$ligne_ins[2].'</td>';
       echo '<td>'.$ligne_ins[3].'</td>';
       echo '<td><strong>N° Telephone :</strong><br>'.$ligne_ins[4].'<br><strong>Email :</strong><br>'.$ligne_ins[5].'</td>';
@@ -124,6 +125,7 @@ Class functdb {
     while($ligne_ins=$all_ins->fetch()){   
       echo '<tr>'; 
         echo '<td>'.$ligne_ins[14].'</td>';
+        echo '<td>'.$this->getformationlinewithid($ligne_ins[8],2).' '.$this->getformationlinewithid($ligne_ins[8],1).'</td>';
         echo '<td><strong>Nom :</strong><br>'.$ligne_ins[0].'<br><strong>Prénom :</strong><br>'.$ligne_ins[1].'<br><strong>Date De Naissance :</strong><br>'.$ligne_ins[2].'</td>';
         echo '<td>'.$ligne_ins[3].'</td>';
         echo '<td><strong>N° Telephone :</strong><br>'.$ligne_ins[4].'<br><strong>Email :</strong><br>'.$ligne_ins[5].'</td>';
@@ -139,7 +141,7 @@ Class functdb {
     if ($type=="All") {
       $type="' OR '1'='1";
     }
-    $all_ins=$this->_db->query("select * from inscription where formation= '$type' AND etat='$etat'");
+    $all_ins=$this->_db->query("select * from inscription where formation= '$type' AND etat='$etat' ORDER BY created DESC");
     $i=0;
     $all_ins->setFetchMode(PDO::FETCH_NUM);
       while($ligne_ins=$all_ins->fetch()){  

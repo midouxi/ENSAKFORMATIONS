@@ -63,7 +63,8 @@
  				<thead>
             <tr>
               <td>DATE D'INSCRIPTION</td>
-              <td>Information général</td>
+              <td>FORMATION SOUHAITÉ</td>
+              <td>INFORMATION GÉNÉRAL</td>
               <td>CIN</td>
               <td>CONTACT</td>
               <td>DIPLOME</td>
@@ -77,8 +78,6 @@
         </thead>
         <tbody>
             <?php
-				 	    //include "../Model/functdb.php";
-              //$functdb = new functdb();
               $functdb->getinscription($_SESSION['filiere']);
             ?>
         </tbody>

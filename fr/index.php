@@ -43,7 +43,19 @@ include("../Layouts/headstatic.php");
           <div class="carousel-caption">
             <img class="slider-icons" src="../images/icons/code.png">
             <h2><?php print($ligne_ins[4]); ?></h2>
+            <?php if($ligne_ins[0]=="MGP") { ?>
+            <h4>Une formation professionnelle en gestion de production industrielle et de qualité sur <?php print($ligne_ins[8]); ?></h4>
+            <?php } else if($ligne_ins[0]=="GP") { ?>
+            <h4>Une formation professionnelle en génie des procédés industriels sur <?php print($ligne_ins[8]); ?></h4>
+            <?php } else if($ligne_ins[0]=="LPL") { ?>
+            <h4>Une formation professionnelle en gestion de production industrielle et logistique sur <?php print($ligne_ins[8]); ?></h4>
+            <?php } else if($ligne_ins[0]=="GE") { ?>
+            <h4>Une formation professionnelle en génie énergétique sur <?php print($ligne_ins[8]); ?></h4>
+            <?php } else if($ligne_ins[0]=="LRT" || $ligne_ins[0]=="lar") { ?>
+            <h4>Une formation professionnelle en nouvelles technologies réseaux sur <?php print($ligne_ins[8]); ?></h4>
+            <?php } else { ?>
             <h4>Une formation professionnelle en nouvelles technologies informatiques sur <?php print($ligne_ins[8]); ?></h4>
+            <?php } ?>
           </div>
         </div>
         <?php  $i++ ;
