@@ -31,7 +31,7 @@
           <div class="col-lg-12">
 
             <div class="col-lg-8">
-              <h1 class="title">NOUVEAU FORMATIONS</h1>
+              <h1 class="title">NOUVELLES FORMATIONS</h1>
             </div>
 
             <div class="col-lg-4">
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div class="sub">
-        <h2 class="title">Nouveau Formations</h2>
+        <h2 class="title">Nouvelles Formations</h2>
       </div>
 
 	<!-- page content -->
@@ -142,10 +142,10 @@
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <label for="type_formations" class="col-lg-4 control-label">Type de formations *: </label>
+                  <label for="type_formations" class="col-lg-4 control-label">Type de formation *: </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="type_formations" id="type_formations" type="text" value="" tabindex="8" class="form-control" placeholder="Type de formations" maxlength="1000" onkeyup="limitTextCount('type_formations', 'divtype', 1000);" onkeydown="limitTextCount('type_formations', 'divtype', 1000);" required>
+                        <input name="type_formations" id="type_formations" type="text" value="" tabindex="8" class="form-control" placeholder="Type de formation" maxlength="1000" onkeyup="limitTextCount('type_formations', 'divtype', 1000);" onkeydown="limitTextCount('type_formations', 'divtype', 1000);" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-tag"></span>
                         </span>
@@ -181,10 +181,10 @@
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <label for="phone" class="col-lg-4 control-label">Télephone *: </label>
+                  <label for="phone" class="col-lg-4 control-label">Téléphone *: </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="telephone" id="phone" type="text" value="" tabindex="11" class="form-control" placeholder="Télephone" maxlength="600" onkeyup="limitTextCount('phone', 'divtel', 600);" onkeydown="limitTextCount('phone', 'divtel', 600);" required>
+                        <input name="telephone" id="phone" type="text" value="" tabindex="11" class="form-control" placeholder="Téléphone" maxlength="600" onkeyup="limitTextCount('phone', 'divtel', 600);" onkeydown="limitTextCount('phone', 'divtel', 600);" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-earphone"></span>
                         </span>
@@ -206,7 +206,7 @@
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <label for="icone" class="col-sm-4 control-label">Débouché de la formation : </label>
+                  <label for="icone" class="col-sm-4 control-label">Débouchés de la formation : </label>
                   <div class="col-sm-6">
                       <div class="input-group">
                       <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
@@ -237,10 +237,10 @@
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <label for="date_depot" class="col-lg-4 control-label">Calendrier Date de depot dossier *: </label>
+                  <label for="date_depot" class="col-lg-4 control-label">Calendrier date de dépôt dossier *: </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="date_depot" id="date_depot" type="date" value="" tabindex="16" class="form-control" placeholder="Calendrier Date de depot dossier" maxlength="1000" required>
+                        <input name="date_depot" id="date_depot" type="date" value="" tabindex="16" class="form-control" placeholder="Calendrier date de dépôt dossier" maxlength="1000" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -249,10 +249,10 @@
                 </div> 
 
                 <div class="form-group col-lg-12">
-                  <label for="date_entretien" class="col-lg-4 control-label">Calendrier Date d'entretien *: </label>
+                  <label for="date_entretien" class="col-lg-4 control-label">Calendrier date d'entretien *: </label>
                   <div class="col-lg-6">
                     <div class="input-group">
-                        <input name="date_entretien" id="date_entretien" type="date" value="" tabindex="17" class="form-control" placeholder="Calendrier Date d'entretien" maxlength="1000" required>
+                        <input name="date_entretien" id="date_entretien" type="date" value="" tabindex="17" class="form-control" placeholder="Calendrier date d'entretien" maxlength="1000" required>
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -261,7 +261,7 @@
                 </div>  	
 
                 <div class="form-group col-lg-12">
-                  <label for="frais_formations" class="col-lg-4 control-label">Frais De Formations *: </label>
+                  <label for="frais_formations" class="col-lg-4 control-label">Frais de formations *: </label>
                   <div class="col-lg-6">
                     <textarea class="form-control" name="frais_formations" id="frais_formations" tabindex="15" maxlength="1000" onkeyup="limitTextCount('frais_formations', 'divfrais', 1000);" onkeydown="limitTextCount('frais_formations', 'divfrais', 1000);" required></textarea>
                     <h6 style="color:red;"><span id="divfrais">1000 Caractères restants.</span></h6>
@@ -269,7 +269,7 @@
                 </div>
 
                 <div class="form-group col-lg-12">
-                  <label for="frais_entretien" class="col-lg-4 control-label">Frais D'entretien *: </label>
+                  <label for="frais_entretien" class="col-lg-4 control-label">Frais d'entretien *: </label>
                   <div class="col-lg-6">
                     <div class="input-group">
                         <input name="frais_entretien" id="frais_entretien" type="text" value="" tabindex="19" class="form-control" placeholder="Frais D'entretien" maxlength="1000" onkeyup="limitTextCount('frais_entretien', 'diventretien', 1000);" onkeydown="limitTextCount('frais_entretien', 'diventretien', 1000);"required>

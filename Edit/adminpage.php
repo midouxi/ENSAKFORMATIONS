@@ -63,17 +63,17 @@
  				<thead>
             <tr>
               <td>DATE D'INSCRIPTION</td>
-              <td>FORMATION SOUHAITÉ</td>
-              <td>INFORMATION GÉNÉRAL</td>
+              <td>FORMATION SOUHAITÉE</td>
+              <td>INFORMATIONS GÉNÉRALES</td>
               <td>CIN</td>
               <td>CONTACT</td>
               <td>DIPLOME</td>
               <td>ETABLISSMENT</td>
               <td>LETTRE DE MOTIVATION</td>
-              <td>Vue</td>
-              <td>Contacté</td>
-              <td>Inscrit</td>
-              <td>Valider</td>
+              <td>VU</td>
+              <td>CONTACTÉ</td>
+              <td>INSCRIT</td>
+              <td>TRAITEMENT</td>
             </tr>
         </thead>
         <tbody>

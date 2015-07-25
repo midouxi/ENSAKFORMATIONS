@@ -63,8 +63,8 @@
         <thead>
             <tr>
               <td>DATE D'INSCRIPTION</td>
-              <td>FORMATION SOUHAITÉ</td>
-              <td>INFORMATION GÉNÉRAL</td>
+              <td>FORMATION SOUHAITÉE</td>
+              <td>INFORMATIONS GÉNÉRALES</td>
               <td>CIN</td>
               <td>CONTACT</td>
               <td>DIPLOME</td>

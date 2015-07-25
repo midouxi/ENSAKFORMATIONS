@@ -29,7 +29,7 @@ session_start();
           <div class="col-lg-12">
 
             <div class="col-lg-8">
-              <h1 class="title">NOUVEAU FORMATIONS</h1>
+              <h1 class="title">NOUVELLES FORMATIONS</h1>
             </div>
 
             <div class="col-lg-4">
@@ -40,7 +40,7 @@ session_start();
         </div>
       </div>
       <div class="sub">
-        <h2 class="title">Nouveau Formations</h2>
+        <h2 class="title">Nouvelles Formations</h2>
       </div>
   <!-- # 1 ere Affichage # -->
   <?php
